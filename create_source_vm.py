@@ -27,7 +27,7 @@ opcc.createVolumeOrchestration(cloud_username, source_orchestration_volume_name,
 time_ellapsed = 0
 instances = opcc.getInstances( cloud_username )
 while real_source_instance_name == "" :
-	print "Waiting for source instance to be created, sleeping 1 minute per iteration "+time_ellapsed+" minutes passed..."
+	print "Waiting for source instance to be created, sleeping 1 minute per iteration "+str(time_ellapsed)+" minutes passed..."
 	for instance in instances["result"]: 
 		if instance['name'].find(source_instance_name) > 0:							
 			print instance["state"]
