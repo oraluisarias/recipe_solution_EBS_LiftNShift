@@ -26,7 +26,7 @@ images = [
 
 class InstallMarketplaceImagesWD(unittest.TestCase):
 	def setUp(self): 
-		# display = Display(visible=0, size=(800, 600)).start()
+		display = Display(visible=0, size=(800, 600)).start()
 
 		PROXY = "www-proxy.us.oracle.com"
 		PROXY_PORT = 80
