@@ -1,0 +1,24 @@
+{  
+   "status":"Online",
+   "managed":True,
+   "description":"#name",
+   "tags":[  
+
+   ],
+   "quota":None,
+   "status_detail":None,
+   "snapshot_account":None,
+   "imagelist":"/Compute-#identityDomain/cloud.admin/OPC_OL6_8_EBS_1226_VISION_SINGLE_TIER_11302016",
+   "writecache":False,
+   "properties":[  
+      "/oracle/public/storage/default"
+   ],
+   "size":"450971566080",
+   "account":"/Compute-#identityDomain/default",
+   "name":"/Compute-#identityDomain/#cloud_username/#name",
+   "bootable":True,
+   "hypervisor":None,
+   "platform":"linux",
+   "readonly":False,
+   "shared":False
+}
