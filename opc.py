@@ -139,7 +139,8 @@ class Compute:
 		if (username == password == False):
 			credentials = self.getCredentialsDemoCentral()
 		else: 
-			credentials = {"user" : username, "password" : password}
+			# return {"user" : "/Compute-" + self.identity_domain + "/" + opc_email["items"][0]["value"], "password" : opc_password["items"][0]["value"]}
+			credentials = {"user" : "/Compute-" + self.identity_domain + "/" + username, "password" : password}
 			print ("Testing login with custom credentials...")
 			print (credentials)
 		headers = {'Content-Type': 'application/oracle-compute-v3+json'}		
