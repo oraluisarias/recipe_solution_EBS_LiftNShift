@@ -1,0 +1,7 @@
+1494439460853	geckodriver	INFO	Listening on 127.0.0.1:60175
+1494439461347	mozprofile::profile	INFO	Using profile path C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.FN3KuX1jWLQA
+1494439461352	geckodriver::marionette	INFO	Starting browser C:\Program Files\Nightly\firefox.exe
+1494439461359	geckodriver::marionette	INFO	Connecting to Marionette on localhost:60180
+1494439463138	Marionette	INFO	Listening on port 60173
+1494439467545	Marionette	WARN	Using deprecated data structure for setting timeouts
+[GPU 10916] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346

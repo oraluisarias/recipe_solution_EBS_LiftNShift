@@ -8,23 +8,25 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc
-identity_domain = sys.argv[1]
-zone = sys.argv[2]
-datacenter = sys.argv[3]
+# identity_domain = sys.argv[1]
+# zone = sys.argv[2]
+# datacenter = sys.argv[3]
+identity_domain = "gse00010217"
+zone = "z33"
+datacenter = "em3"
 images = [
 	{"id":"5248662","name":"EBS OS-Only Image"},
 	{"id":"5514423","name":"EBS Provisioning Tools Image"},
 	{"id":"10809286","name":"Oracle E-Business Suite Release 12.2.6 Demo"}
-]
-demo_central = opc.DemoCentral()
-password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
-username = "cloud.admin"
-opcc = opc.Compute(identity_domain, zone, datacenter, username, password)
+] 
+# demo_central = opc.DemoCentral()
+# password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
+# username = "cloud.admin"
+# opcc = opc.Compute(identity_domain, zone, datacenter, username, password)
 
 class InstallMarketplaceImagesWD(unittest.TestCase):
 	def setUp(self): 
-		display = Display(visible=0, size=(800, 600))
-		display.start()
+		# display = Display(visible=0, size=(800, 600)).start()
 
 		PROXY = "www-proxy.us.oracle.com"
 		PROXY_PORT = 80
@@ -108,5 +110,6 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		self.assertEqual([], self.verificationErrors)
 
 if __name__ == "__main__":	
-    unittest.main()
-    display.stop()
+	sys.argv = [sys.argv[0]]	
+	unittest.main()
+	display.stop()
