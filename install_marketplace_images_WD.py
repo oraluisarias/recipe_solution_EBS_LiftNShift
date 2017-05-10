@@ -17,11 +17,9 @@ images = [
 	{"id":"10809286","name":"Oracle E-Business Suite Release 12.2.6 Demo"}
 ]
 demo_central = opc.DemoCentral()
-cloud_password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
-opcc = opc.Compute(identity_domain, zone, datacenter, cloud_username, cloud_password)
-
+password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 username = "cloud.admin"
-password = cloud_password
+opcc = opc.Compute(identity_domain, zone, datacenter, username, password)
 
 class InstallMarketplaceImagesWD(unittest.TestCase):
 	def setUp(self): 

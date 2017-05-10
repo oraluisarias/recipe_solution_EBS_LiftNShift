@@ -8,7 +8,7 @@ datacenter = sys.argv[3]
 
 demo_central = opc.DemoCentral()
 cloud_password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
-opcc = opcc.Compute(identity_domain, zone, datacenter, cloud_username, cloud_password)
+opcc = opc.Compute(identity_domain, zone, datacenter, cloud_username, cloud_password)
 opcc.addSeclist(cloud_username, {
  	  "policy": "PERMIT",
  	  "outbound_cidr_policy": "PERMIT",
