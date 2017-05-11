@@ -25,7 +25,7 @@ echo "Step 3 - Creating a new ssh key and uploading to Demo Central"
 echo "***************************************************************************************"
 chmod 0400 ssh_keys/*
 rm -rf ssh_keys/${identity_domain}*
-ssh-keygen -b 2048 -t rsa -f ssh_keys/${identity_domain} -q -N ""
+[ ! -f ssh_keys/${identity_domain} ] && ssh-keygen -b 2048 -t rsa -f ssh_keys/${identity_domain} -q -N ""
 python update_ssh_key_2_demo_central.py $identity_domain $zone $datacenter
 
 #Create source instance

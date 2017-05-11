@@ -6,5 +6,6 @@ identity_domain = "gse00010217"
 
 opcc = opc.Compute(identity_domain, "z33", "em3")
 
-environment = opcc.getDCEnvironment("metcs-" + identity_domain) 
-environment["items"][0]["password"]
+volumes = opcc.getVolumes(cloud_username)
+for volume in volumes:
+	print volume

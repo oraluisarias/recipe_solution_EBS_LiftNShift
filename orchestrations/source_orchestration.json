@@ -31,7 +31,7 @@
           "nimbula_orchestration" : "/Compute-#identityDomain/#cloud_username/#name"
         },
         "imagelist" : "/Compute-#identityDomain/#cloud_username/OPC_OL6_8_EBS_1226_VISION_SINGLE_TIER_11302016",
-        "sshkeys" : [ "/Compute-#identityDomain/#cloud_username/gse_key" ],
+        "sshkeys" : [ "/Compute-#identityDomain/#cloud_username/#identityDomain" ],
         "tags" : [ "EBS_Source" ]
       } ]
     } ]

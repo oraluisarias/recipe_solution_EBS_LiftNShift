@@ -16,8 +16,9 @@ source_orchestration_instance_name = "orchestrations/source_orchestration.json"
 source_orchestration_volume_name = "orchestrations/source_orchestration_volume.json"
 real_source_instance_name = ""
 
-opcc = opc.Compute(identity_domain, zone, datacenter)
-opcc.addSSHkey( cloud_username, "ssh_keys/"+identity_domain+".pub", "gse_key" )
+opcc = opc.Compute( identity_domain, zone, datacenter )
+opcc.deleteSSHKey( cloud_username, identity_domain )
+opcc.addSSHkey( cloud_username, "ssh_keys/" + identity_domain + ".pub", identity_domain )
 opcc.createOrchestration(cloud_username, source_orchestration_instance_name, 
 	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_instance_name)  ]  )
 opcc.createVolumeOrchestration(cloud_username, source_orchestration_volume_name, 
