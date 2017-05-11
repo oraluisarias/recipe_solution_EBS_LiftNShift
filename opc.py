@@ -342,6 +342,12 @@ class Compute:
 		print ("endpoint: " + endpoint)	
 		return yaml.safe_load(r.text)
 
+	def deleteVolume(self, user, volume):
+		headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}		
+		endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/Compute-" + self.identity_domain + "/" + user + "/" + volume
+		r = requests.delete(endpoint, headers=headers)	
+		return yaml.safe_load(r.text)
+
 	def createSimpleVolume(self,  size, name):
 		headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}		
 		endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/"
