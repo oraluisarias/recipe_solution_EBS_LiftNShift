@@ -1,4 +1,4 @@
 {
 "profileName": "EBS_LiftNShift_setup",
-"customSetupScripts": "sh ${profilePath}/master_recipe.sh ${domain} ${zone} ${datacenter}"
+"customSetupScripts": "./master_recipe.sh ${domain} ${zone} ${datacenter}"
 }
