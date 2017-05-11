@@ -325,7 +325,7 @@ class Compute:
 		headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"}	
 		endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/instance/Compute-" + self.identity_domain + "/" + user + "/"	
 		r = requests.get(endpoint, headers=headers)	
-		print ("endpoint: " + endpoint)			
+		# print ("endpoint: " + endpoint)			
 		return yaml.safe_load(r.text)
 
 	def getAttachmentDetails(self, user):
