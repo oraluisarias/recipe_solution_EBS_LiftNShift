@@ -11,7 +11,7 @@
 				{
 					"infrastructureType": "runCommandVM",
 					"profile": "custom",
-					"customSetupScripts": "./master_recipe.sh ${domain} ${zone} ${datacenter}"
+					"customSetupScripts": "sh ./master_recipe.sh ${domain} ${zone} ${datacenter}"
 				}
 			]
 		}
