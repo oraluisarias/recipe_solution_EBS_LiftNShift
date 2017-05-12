@@ -1,5 +1,19 @@
-{
-"profileName": "EBS_LiftNShift_setup",
-"cleanUpServices": "ALL",
-"customSetupScripts": "cd ${BASE_PATH} && ./master_recipe.sh ${domain} ${zone} ${datacenter}"
+{	
+	"profileName": "EBS_LiftNShift_setup",	
+	"cleanUpServices": "ALL",
+	"setupServices": 
+	[
+		{	
+			"serviceType": "CCS",
+			"profile": "custom",
+			"setupInfrastructure": 
+			[
+				{
+					"infrastructureType": "runCommandVM",
+					"profile": "custom",
+					"customSetupScripts": "cd ${BASE_PATH} && ./master_recipe.sh ${domain} ${zone} ${datacenter}"
+				}
+			]
+		}
+	]				
 }
