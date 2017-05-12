@@ -32,6 +32,7 @@ python update_ssh_key_2_demo_central.py $identity_domain $zone $datacenter
 echo "***************************************************************************************"
 echo "Step 4 - Creating EBS source instance and waiting until it starts"
 echo "***************************************************************************************"
+rm -rf ips/${identity_domain}
 python create_source_vm.py $identity_domain $zone $datacenter
 target_ip=`cat ips/${identity_domain}`
 echo "***************************************************************************************"
