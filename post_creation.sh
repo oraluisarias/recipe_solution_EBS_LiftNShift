@@ -5,7 +5,7 @@ target_ip=$2
 
 [ ! -f scripts/p22336899_R12_GENERIC.zip ] && cat scripts/p22336899_R12_GENERIC.zip* > scripts/p22336899_R12_GENERIC.zip
 echo "Deleting existing ssh keys and authorized cache..."
-ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'rm -rf /home/opc/.ssh/known_hosts ~/${identity_domain}'
+ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'rm -rf /home/opc/.ssh/known_hosts ~/'${identity_domain}
 echo "Uploading assets to gse admin..."
 scp -o StrictHostKeyChecking=no -i ssh_keys/gse_admin ssh_keys/${identity_domain} scripts/root_ebs_workshop.sh scripts/oracle_ebs_workshop.sh scripts/p22336899_R12_GENERIC.zip opc@${gse_admin}:~/
 echo "Preparing ssh key to connect to target instance (${target_ip})..."
