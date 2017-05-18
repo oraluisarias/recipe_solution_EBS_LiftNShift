@@ -2,7 +2,7 @@
 gse_admin="gse-admin.oraclecloud.com"
 identity_domain=$1
 target_ip=$2
-gse_admin_stagedir="/home/opc/EBS_LiftNShift/"${identity_domain}
+gse_admin_stagedir="/app/EBS_LiftNShift/"${identity_domain}
 
 [ ! -f scripts/p22336899_R12_GENERIC.zip ] && cat scripts/p22336899_R12_GENERIC.zip* > scripts/p22336899_R12_GENERIC.zip
 echo "Deleting existing ssh keys and authorized cache..."
