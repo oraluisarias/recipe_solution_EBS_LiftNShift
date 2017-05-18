@@ -1,3 +1,4 @@
+#!/bin/bash
 #oracle
 . /u01/install/APPS/EBSapps.env run
 
