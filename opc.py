@@ -179,6 +179,13 @@ class Compute:
 		print (r.text)
 		return yaml.safe_load(r.text)
 
+	# def deleteOrchestration(self, user, orchestration_name):	
+	# 	headers = {"Cookie" : self.cookie, "Content-Type" : "application/oracle-compute-v3+json", "Accept" : "application/oracle-compute-v3+json"}	
+	# 	endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/" + orchestration_name
+	# 	r = requests.delete(endpoint, headers=headers)
+	# 	print ("Deleting orchestration...", r.text)
+	# 	return yaml.safe_load(r.text) 
+
 	def createOrchestration(self,  user, orchestration, replace=[]):	
 		headers = {"Cookie" : self.cookie, "Content-Type" : "application/oracle-compute-v3+json", "Accept" : "application/oracle-compute-v3+json"}	
 		endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/"
