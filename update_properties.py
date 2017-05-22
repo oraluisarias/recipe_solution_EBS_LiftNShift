@@ -1,9 +1,9 @@
 import opc, time, sys
+from datetime import date
 
 identityDomain = sys.argv[1]
 demo_central = opc.DemoCentral()
-cloudPassword = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
-from datetime import date
+cloudPassword = demo_central.getDCEnvironment("metcs-" + identityDomain)["items"][0]["password"]
 today = date.today()
 dateTimeTag = "skwn"+str(today.year)+str(today.month)+str(today.day)
 
