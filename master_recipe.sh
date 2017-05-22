@@ -50,4 +50,4 @@ echo "**************************************************************************
 echo "***************************************************************************************"
 echo "Step 5 - Running workshop commands on the new VM, using gse-admin as bridge"
 echo "***************************************************************************************"
-sh post_creation.sh ${identity_domain} ${source_ip}
+sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}

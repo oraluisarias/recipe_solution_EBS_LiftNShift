@@ -3,8 +3,11 @@ gse_admin="gse-admin.oraclecloud.com"
 identity_domain=$1
 source_ip=$2
 tools_ip=$3
+executionPath=$4
+
 gse_admin_stagedir="/app/EBS_LiftNShift/"${identity_domain}
 
+cd $executionPath
 mkdir scripts/${identity_domain}
 python update_properties.py ${identity_domain}
 
@@ -35,11 +38,11 @@ echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'scp
 
 echo "Preparing source instance..."
 echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "cd '${gse_admin_stagedir}' && sudo unzip -o p22336899_R12_GENERIC.zip && sudo chown oracle:dba -R '${gse_admin_stagedir}' && sudo chmod 777 -R '${gse_admin_stagedir}' && cp RemoteClone_v1.7/cln.props RemoteClone_v1.7/cln.props.ORIG && cp cln.props RemoteClone_v1.7/cln.props"'
-	 ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "cd '${gse_admin_stagedir}' && sudo unzip -o p22336899_R12_GENERIC.zip && sudo chown oracle:dba -R '${gse_admin_stagedir}' && sudo chmod 777 -R '${gse_admin_stagedir}' && cp RemoteClone_v1.7/cln.props RemoteClone_v1.7/cln.props.ORIG && cp cln.props RemoteClone_v1.7/cln.props"'
+	ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "cd '${gse_admin_stagedir}' && sudo unzip -o p22336899_R12_GENERIC.zip && sudo chown oracle:dba -R '${gse_admin_stagedir}' && sudo chmod 777 -R '${gse_admin_stagedir}' && cp RemoteClone_v1.7/cln.props RemoteClone_v1.7/cln.props.ORIG && cp cln.props RemoteClone_v1.7/cln.props"'
 	
 echo "Preparing tools instance..."
 echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${tools_ip}' "cd '${gse_admin_stagedir}' && sudo mv /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml.ORIG && sudo cp ProvisionEBS.xml /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml"'
-	 ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${tools_ip}' "cd '${gse_admin_stagedir}' && sudo mv /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml.ORIG && sudo cp ProvisionEBS.xml /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml"'
+	ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${tools_ip}' "cd '${gse_admin_stagedir}' && sudo mv /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml.ORIG && sudo cp ProvisionEBS.xml /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml"'
 
 # echo "Running oracle workshop commands..."
 # echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"''${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'
