@@ -37,9 +37,11 @@ echo "Step 4 - Creating EBS source instance and waiting until it starts"
 echo "***************************************************************************************"
 rm -rf ips/${identity_domain}
 python create_source_vm.py $identity_domain $zone $datacenter
-target_ip=`cat ips/${identity_domain}`
+python create_tools_vm.py $identity_domain $zone $datacenter
+source_ip=`cat ips/${identity_domain}`
+tools_ip=`cat ips/tools_${identity_domain}`
 echo "***************************************************************************************"
-echo "Instance finally started, public IP: ${target_ip}" 
+echo "Instance finally started, source public IP: ${target_ip}, tools public IP: ${tools_ip}" 
 echo "***************************************************************************************"
 
 #Upload and execute configuration script to source instance 
