@@ -25,8 +25,12 @@ echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'chm
      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'chmod 0400 '${gse_admin_stagedir}'/'${identity_domain}
 
 echo "Creating GSE stage directory on source instance..."
-echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo mkdir -p '${gse_admin_stagedir}'"'
-     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo mkdir -p '${gse_admin_stagedir}'"'
+echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo mkdir -p '${gse_admin_stagedir}' && sudo chmod 777 '${gse_admin_stagedir}'"'
+     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo mkdir -p '${gse_admin_stagedir}' && sudo chmod 777 '${gse_admin_stagedir}'"'
+
+echo "Creating GSE stage directory on tools instance..."
+echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${tools_ip}' "sudo mkdir -p '${gse_admin_stagedir}' && sudo chmod 777 '${gse_admin_stagedir}'"'
+     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${tools_ip}' "sudo mkdir -p '${gse_admin_stagedir}' && sudo chmod 777 '${gse_admin_stagedir}'"'
 
 echo "Uploading assets to target instance..."
 echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'scp -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' '${gse_admin_stagedir}'/cln.props '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${gse_admin_stagedir}'/p22336899_R12_GENERIC.zip opc@'${source_ip}':'${gse_admin_stagedir}
