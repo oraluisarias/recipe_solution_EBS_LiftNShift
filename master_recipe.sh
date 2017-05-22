@@ -6,6 +6,7 @@ gse_admin="gse-admin.oraclecloud.com"
 identity_domain=$1
 zone=$2
 datacenter=$3
+cloudPassword=$3
 
 #Add the allow_all security list
 echo "***************************************************************************************"
@@ -45,4 +46,6 @@ echo "**************************************************************************
 echo "***************************************************************************************"
 echo "Step 5 - Running workshop commands on the new VM, using gse-admin as bridge"
 echo "***************************************************************************************"
+mkdir scripts/${identity_domain}
+python update_properties.py ${identity_domain}
 sh post_creation.sh ${identity_domain} ${target_ip}

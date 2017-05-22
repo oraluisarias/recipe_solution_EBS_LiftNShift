@@ -2,53 +2,21 @@
 #oracle
 . /u01/install/APPS/EBSapps.env run
 
-expect -c "spawn /u01/install/APPS/fs1/inst/apps/EBSDB_ebssource/admin/scripts/adstpall.sh -skipNM -skipAdmin
-expect \"username:\"
-send \"apps\r\"
-expect \"APPS password:\"
-send \"apps\r\"
-expect \"Server password:\"
-send \"welcome1\r\"
-expect eof"
-
-expect -c "spawn perl /u01/install/APPS/fs1/EBSapps/appl/fnd/12.0.0/patch/115/bin/txkUpdateEBSDomain.pl -action=updateAdminPassword
-send \"Yes\r\"
-send \"\r\"
-send \"welcome1\r\"
-send \"welcome1\r\"
-send \"apps\r\"
-expect eof"
-
-expect -c "spawn /u01/install/APPS/fs1/inst/apps/EBSDB_ebssource/admin/scripts/adstrtal.sh
-expect \"username:\"
-send \"apps\r\"
-expect \"APPS password:\"
-send \"apps\r\"
-expect \"Server password:\"
-send \"welcome1\r\"
-expect eof"
-
-. /u01/install/APPS/EBSapps.env run
-mkdir -p ~/logs
-cd ~/logs
-
-expect -c "spawn /u01/install/APPS/scripts/enableSYSADMIN.sh
-expect \"new password for SYSADMIN:\"
-send \"welcome1\r\"
-expect \"enter password for SYSADMIN:\"
-send \"welcome1\r\"
-expect eof"
-
-expect -c "spawn /u01/install/APPS/scripts/enableDEMOusers.sh
-expect \"new password for SYSADMIN:\"
-send \"welcome1\r\"
-expect \"enter password for SYSADMIN:\"
-send \"welcome1\r\"
-expect eof"
-
 echo "ServerAliveInterval 100" >/home/oracle/.ssh/config
 ServerAliveInterval 100
 
+ssh-keygen -b 2048 -t rsa -f /home/oracle/.ssh/ -q -N ""
+cat /home/oracle/.ssh/id_rsa.pub > /home/oracle/.ssh/authorized_keys
+
 cd /u01
-mkdir /u01/dbstg
-mkdir /u01/appstg
+[ ! -d /u01/dbstg ] && mkdir /u01/dbstg
+[ ! -d /u01/appstg ] && mkdir /u01/appstg
+
+source /u01/install/APPS/12.1.0/EBSDB_ebssource.env
+sqlplus / as sysdba
+select log_mode from v$database;
+shutdown immediate
+startup mount;
+alter database archivelog;
+alter database open;
+select open_mode from v$database;
