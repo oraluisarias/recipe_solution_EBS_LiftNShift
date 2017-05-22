@@ -4,7 +4,7 @@
 
 echo "ServerAliveInterval 100" > /home/oracle/.ssh/config
 
-[ ! -f /home/oracle/.ssh/id_rsa ] && ssh-keygen -b 2048 -t rsa -f /home/oracle/.ssh/ -q -N ""
+[ ! -f /home/oracle/.ssh/id_rsa ] && ssh-keygen -b 2048 -t rsa -f /home/oracle/.ssh/id_rsa -q -N ""
 cat /home/oracle/.ssh/id_rsa.pub > /home/oracle/.ssh/authorized_keys
 
 cd /u01
