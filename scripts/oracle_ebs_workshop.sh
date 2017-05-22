@@ -12,10 +12,12 @@ cd /u01
 [ ! -d /u01/appstg ] && mkdir /u01/appstg
 
 source /u01/install/APPS/12.1.0/EBSDB_ebssource.env
-sqlplus / as sysdba
+
+sqlplus "/ as sysdba" <<EOF
 select log_mode from v$database;
 shutdown immediate
 startup mount;
 alter database archivelog;
 alter database open;
 select open_mode from v$database;
+exit;
