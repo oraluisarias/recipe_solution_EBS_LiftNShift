@@ -19,6 +19,7 @@ python create_open_seclist.py $identity_domain $zone $datacenter
 echo "***************************************************************************************"
 echo "Step 2 - Installing required VMs from Market Place via selenium"
 echo "***************************************************************************************"
+export PATH=$PATH:${executionPath}
 python install_marketplace_images_WD.py $identity_domain $zone $datacenter
 
 #Create ssh key and upload to demo central
