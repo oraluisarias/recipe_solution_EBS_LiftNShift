@@ -6,8 +6,9 @@ gse_admin="gse-admin.oraclecloud.com"
 identity_domain=$1
 zone=$2
 datacenter=$3
-cloudPassword=$3
+executionPath=$3
 
+cd $executionPath
 #Add the allow_all security list
 echo "***************************************************************************************"
 echo "Step 1 - Creating an open security list for the domain (allow_all)"
