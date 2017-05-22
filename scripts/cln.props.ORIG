@@ -44,21 +44,21 @@ CONTEXT_FILE.APPS.SRC=/u01/install/APPS/fs1/inst/apps/EBSDB_ebssource/appl/admin
 APPS_PASS=apps
 
 ### Target EBS details
-HOST.TGT.DB=xxxx.compute-appsunlimited3.oraclecloud.internal
-OS_USER.TGT.DB=oracle
+#HOST.TGT.DB=xxxx.compute-appsunlimited3.oraclecloud.internal
+#OS_USER.TGT.DB=oracle
 #OS_PASSWORD.TGT.DB=xxxx
-OS_PASSPHRASE.TGT.DB=xxxxxx
-STG_DIR.TGT.DB=/u02/dbStage
+#OS_PASSPHRASE.TGT.DB=xxxxxx
+#STG_DIR.TGT.DB=/u02/dbStage
 
-HOST.TGT.APPS=xxxx.compute-appsunlimited3.oraclecloud.internal
-OS_USER.TGT.APPS=applmgr
+#HOST.TGT.APPS=xxxx.compute-appsunlimited3.oraclecloud.internal
+#OS_USER.TGT.APPS=applmgr
 #OS_PASSWORD.TGT.APPS=xxxxx
-OS_PASSPHRASE.TGT.APPS=xxxxxxxx
-STG_DIR.TGT.APPS=/u03/appsStage
+#OS_PASSPHRASE.TGT.APPS=xxxxxxxx
+#STG_DIR.TGT.APPS=/u03/appsStage
 
 ### Target EBS Details:
-DB_SID.TGT=opc1213
-DB_BASE_DIR.TGT=/scratch/opcoracle/opc1213
+#DB_SID.TGT=opc1213
+#DB_BASE_DIR.TGT=/scratch/opcoracle/opc1213
 ###Following optional attributes need to define if any source datatop is outside database <s_base> directory.
 ###These attributes are directly mapped to (DB_DATA_DIR<N>.TGT->s_dbhome<N>) context variable.
 #DB_DATA_DIR1.TGT
@@ -66,11 +66,11 @@ DB_BASE_DIR.TGT=/scratch/opcoracle/opc1213
 #DB_DATA_DIR3.TGT
 #DB_DATA_DIR4.TGT
 
-APPS_BASE_DIR.TGT=/u03/opc1213
-APPS_INST_BASE_DIR.TGT=/u03/opc1213
+#APPS_BASE_DIR.TGT=/u03/opc1213
+#APPS_INST_BASE_DIR.TGT=/u03/opc1213
 
 ## Configurable properties for target:
-DB_PP.TGT=10
+#DB_PP.TGT=10
 
 ## Optional Configurable parameters:
 THREAD_POOL_SIZE=10
