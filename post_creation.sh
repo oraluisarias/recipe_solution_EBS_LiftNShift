@@ -33,7 +33,3 @@ echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh
 echo "Running oracle workshop commands..."
 echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${target_ip}' "sudo su - oracle -c '"'"''${gse_admin_stagedir}'/oracle_ebs_workshop.sh'"'"'"'
 	 ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${target_ip}' "sudo su - oracle -c '"'"''${gse_admin_stagedir}'/oracle_ebs_workshop.sh'"'"'"'
-
-echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${target_ip}' "sudo su - oracle -c '"'"'perl '${gse_admin_stagedir}'/RemoteClone_v1.7/ebsclone.pl'"'"'"'
-	 ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${target_ip}' "sudo su - oracle -c '"'"'perl '${gse_admin_stagedir}'/RemoteClone_v1.7/ebsclone.pl'"'"'"'
-
