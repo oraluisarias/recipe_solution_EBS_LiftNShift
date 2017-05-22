@@ -2,10 +2,9 @@
 #oracle
 . /u01/install/APPS/EBSapps.env run
 
-echo "ServerAliveInterval 100" >/home/oracle/.ssh/config
-ServerAliveInterval 100
+echo "ServerAliveInterval 100" > /home/oracle/.ssh/config
 
-ssh-keygen -b 2048 -t rsa -f /home/oracle/.ssh/ -q -N ""
+[ ! -f /home/oracle/.ssh/id_rsa ] && ssh-keygen -b 2048 -t rsa -f /home/oracle/.ssh/ -q -N ""
 cat /home/oracle/.ssh/id_rsa.pub > /home/oracle/.ssh/authorized_keys
 
 cd /u01
