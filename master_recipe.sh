@@ -46,6 +46,4 @@ echo "**************************************************************************
 echo "***************************************************************************************"
 echo "Step 5 - Running workshop commands on the new VM, using gse-admin as bridge"
 echo "***************************************************************************************"
-mkdir scripts/${identity_domain}
-python update_properties.py ${identity_domain}
 sh post_creation.sh ${identity_domain} ${target_ip}
