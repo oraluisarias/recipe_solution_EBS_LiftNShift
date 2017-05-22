@@ -7,6 +7,8 @@ cloudPassword = demo_central.getDCEnvironment("metcs-" + identityDomain)["items"
 today = date.today()
 dateTimeTag = "skwn"+str(today.year)+str(today.month)+str(today.day)
 
+replace=[ ("#dateTimeTag", dateTimeTag), ('#cloudPassword', cloudPassword), ('#identityDomain', identityDomain) ]
+
 sourceFile="scripts/cln.props.ORIG"
 targetFile="scripts/"+identityDomain+"/cln.props"
 with open(sourceFile, 'r') as f: 
