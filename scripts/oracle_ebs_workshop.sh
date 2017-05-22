@@ -13,7 +13,7 @@ cd /u01
 
 source /u01/install/APPS/12.1.0/EBSDB_ebssource.env
 
-sqlplus "/ as sysdba" <<EOF
+sqlplus "/ as sysdba" <<'EOF'
 select log_mode from v$database;
 shutdown immediate
 startup mount;
