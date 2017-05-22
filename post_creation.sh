@@ -11,9 +11,11 @@ python update_properties.py ${identity_domain}
 echo "Deleting existing ssh keys and authorized cache..."
 echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'sudo mkdir -p '${gse_admin_stagedir}' && sudo chown opc:opc '${gse_admin_stagedir}' && sudo chmod 777 '${gse_admin_stagedir}' && rm -rf /home/opc/.ssh/known_hosts '${gse_admin_stagedir}'/'${identity_domain}
      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'sudo mkdir -p '${gse_admin_stagedir}' && sudo chown opc:opc '${gse_admin_stagedir}' && sudo chmod 777 '${gse_admin_stagedir}' && rm -rf /home/opc/.ssh/known_hosts '${gse_admin_stagedir}'/'${identity_domain}
+
 echo "Uploading assets to gse admin..."
 echo scp -o StrictHostKeyChecking=no -i ssh_keys/gse_admin ssh_keys/${identity_domain} scripts/root_ebs_workshop.sh scripts/${identity_domain}/cln.props scripts/oracle_ebs_workshop.sh scripts/p22336899_R12_GENERIC.zip opc@${gse_admin}:${gse_admin_stagedir}
-     scp -o StrictHostKeyChecking=no -i ssh_keys/gse_admin ssh_keys/${identity_domain} scripts/root_ebs_workshop.sh scripts/oracle_ebs_workshop.sh scripts/p22336899_R12_GENERIC.zip opc@${gse_admin}:${gse_admin_stagedir}
+     scp -o StrictHostKeyChecking=no -i ssh_keys/gse_admin ssh_keys/${identity_domain} scripts/root_ebs_workshop.sh scripts/${identity_domain}/cln.props scripts/oracle_ebs_workshop.sh scripts/p22336899_R12_GENERIC.zip opc@${gse_admin}:${gse_admin_stagedir}
+
 echo "Preparing ssh key to connect to target instance (${target_ip})..."
 echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'chmod 0400 '${gse_admin_stagedir}'/'${identity_domain}
      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'chmod 0400 '${gse_admin_stagedir}'/'${identity_domain}
