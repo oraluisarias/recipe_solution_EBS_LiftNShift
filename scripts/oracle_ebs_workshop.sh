@@ -1,7 +1,6 @@
 #!/bin/bash
 #oracle
 gse_admin_stagedir=$1
-. /u01/install/APPS/EBSapps.env run
 
 echo "ServerAliveInterval 100" > /home/oracle/.ssh/config
 
@@ -12,8 +11,8 @@ cd /u01
 [ ! -d /u01/dbstg ] && mkdir /u01/dbstg
 [ ! -d /u01/appstg ] && mkdir /u01/appstg
 
-source /u01/install/APPS/12.1.0/EBSDB_ebssource.env
 
+source /u01/install/APPS/12.1.0/EBSDB_ebssource.env
 sqlplus "/ as sysdba" <<'EOF'
 select log_mode from v$database;
 shutdown immediate
@@ -24,4 +23,6 @@ select open_mode from v$database;
 exit;
 EOF
 
-perl $gse_admin_stagedir/RemoteClone_v1.7/ebsclone.pl
+. /u01/install/APPS/EBSapps.env run
+cd $gse_admin_stagedir/RemoteClone_v1.7
+perl ebsclone.pl
