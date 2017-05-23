@@ -8,10 +8,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc
-identity_domain = sys.argv[1]
-# zone = sys.argv[2]
-datacenter = sys.argv[2]
 username = "cloud.admin"
+identity_domain = sys.argv[1]
+datacenter = sys.argv[2]
+password = sys.argv[3]
 # identity_domain = "gse00010217"
 # zone = "z33"
 # datacenter = "em3"
@@ -20,8 +20,8 @@ images = [
 	{"id":"5514423","name":"EBS Provisioning Tools Image"},
 	{"id":"10809286","name":"Oracle E-Business Suite Release 12.2.6 Demo"}
 ] 
-demo_central = opc.DemoCentral()
-password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
+# demo_central = opc.DemoCentral()
+# password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 # opcc = opc.Compute(identity_domain, zone, datacenter, username, password)
 
 class InstallMarketplaceImagesWD(unittest.TestCase):
@@ -39,8 +39,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		profile.set_preference("network.proxy.ssl", PROXY)
 		profile.set_preference("network.proxy.ssl_port", PROXY_PORT)
 		profile.update_preferences()
-		self.driver = webdriver.Firefox(firefox_profile=profile)
-		# self.driver = webdriver.Firefox( )
+		# self.driver = webdriver.Firefox(firefox_profile=profile)
+		self.driver = webdriver.Firefox( )
 		# self.driver = webdriver.PhantomJS()
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):

@@ -6,7 +6,8 @@ var exec = require('child_process').exec;
 router.post('/install_marketplace_images', function(req, res, next) {
 	var identity_domain = req.body.identity_domain;
 	var datacenter = req.body.datacenter;
-	var cmd =  "python ../install_marketplace_images_WD.py "+identity_domain+" "+datacenter;
+	var password = req.body.password;
+	var cmd =  "python ../install_marketplace_images_WD.py "+identity_domain+" "+datacenter+" "+password;
     console.log(cmd);
     exec(cmd, {maxBuffer: 1024 * 1000 * 1000}, function (error2, stdout2, stderr2){        
         console.log( stdout2 );                           

@@ -7,7 +7,7 @@ identity_domain=$1
 zone=$2
 datacenter=$3
 executionPath=$4
-
+password=$5
 cd $executionPath
 #Add the allow_all security list
 echo "***************************************************************************************"
@@ -21,7 +21,7 @@ echo "Step 2 - Installing required VMs from Market Place via selenium"
 echo "***************************************************************************************"
 export PATH=$PATH:${executionPath}
 # python install_marketplace_images_WD.py $identity_domain $zone $datacenter
-curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter http://:3000/install_marketplace_images
+curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:3000/install_marketplace_images
 
 
 #Create ssh key and upload to demo central
