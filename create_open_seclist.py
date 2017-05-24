@@ -12,6 +12,6 @@ opcc = opc.Compute(identity_domain, zone, datacenter, cloud_username, cloud_pass
 opcc.addSeclist(cloud_username, {
  	  "policy": "PERMIT",
  	  "outbound_cidr_policy": "PERMIT",
- 	  "name": "/Compute-" + identity_domain + "/" + cloud_username + "/allow_all"
+ 	  "name": "/Compute-" + identity_domain + "/" + admin_username + "/allow_all"
  	}
 )

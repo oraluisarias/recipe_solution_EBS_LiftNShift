@@ -47,6 +47,9 @@ while real_source_instance_name == "" :
 	  print ("Didnt get any answer from OPC this time!")
 	except Exception as e:
 	  print ("Got an error!", e, instances)	  
+	  if instances["message"] == "Authorization token is invalid":
+	  	print "Lost access to OPC, halting recipe..."
+	  	return
 
 print ("Public IP: ", source_public_ip)
 f = open("ips/" + identity_domain, 'w')
