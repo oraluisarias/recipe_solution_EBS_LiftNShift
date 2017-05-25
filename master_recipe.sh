@@ -21,6 +21,7 @@ echo "Step 2 - Installing required VMs from Market Place via selenium"
 echo "***************************************************************************************"
 export PATH=$PATH:${executionPath}
 # python install_marketplace_images_WD.py $identity_domain $zone $datacenter
+# curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_EBS_marketplace_images
 curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_marketplace_images
 
 #Create ssh key and upload to demo central
