@@ -50,7 +50,7 @@ while real_tools_instance_name == "" :
 		print ("Didnt get any answer from OPC this time!")
 	except Exception as e:
 		print ("Lost access to OPC, halting recipe...", e)	
-		return  
+		sys.exit(0)  
 
 print ("Public IP: ", source_public_ip)
 f = open("ips/tools_" + identity_domain, 'w')
