@@ -23,7 +23,7 @@ export PATH=$PATH:${executionPath}
 # python install_marketplace_images_WD.py $identity_domain $zone $datacenter
 # curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_EBS_marketplace_images
 curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_marketplace_images
-
+sleep 60
 #Create ssh key and upload to demo central
 echo "***************************************************************************************"
 echo "Step 3 - Creating a new ssh key and uploading to Demo Central"
@@ -44,6 +44,7 @@ python create_source_vm.py $identity_domain $zone $datacenter
 python create_tools_vm.py $identity_domain $zone $datacenter
 source_ip=`cat ips/${identity_domain}`
 tools_ip=`cat ips/tools_${identity_domain}`
+if [ $source_ip -ne "" ]
 echo "***************************************************************************************"
 echo "Instance finally started, source public IP: ${source_ip}, tools public IP: ${tools_ip}" 
 echo "***************************************************************************************"
