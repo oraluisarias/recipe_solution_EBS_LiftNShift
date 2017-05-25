@@ -44,13 +44,14 @@ python create_source_vm.py $identity_domain $zone $datacenter
 python create_tools_vm.py $identity_domain $zone $datacenter
 source_ip=`cat ips/${identity_domain}`
 tools_ip=`cat ips/tools_${identity_domain}`
-if [ $source_ip -ne "" ]
-echo "***************************************************************************************"
-echo "Instance finally started, source public IP: ${source_ip}, tools public IP: ${tools_ip}" 
-echo "***************************************************************************************"
+if [ $source_ip -ne "" ];
+	echo "***************************************************************************************"
+	echo "Instance finally started, source public IP: ${source_ip}, tools public IP: ${tools_ip}" 
+	echo "***************************************************************************************"
 
-#Upload and execute configuration script to source instance 
-echo "***************************************************************************************"
-echo "Step 5 - Running workshop commands on the new VM, using gse-admin as bridge"
-echo "***************************************************************************************"
-sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}
+	#Upload and execute configuration script to source instance 
+	echo "***************************************************************************************"
+	echo "Step 5 - Running workshop commands on the new VM, using gse-admin as bridge"
+	echo "***************************************************************************************"
+	sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}	
+fi

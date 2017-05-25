@@ -34,6 +34,8 @@ opcc.orchestrationAction(cloud_username, tools_master_name, "START")
 # sleep here
 time_ellapsed = 0
 while real_tools_instance_name == "" :
+	if time_ellapsed == 30:
+		opcc = opc.Compute( identity_domain, zone, datacenter )
 	instances = opcc.getInstances( cloud_username )
 	print "Waiting for source instance to be created, sleeping 1 minute per iteration "+str(time_ellapsed)+" minutes passed..."
 	try:
