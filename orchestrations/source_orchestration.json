@@ -15,7 +15,7 @@
         "hostname" : "ebssource.compute-#identityDomain.oraclecloud.internal.",
         "networking" : {
           "eth0" : {
-            "seclists" : [ "/Compute-#identityDomain/gse-admin_ww@oracle.com/allow_all" ],
+            "seclists" : [ "/Compute-#identityDomain/#cloud_username/allow_all" ],
             "nat" : "ippool:/oracle/public/ippool",
             "dns" : [ "ebssource" ]
           }
