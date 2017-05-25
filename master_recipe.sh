@@ -44,7 +44,8 @@ python create_source_vm.py $identity_domain $zone $datacenter
 python create_tools_vm.py $identity_domain $zone $datacenter
 source_ip=`cat ips/${identity_domain}`
 tools_ip=`cat ips/tools_${identity_domain}`
-if [ $source_ip -ne "" ];
+if [ $source_ip -ne "" ]
+then
 	echo "***************************************************************************************"
 	echo "Instance finally started, source public IP: ${source_ip}, tools public IP: ${tools_ip}" 
 	echo "***************************************************************************************"
