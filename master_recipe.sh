@@ -9,6 +9,18 @@ datacenter=$3
 executionPath=$4
 password=$5
 cd $executionPath
+if [ -f cache/$identity_domain/zone ] ; then
+	zone = `cat cache/$identity_domain/zone`
+else
+	mkdir -p cache/$identity_domain
+	echo zone > cache/$identity_domain/zone
+fi
+if [ -f cache/$identity_domain/datacenter ] ; then
+	datacenter = `cat cache/$identity_domain/datacenter`
+else
+	mkdir -p cache/$identity_domain
+	echo datacenter > cache/$identity_domain/datacenter
+fi
 #Add the allow_all security list
 echo "***************************************************************************************"
 echo "Step 1 - Creating an open security list for the domain (allow_all)"
