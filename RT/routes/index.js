@@ -33,7 +33,7 @@ router.post('/getOPCZone', function(req, res, next) {
 	var cmd =  "python ../getOPCZone.py "+identity_domain+" "+password;
     console.log(cmd);
     exec(cmd, function (error2, stdout2, stderr2){      
-    	var result = JSON.parse( stdout2 );  
+    	var result = JSON.parse( stdout2.replace(/\'/g, '"') );  
         console.log( result );                           
 		res.json( result );                           
     });
