@@ -162,12 +162,12 @@ class Compute:
 		else: 
 			# return {"user" : "/Compute-" + self.identity_domain + "/" + opc_email["items"][0]["value"], "password" : opc_password["items"][0]["value"]}
 			credentials = {"user" : "/Compute-" + self.identity_domain + "/" + username, "password" : password}
-			print ("Testing login with custom credentials...")
-			print (credentials)
+			# print ("Testing login with custom credentials...")
+			# print (credentials)
 		headers = {'Content-Type': 'application/oracle-compute-v3+json'}		
 		r = requests.post("https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/authenticate/", data=json.dumps(credentials), headers=headers)	
 		cookies = "nimbula=" + r.cookies["nimbula"] + "; Path=/; Max-Age=1800"	
-		print (r.text)
+		# print (r.text)
 		return {"cookie" : cookies, "user" : credentials["user"], "password" : credentials["password"]}	
 
 	def setAPI(self, api, zone):
@@ -423,14 +423,14 @@ class Compute:
 		#https://adsweb.oracleads.com/apex/adsweb/parameters/democloud_admin_opc_email
 		# curlPass = curl -X GET -H X-Oracle-Authorization:Z3NlLWRldm9wc193d0BvcmFjbGUuY29tOjVjWmJzWkxuMQ== 
 		#https://adsweb.oracleads.com/apex/adsweb/parameters/democloud_admin_opc_password
-		print ("Getting cloud username/password from Demo Central...")
+		# print ("Getting cloud username/password from Demo Central...")
 		headers = {'X-Oracle-Authorization': 'Z3NlLWRldm9wc193d0BvcmFjbGUuY29tOjVjWmJzWkxuMQ=='}
 		opc_email = yaml.safe_load(requests.get("https://adsweb.oracleads.com/apex/adsweb/parameters/democloud_admin_opc_email", headers=headers).text)
 		opc_password = yaml.safe_load(requests.get("https://adsweb.oracleads.com/apex/adsweb/parameters/democloud_admin_opc_password", headers=headers).text)	
 		sso_email = yaml.safe_load(requests.get("https://adsweb.oracleads.com/apex/adsweb/parameters/democloud_admin_sso_email", headers=headers).text)
 		sso_password = yaml.safe_load(requests.get("https://adsweb.oracleads.com/apex/adsweb/parameters/democloud_admin_sso_password", headers=headers).text)	
-		print ("%s, %s, %s, %s" % (opc_email["items"][0]["value"], opc_password["items"][0]["value"], 
-					sso_email["items"][0]["value"], sso_password["items"][0]["value"]))
+		# print ("%s, %s, %s, %s" % (opc_email["items"][0]["value"], opc_password["items"][0]["value"], 
+		# 			sso_email["items"][0]["value"], sso_password["items"][0]["value"]))
 		return {"user" : "/Compute-" + self.identity_domain + "/" + opc_email["items"][0]["value"], "password" : opc_password["items"][0]["value"]}
 
 	
