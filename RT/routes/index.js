@@ -38,7 +38,8 @@ router.post('/getOPCZone', function(req, res, next) {
 	        console.log( result );                           
 			res.json( result );       
 		} catch (e) {
-	      console.error(e.stack);
+			res.send( stdout2 );       
+	      	console.error(e.stack);
 	    }                    
     });
 });

@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re, sys, opc
+import unittest, time, re, sys, opc, json
 username = "cloud.admin"
 identity_domain = sys.argv[1]
 password = sys.argv[2]
@@ -58,7 +58,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		driver.find_element_by_id("signin").click()
 		driver.implicitly_wait(45)
 		site = driver.find_element_by_id("siteButton").text.strip().lstrip('Site: ').split("_")
-		print ( { "DATACENTER":site[0], "ZONE":site[1] } )
+		print ( json.dumps( { "DATACENTER":site[0], "ZONE":site[1] } ) )
 
 	def is_element_present(self, how, what):
 		try: self.driver.find_element(by=how, value=what)
