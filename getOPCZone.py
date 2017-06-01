@@ -9,12 +9,12 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc
 username = "cloud.admin"
-identity_domain = "gse00002320"
-# identity_domain = sys.argv[1]
-demo_central = opc.DemoCentral()
+identity_domain = sys.argv[1]
+password = sys.argv[2]
+# demo_central = opc.DemoCentral()
 opcc = opc.Compute(identity_domain, "z11")
 datacenter = opcc.getDataCenterShort()
-password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
+# password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 
 class InstallMarketplaceImagesWD(unittest.TestCase):
 	def setUp(self): 
