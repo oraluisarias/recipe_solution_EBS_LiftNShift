@@ -7,7 +7,7 @@
 #------------------------------------------------------------------------------------------------#
 # Aug-2016                           LUISARIA.MX                  Initial Version                #
 #------------------------------------------------------------------------------------------------#
-import requests, json, yaml , os, time, sys, subprocess
+import requests, json, yaml, os, time, sys, subprocess
 
 class DemoCentral:
 	def saveDCEnvironmentPassword(self, environment_id, new_pass):		
@@ -33,13 +33,34 @@ class Compute:
 
 	def __init__(self, identity_domain, api="z26", zone="us2", username=False, password=False):
 		self.api = api
-		self.zone = zone
 		self.identity_domain = identity_domain
+		self.zone = self.DATACENTER_SHORT = self.findDataCenter()
+		if self.DATACENTER_SHORT == "us2" :
+			self.DATACENTER_LONG="us"
+		elif self.DATACENTER_SHORT == "em2" :
+			self.DATACENTER_LONG="emea"
 		auth = self.authenticate( api, zone, username, password)
 		self.user =  auth["user"]
 		self.password =  auth["password"]
 		self.cookie = auth["cookie"]
 
+	def findDataCenter(self):
+		datacenters = ["us2", "em2"]
+		DC_header_token = {
+			'X-Auth-Token': 'AUTH_tk3cbd98e962069a0e22abc9e119962831'
+		}
+		for dc in datacenters:
+			endpoint = "https://" + dc + ".storage.oraclecloud.com/v1/Storage-"+self.identity_domain+"/test"
+			response =  requests.put(endpoint, headers = DC_header_token).text
+			if response != "<html><body>Sorry, but the content requested does not seem to be available. Try again later. If you still see this message, then contact Oracle Support.</body></html>":
+				return dc
+		return False
+
+	def getDataCenterLong(self):
+		return self.DATACENTER_LONG
+		
+	def getDataCenterShort(self):
+		return self.DATACENTER_SHORT
 
 	def runScriptRemote(self, pkey, ip, script_directory, file):		
 		return self.scp(pkey, ip, script_directory + "/" + file, "~/" + file) and self.sshLinux(pkey, ip, "sudo chmod 777 ~/" + file) and self.sshLinux(pkey, ip, "sudo ~/" + file)					

@@ -14,12 +14,14 @@ if [ -f cache/$identity_domain/zone ] ; then
 else
 	mkdir -p cache/$identity_domain
 	echo zone > cache/$identity_domain/zone
+	echo "Found zone ${zone} value on cache"
 fi
 if [ -f cache/$identity_domain/datacenter ] ; then
 	datacenter=`cat cache/$identity_domain/datacenter`
 else
 	mkdir -p cache/$identity_domain
 	echo datacenter > cache/$identity_domain/datacenter
+	echo "Found datacenter ${datacenter} value on cache"
 fi
 #Add the allow_all security list
 echo "***************************************************************************************"
