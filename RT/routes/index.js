@@ -17,7 +17,7 @@ router.post('/install_marketplace_images', function(req, res, next) {
 
 router.get('/getOPCZone/:identity_domain', function(req, res, next) {
 	var identity_domain = req.params.identity_domain;
-	var cmd =  "python ../getOPCZone.py "+identity_domain;
+	var cmd =  "python ../getOPCZone.py "+identity_domain+" "+password;
     console.log(cmd);
     exec(cmd, function (error2, stdout2, stderr2){      
     	var result = JSON.parse( stdout2 );  
@@ -28,7 +28,7 @@ router.get('/getOPCZone/:identity_domain', function(req, res, next) {
 
 router.post('/getOPCZone', function(req, res, next) {
 	var identity_domain = req.body.identity_domain;
-	var cmd =  "python ../getOPCZone.py "+identity_domain;
+	var cmd =  "python ../getOPCZone.py "+identity_domain+" "+password;
     console.log(cmd);
     exec(cmd, function (error2, stdout2, stderr2){      
     	var result = JSON.parse( stdout2 );  
