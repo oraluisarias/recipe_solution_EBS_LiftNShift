@@ -12,7 +12,7 @@ username = "cloud.admin"
 identity_domain = sys.argv[1]
 password = sys.argv[2]
 # demo_central = opc.DemoCentral()
-opcc = opc.Compute(identity_domain, "z11")
+opcc = opc.Compute(identity_domain, "z11", "", username, password)
 datacenter = opcc.getDataCenterShort()
 # password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 
