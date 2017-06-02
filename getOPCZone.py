@@ -76,7 +76,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
 			ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
 			try:
-			    sites[site]
+				sites[site]
 			except IndexError:				
 				siteArray = {
 					"ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
@@ -86,7 +86,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 				}
 				sites[site] = siteArray
 				driver.implicitly_wait(10)			    
-		    else:
+			else:
 				siteIndex = 1
 		print ( json.dumps( { "DATACENTER":datacenter[0], "ZONES":sites } ) )		
 
