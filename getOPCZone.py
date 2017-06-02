@@ -75,9 +75,10 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
 			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
 			ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
-			try:
-				sites[site]
-			except IndexError:				
+			if hasattr(sites, 'site'):
+			# try:
+				# sites[site]
+			# except IndexError:				
 				siteArray = {
 					"ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
 					"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
