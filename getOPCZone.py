@@ -33,8 +33,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		profile.set_preference("network.proxy.ssl", PROXY)
 		profile.set_preference("network.proxy.ssl_port", PROXY_PORT)
 		profile.update_preferences()
-		# self.driver = webdriver.Firefox(firefox_profile=profile)
 		self.driver = webdriver.Firefox( )
+		# self.driver = webdriver.Firefox(firefox_profile=profile)
 		# self.driver = webdriver.PhantomJS()
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):
@@ -59,7 +59,6 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		driver.find_element_by_id("password").send_keys(password)
 		driver.find_element_by_id("signin").click()
 		driver.implicitly_wait(45)
-		datacenter = driver.find_element_by_id("siteButton").text.strip().lstrip('Site: ').split("_")
 		driver.find_element_by_id("siteButton").click()
 		driver.implicitly_wait(15)
 		siteIndex = 0
@@ -70,26 +69,28 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			driver.implicitly_wait(5)
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.ARROW_DOWN);
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.RETURN);
-			driver.implicitly_wait(15)
+			driver.implicitly_wait(30)
 			site = driver.find_element_by_id("ojChoiceId_siteSelect_selected").text
 			ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
 			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
 			ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
-			if not hasattr(sites, site):
-			# try:
-				# sites[site]
-			# except IndexError:				
+			# if not hasattr(sites, site):
+			try:
+				sites[site]
+			except KeyError:				
 				siteArray = {
 					"ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
 					"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
 					"ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
-					"site":site
+					"site":site,
+					"datacenter":site.split("_")[0],
+					"zone":site.split("_")[1]
 				}
 				sites[site] = siteArray
 				driver.implicitly_wait(10)			    
 			else:
 				siteIndex = 1
-		print ( json.dumps( { "DATACENTER":datacenter[0], "ZONES":sites } ) )		
+		print ( json.dumps( { identity_domain:sites } ) )		
 
 	def is_element_present(self, how, what):
 		try: self.driver.find_element(by=how, value=what)
