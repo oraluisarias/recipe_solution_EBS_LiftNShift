@@ -10,7 +10,9 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc, json
 username = "cloud.admin"
 identity_domain = sys.argv[1]
+# identity_domain = "gse00011455"
 password = sys.argv[2]
+# password = "ablAtivE@4Iowa"
 # demo_central = opc.DemoCentral()
 opcc = opc.Compute(identity_domain, "z11", "", username, password)
 datacenter = opcc.getDataCenterShort()
@@ -57,8 +59,36 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		driver.find_element_by_id("password").send_keys(password)
 		driver.find_element_by_id("signin").click()
 		driver.implicitly_wait(45)
-		site = driver.find_element_by_id("siteButton").text.strip().lstrip('Site: ').split("_")
-		print ( json.dumps( { "DATACENTER":site[0], "ZONE":site[1] } ) )
+		datacenter = driver.find_element_by_id("siteButton").text.strip().lstrip('Site: ').split("_")
+		driver.find_element_by_id("siteButton").click()
+		driver.implicitly_wait(15)
+		siteIndex = 0
+		sitesFound = []
+		sites = {}
+		while siteIndex == 0:
+			driver.find_element_by_id('ojChoiceId_siteSelect').click()
+			driver.implicitly_wait(5)
+			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.ARROW_DOWN);
+			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.RETURN);
+			driver.implicitly_wait(5)
+			site = driver.find_element_by_id("ojChoiceId_siteSelect_selected").text
+			ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
+			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
+			ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
+			try:
+			    sites[site]
+			except IndexError:				
+				siteArray = {
+					"ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
+					"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
+					"ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
+					"site":site
+				}
+				sites[site] = siteArray
+				driver.implicitly_wait(10)			    
+		    else:
+				siteIndex = 1
+		print ( json.dumps( { "DATACENTER":datacenter[0], "ZONES":sites } ) )		
 
 	def is_element_present(self, how, what):
 		try: self.driver.find_element(by=how, value=what)
