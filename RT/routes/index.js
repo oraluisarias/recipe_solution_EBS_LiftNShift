@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var exec = require('child_process').exec;
-var DMN = require("./models/cloudbots_domain_data");
+var DMN = require("../models/cloudbots_domain_data");
 
 /* GET home page. */
 router.post('/install_marketplace_images', function(req, res, next) {
