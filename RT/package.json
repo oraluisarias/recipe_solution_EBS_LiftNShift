@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "mysql": "*",
     "sequelize": "*",
     "child_process": "*",
     "body-parser": "~1.15.1",
