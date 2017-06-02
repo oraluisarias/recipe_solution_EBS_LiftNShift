@@ -17,11 +17,11 @@ router.post('/install_marketplace_images', function(req, res, next) {
 });
 
 router.get('/getOPCZone/:identity_domain/:password', function(req, res, next) {	
-	getOPCZone(req.params.identity_domain, req.params.password);
+	getOPCZone(req.params.identity_domain, req.params.password, res);
 });
 
 router.post('/getOPCZone', function(req, res, next) {	
-	getOPCZone(req.body.identity_domain, req.body.password);
+	getOPCZone(req.body.identity_domain, req.body.password, res);
 });
 
 function getOPCZone(identity_domain, password, res){
