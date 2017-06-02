@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "sequelize": "*",
     "child_process": "*",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
