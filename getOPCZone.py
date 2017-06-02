@@ -70,7 +70,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			driver.implicitly_wait(5)
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.ARROW_DOWN);
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.RETURN);
-			driver.implicitly_wait(5)
+			driver.implicitly_wait(15)
 			site = driver.find_element_by_id("ojChoiceId_siteSelect_selected").text
 			ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
 			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
