@@ -59,16 +59,17 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		driver.find_element_by_id("password").send_keys(password)
 		driver.find_element_by_id("signin").click()
 		driver.implicitly_wait(45)
-		driver.find_element_by_id("siteButton").click()
-		driver.implicitly_wait(15)
-		time.sleep(5)
+		driver.find_element_by_id("siteButton").click()		
+		time.sleep(3)
 		driver.find_element_by_id("cancelBtn").click()
-		time.sleep(5)		
+		time.sleep(3)		
 		driver.find_element_by_id("siteButton").click()
+		time.sleep(3)
 		siteIndex = 0
 		sitesFound = []
 		sites = {}
 		for siteIndex in range (0, 4):
+			driver.implicitly_wait(25)
 		# while siteIndex == 0:
 			driver.find_element_by_id('ojChoiceId_siteSelect').click()
 			driver.implicitly_wait(5)
