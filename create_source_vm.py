@@ -28,6 +28,17 @@ opcc.createOrchestration(cloud_username, source_orchestration_instance_name,
 opcc.createVolumeOrchestration(cloud_username, source_orchestration_volume_name, 
 	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_volume_name)  ]  )
 
+#find image in datacenters
+print ( "Getting datacenter...", opcc.domain_data )
+for domain in opcc.domain_data:
+	domain_data = opcc.domain_data[domain]	
+	opcc.setDataCenter(domain_data["datacenter"].lower().replace('0', ''))
+	opcc.setZone(domain_data["zone"].lower())
+	opcc.authenticate(False, False, "cloud.admin")
+	images = opcc.getImageLists("cloud.admin") 
+	for image in images["result"]:
+		if "OPC_OL6_8_EBS_1226_VISION_SINGLE_TIER_11302016" in image or "OPC_OL6_8_EBS_ORCH_VM_03282017" in image or "OPC_OL6_8_X86_64_EBS_OS_VM_12202016" in image: 
+			return
 # sleep here
 time_ellapsed = 0
 while real_source_instance_name == "" :

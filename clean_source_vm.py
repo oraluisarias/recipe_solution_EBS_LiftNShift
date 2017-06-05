@@ -1,11 +1,8 @@
 import opc, time, sys
 
-# identity_domain = "gse00010217"
-identity_domain = sys.argv[1]
-# zone = "z33"
-zone = sys.argv[2]
-# datacenter = "em3"
-datacenter = sys.argv[3]
+identity_domain = "gse00011327"
+# identity_domain = sys.argv[1]
+zone = "z11"
 demo_central = opc.DemoCentral()
 admin_username = "gse-admin_ww@oracle.com"
 cloud_username = "cloud.admin"
@@ -19,7 +16,19 @@ source_orchestration_volume_name = "orchestrations/source_orchestration_volume.j
 source_orchestration_name = "/Compute-"+identity_domain+"/"+cloud_username+"/EBS_Source"
 real_source_volume_name = "new"
 real_source_instance_name = "new"
-opcc = opc.Compute( identity_domain, zone, datacenter )
+opcc = opc.Compute( identity_domain, zone, False )
+
+#find image in datacenters
+print ( "Getting datacenter...", opcc.domain_data )
+for domain in opcc.domain_data:
+	domain_data = opcc.domain_data[domain]	
+	opcc.setDataCenter(domain_data["datacenter"].lower().replace('0', ''))
+	opcc.setZone(domain_data["zone"].lower())
+	opcc.authenticate(False, False, "cloud.admin")
+	images = opcc.getImageLists("cloud.admin") 
+	for image in images["result"]:
+		if "OPC_OL6_8_EBS_1226_VISION_SINGLE_TIER_11302016" in image or "OPC_OL6_8_EBS_ORCH_VM_03282017" in image or "OPC_OL6_8_X86_64_EBS_OS_VM_12202016" in image: 
+			return
 
 #delete and wait
 image_exists = True

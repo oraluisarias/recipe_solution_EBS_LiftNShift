@@ -21,7 +21,7 @@ class DemoCentral:
 		return requests.put(endpoint, data=json.dumps(pass_data), headers=headers )
 		
 	def getDCEnvironment(self, environment):
-		print ("Getting environment username/password from Demo Central...")
+		# print ("Getting environment username/password from Demo Central...")
 		endpoint = "https://adsweb.oracleads.com/apex/adsweb/rest/environments"
 		headers = {
 			'Authorization': 'Bearer YTg3ZWJmNDctNzFhYS00ZDM4LWE5YWQtN2FlNTNlZjNlNTNm',
@@ -30,22 +30,29 @@ class DemoCentral:
 		return json.loads( requests.get(endpoint, headers=headers).text )	
 
 class Compute:	
-
-	def __init__(self, identity_domain, api="z26", zone="us2", username=False, password=False):
+	def __init__(self, identity_domain, api="z26", zone="us2", username="cloud.admin", password=False):
 		self.api = api
 		self.identity_domain = identity_domain
 		self.zone = self.DATACENTER_SHORT = self.findDataCenter()
+		# print ( "Datacenter...", self.findDataCenter() )
 		if self.DATACENTER_SHORT == "us2" :
 			self.DATACENTER_LONG="us"
 		elif self.DATACENTER_SHORT == "em2" :
 			self.DATACENTER_LONG="emea"
-		auth = self.authenticate( api, zone, username, password)
-		self.user =  auth["user"]
-		self.password =  auth["password"]
-		self.cookie = auth["cookie"]
+		self.user = username
+		if not password:
+			self.password =  self.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
+		auth = self.authenticate( api, zone, self.user, self.password)		
+		self.findDomainData()
+
+	def findDomainData(self):
+		RTpayload = { "identity_domain":self.identity_domain, "password":self.password }
+		# print("Querying domain data using RT using data...", RTpayload)
+		r = requests.post("http://gse-admin.oraclecloud.com:7002/getOPCZone", data=RTpayload )
+		self.domain_data = yaml.safe_load( r.text )["identity_domain"]
 
 	def findDataCenter(self):
-		datacenters = ["us2", "em2"]
+		datacenters = ["us2", "em2", "em3", "emea"]
 		DC_header_token = {
 			'X-Auth-Token': 'AUTH_tk3cbd98e962069a0e22abc9e119962831'
 		}
@@ -55,6 +62,12 @@ class Compute:
 			if response != "<html><body>Sorry, but the content requested does not seem to be available. Try again later. If you still see this message, then contact Oracle Support.</body></html>":
 				return dc
 		return False
+
+	def setZone(self, zone):
+		self.api = zone
+
+	def setDataCenter(self, dc):
+		self.zone = dc
 
 	def getDataCenterLong(self):
 		return self.DATACENTER_LONG
@@ -67,7 +80,7 @@ class Compute:
 
 	def sshLinux(self, pkey, ip, command):
 		ssh_command = "ssh -tt -i " + pkey + " opc@" + ip + " '" + command + "'"
-		print (ssh_command)
+		# print (ssh_command)
 		try:
 			print ( subprocess.check_output( ssh_command , shell=True ) )
 		except: 
@@ -77,7 +90,7 @@ class Compute:
 
 	def scp(self, pkey, ip, origin_file, destiny_file):
 		scp_command = "scp -i " + pkey + " " + origin_file + " opc@" + ip + ":" + destiny_file
-		print (scp_command)
+		# print (scp_command)
 		try:
 			print (subprocess.check_output(scp_command, shell=True ))
 		except: 
@@ -156,7 +169,15 @@ class Compute:
 		ip = self.getIpByOrchestration(cloud_username, admin_username, orch_instance_name)["ip"]
 		return ip
 
-	def authenticate(self, api="z26", zone="us2", username=False, password=False):
+	def authenticate(self, api=False, zone=False, username=False, password=False):
+		if api == False:
+			api = self.api
+		if zone == False:
+			zone = self.zone
+		if username == False:
+			username = self.username
+		if password == False:
+			password = self.password
 		if (username == password == False):
 			credentials = self.getCredentialsDemoCentral()
 		else: 
@@ -165,9 +186,12 @@ class Compute:
 			# print ("Testing login with custom credentials...")
 			# print (credentials)
 		headers = {'Content-Type': 'application/oracle-compute-v3+json'}		
-		r = requests.post("https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/authenticate/", data=json.dumps(credentials), headers=headers)	
+		url = "https://api-"+api+".compute."+zone+".oraclecloud.com/authenticate/"
+		# print("url", url)
+		r = requests.post(url, data=json.dumps(credentials), headers=headers)	
 		cookies = "nimbula=" + r.cookies["nimbula"] + "; Path=/; Max-Age=1800"	
 		# print (r.text)
+		self.cookie = cookies
 		return {"cookie" : cookies, "user" : credentials["user"], "password" : credentials["password"]}	
 
 	def setAPI(self, api, zone):
@@ -417,7 +441,16 @@ class Compute:
 		print ("endpoint: " + endpoint)	
 		print (r.text)
 		return yaml.safe_load(r.text)	
- 
+ 	
+ 	def getDCEnvironment(self, environment):
+		print ("Getting environment username/password from Demo Central...")
+		endpoint = "https://adsweb.oracleads.com/apex/adsweb/rest/environments"
+		headers = {
+			'Authorization': 'Bearer YTg3ZWJmNDctNzFhYS00ZDM4LWE5YWQtN2FlNTNlZjNlNTNm',
+			'X-Oracle-Environment-Name': environment
+		}
+		return json.loads( requests.get(endpoint, headers=headers).text )	
+
 	def getCredentialsDemoCentral(self):
 		# curlUser = curl -X GET -H X-Oracle-Authorization:Z3NlLWRldm9wc193d0BvcmFjbGUuY29tOjVjWmJzWkxuMQ== 
 		#https://adsweb.oracleads.com/apex/adsweb/parameters/democloud_admin_opc_email

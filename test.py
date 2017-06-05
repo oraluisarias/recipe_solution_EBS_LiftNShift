@@ -1,8 +1,10 @@
 import opc, sys, time, requests, json
-domains = ["gse00011739","gse00011740","gse00011741","gse00011742","gse00011743","gse00011744","gse00011745","gse00011746","gse00011747","gse00011748","gse00011749","gse00011750","gse00011751","gse00011752","gse00011753","gse00011754","gse00011755","gse00011756","gse00011757","gse00011758","gse00011759","gse00011760","gse00011761","gse00011762","gse00011763","gse00011764","gse00011765","gse00011766","gse00011767","gse00011768","gse00011769","gse00011770","gse00011771","gse00011772","gse00011773","gse00011774","gse00011775","gse00011776","gse00011777","gse00011778","gse00011779","gse00011780","gse00011781","gse00011782","gse00011783","gse00011784","gse00011785","gse00011786","gse00011787","gse00011788","gse00011789","gse00011790","gse00011791","gse00011792","gse00011793","gse00011794","gse00011795","gse00011796","gse00011797","gse00011798","gse00011799","gse00011800","gse00011801","gse00011802","gse00011803","gse00011804","gse00011805","gse00011806","gse00011807","gse00011808","gse00011809","gse00011810","gse00011811","gse00011812","gse00011813","gse00011814","gse00011815","gse00011816","gse00011817","gse00011818","gse00011819","gse00011820","gse00011821","gse00011822","gse00011823","gse00011824","gse00011825","gse00011826","gse00011827","gse00011828","gse00011829","gse00011830","gse00011831","gse00011832","gse00011833","gse00011834","gse00011835","gse00011836","gse00011837","gse00011838"]
 demo_central = opc.DemoCentral()
-
+f = open(sys.argv[1], 'r')
+content = f.read()
+domains = json.loads(content)
+print ("Reading domains...", domains)
 for domain in domains:	
+	print ( domain )
 	cloud_password = demo_central.getDCEnvironment("metcs-" + domain)["items"][0]["password"]
 	print ( requests.post("http://gse-admin.oraclecloud.com:7002/getOPCZone", data={ "identity_domain":domain, "password":cloud_password } ).text )
-	# time.sleep(20)
