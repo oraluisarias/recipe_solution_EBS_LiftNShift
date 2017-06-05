@@ -67,7 +67,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		siteIndex = 0
 		sitesFound = []
 		sites = {}
-		while siteIndex == 0:
+		for siteIndex in range (0, 4):
+		# while siteIndex == 0:
 			driver.find_element_by_id('ojChoiceId_siteSelect').click()
 			driver.implicitly_wait(5)
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.ARROW_DOWN);
@@ -78,21 +79,16 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
 			ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
 			# if not hasattr(sites, site):
-			try:
-				sites[site]
-			except KeyError:				
-				siteArray = {
-					"ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
-					"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
-					"ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
-					"site":site,
-					"datacenter":site.split("_")[0],
-					"zone":site.split("_")[1]
-				}
-				sites[site] = siteArray
-				driver.implicitly_wait(10)			    
-			else:
-				siteIndex = 1
+			siteArray = {
+				"ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
+				"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
+				"ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
+				"site":site,
+				"datacenter":site.split("_")[0],
+				"zone":site.split("_")[1]
+			}
+			sites[site] = siteArray
+			driver.implicitly_wait(10)			    
 		print ( json.dumps( { identity_domain:sites } ) )		
 
 	def is_element_present(self, how, what):
