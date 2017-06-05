@@ -60,9 +60,10 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		driver.find_element_by_id("signin").click()
 		driver.implicitly_wait(45)
 		driver.find_element_by_id("siteButton").click()
-		driver.find_element_by_id("cancelBtn").click()
-		driver.find_element_by_id("siteButton").click()
 		driver.implicitly_wait(15)
+		driver.find_element_by_id("cancelBtn").click()
+		driver.implicitly_wait(15)
+		driver.find_element_by_id("siteButton").click()
 		siteIndex = 0
 		sitesFound = []
 		sites = {}

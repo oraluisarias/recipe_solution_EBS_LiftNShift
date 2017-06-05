@@ -4,5 +4,5 @@ demo_central = opc.DemoCentral()
 
 for domain in domains:	
 	cloud_password = demo_central.getDCEnvironment("metcs-" + domain)["items"][0]["password"]
-	requests.post("http://gse-admin.oraclecloud.com:7002/getOPCZone", data={ "identity_domain":domain, "password":cloud_password } )
-	time.sleep(20)
+	print ( requests.post("http://gse-admin.oraclecloud.com:7002/getOPCZone", data={ "identity_domain":domain, "password":cloud_password } ).text )
+	# time.sleep(20)
