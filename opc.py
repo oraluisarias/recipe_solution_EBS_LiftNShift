@@ -52,7 +52,7 @@ class Compute:
 		self.domain_data = yaml.safe_load( r.text )["identity_domain"]
 
 	def findDataCenter(self):
-		datacenters = ["us2", "em2", "em3", "emea"]
+		datacenters = ["us2", "em2"]
 		DC_header_token = {
 			'X-Auth-Token': 'AUTH_tk3cbd98e962069a0e22abc9e119962831'
 		}
