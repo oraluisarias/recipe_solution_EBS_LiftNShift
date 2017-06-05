@@ -77,6 +77,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.RETURN);
 			driver.implicitly_wait(30)
 			site = driver.find_element_by_id("ojChoiceId_siteSelect_selected").text
+			site_parts = site.split("_")
 			ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
 			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
 			ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
@@ -86,9 +87,12 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 				"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
 				"ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
 				"site":site,
-				"datacenter":site.split("_")[0],
-				"zone":site.split("_")[1]
+				"datacenter":site_parts[0],				
 			}
+			
+			if site_parts.length > 1 :
+				siteArray["zone"] = site_parts[1]
+
 			sites[site] = siteArray
 			driver.implicitly_wait(10)			    
 		print ( json.dumps( { identity_domain:sites } ) )		
