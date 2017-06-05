@@ -87,10 +87,10 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 				"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
 				"ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
 				"site":site,
-				"datacenter":site_parts[0],				
+				"datacenter":site_parts[0]
 			}
-			
-			if site_parts.length > 1 :
+
+			if len(site_parts) > 1 :
 				siteArray["zone"] = site_parts[1]
 
 			sites[site] = siteArray
