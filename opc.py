@@ -70,6 +70,12 @@ class Compute:
 				return dc
 		return False
 
+	def getZone(self, zone):
+		return self.api
+
+	def getDataCenter(self, dc):
+		return self.zone
+
 	def setZone(self, zone):
 		self.api = zone
 

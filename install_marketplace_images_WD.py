@@ -10,8 +10,8 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc
 username = "cloud.admin"
 identity_domain = sys.argv[1]
-datacenter = sys.argv[2]
-password = sys.argv[3]
+# datacenter = sys.argv[2]
+password = sys.argv[2]
 # identity_domain = "gse00010217"
 # zone = "z33"
 # datacenter = "em3"
@@ -20,6 +20,9 @@ images = [
 	{"id":"5514423","name":"EBS Provisioning Tools Image"},
 	{"id":"10809286","name":"Oracle E-Business Suite Release 12.2.6 Demo"}
 ] 
+
+opcc = opc.Compute(identity_domain, "z11", "", username, password)
+datacenter = opcc.getDataCenterShort()
 # demo_central = opc.DemoCentral()
 # password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 # opcc = opc.Compute(identity_domain, zone, datacenter, username, password)

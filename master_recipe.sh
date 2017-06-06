@@ -8,6 +8,15 @@ zone=$2
 datacenter=$3
 executionPath=$4
 password=$5
+mkdir cache/$identity_domain
+touch cache/$identity_domain/zone && chmod 777 cache/$identity_domain/zone
+touch cache/$identity_domain/datacenter && chmod 777 cache/$identity_domain/datacenter
+#Add the allow_all security list
+echo "***************************************************************************************"
+echo "Step 0 - Finding source and Datacenter"
+echo "***************************************************************************************"
+python getZoneDatacenter.py $identity_domain
+
 cd $executionPath
 if [ -f cache/$identity_domain/zone ] ; then
 	zone=`cat cache/$identity_domain/zone`
@@ -23,6 +32,8 @@ else
 	echo datacenter > cache/$identity_domain/datacenter
 	echo "Found datacenter ${datacenter} value on cache"
 fi
+
+
 #Add the allow_all security list
 echo "***************************************************************************************"
 echo "Step 1 - Creating an open security list for the domain (allow_all)"
@@ -36,7 +47,7 @@ echo "**************************************************************************
 export PATH=$PATH:${executionPath}
 # python install_marketplace_images_WD.py $identity_domain $zone $datacenter
 # curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_EBS_marketplace_images
-curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_marketplace_images
+curl -X POST -d "identity_domain=${identity_domain}&password=${password}" http://gse-admin.oraclecloud.com:7002/install_marketplace_images
 sleep 60
 #Create ssh key and upload to demo central
 echo "***************************************************************************************"
