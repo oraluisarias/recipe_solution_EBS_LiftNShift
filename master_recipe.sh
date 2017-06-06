@@ -8,16 +8,17 @@ zone=$2
 datacenter=$3
 executionPath=$4
 password=$5
-mkdir cache/$identity_domain
-touch cache/$identity_domain/zone && chmod 777 cache/$identity_domain/zone
-touch cache/$identity_domain/datacenter && chmod 777 cache/$identity_domain/datacenter
+cd $executionPath
+
 #Add the allow_all security list
 echo "***************************************************************************************"
 echo "Step 0 - Finding source and Datacenter"
 echo "***************************************************************************************"
+mkdir -p $executionPath/cache/$identity_domain
+touch $executionPath/cache/$identity_domain/zone && chmod 777 $executionPath/cache/$identity_domain/zone
+touch $executionPath/cache/$identity_domain/datacenter && chmod $executionPath/777 cache/$identity_domain/datacenter
 python getZoneDatacenter.py $identity_domain
 
-cd $executionPath
 if [ -f cache/$identity_domain/zone ] ; then
 	zone=`cat cache/$identity_domain/zone`
 else
