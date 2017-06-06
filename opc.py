@@ -30,7 +30,7 @@ class DemoCentral:
 		return json.loads( requests.get(endpoint, headers=headers).text )	
 
 class Compute:	
-	def __init__(self, identity_domain, api="z26", zone="us2", username="cloud.admin", password=False):
+	def __init__(self, identity_domain, api="z26", zone="us2", username="cloud.admin", password=False, findDomainData=True):
 		self.api = api
 		self.identity_domain = identity_domain
 		self.zone = self.DATACENTER_SHORT = self.findDataCenter()
@@ -51,7 +51,8 @@ class Compute:
 				except: 
 					self.password =  ""		
 		auth = self.authenticate( self.api, self.zone, self.user, self.password)		
-		self.findDomainData()
+		if findDomainData:
+			self.findDomainData()
 
 	def findDomainData(self):
 		RTpayload = { "identity_domain":self.identity_domain, "password":self.password }

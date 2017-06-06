@@ -14,7 +14,7 @@ identity_domain = sys.argv[1]
 password = sys.argv[2]
 # password = "ablAtivE@4Iowa"
 # demo_central = opc.DemoCentral()
-opcc = opc.Compute(identity_domain, "z11", "", username, password)
+opcc = opc.Compute(identity_domain, "z11", "", username, password, False)
 datacenter = opcc.getDataCenterShort()
 # password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 
