@@ -40,8 +40,15 @@ class Compute:
 		elif self.DATACENTER_SHORT == "em2" :
 			self.DATACENTER_LONG="emea"
 		self.user = username
-		if not password:
-			self.password =  self.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
+		if password == False:
+			try: 
+				self.password =  self.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]				
+			except: 
+				try: 
+					self.password =  self.getCredentialsDemoCentral()["password"]				
+					print("no data in Demo Central, environment retired?"); 	
+				except: 
+					self.password =  ""
 		auth = self.authenticate( api, zone, self.user, self.password)		
 		self.findDomainData()
 
