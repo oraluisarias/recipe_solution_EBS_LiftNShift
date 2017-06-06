@@ -18,6 +18,7 @@ export PATH=$PATH:${executionPath}
 # python install_marketplace_images_WD.py $identity_domain $zone $datacenter
 # curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_EBS_marketplace_images
 curl -X POST -d "identity_domain=${identity_domain}&password=${password}" http://gse-admin.oraclecloud.com:7002/install_marketplace_images
+sleep 60
 
 #Add the allow_all security list
 echo "***************************************************************************************"
@@ -52,7 +53,6 @@ echo "**************************************************************************
 python create_open_seclist.py $identity_domain $zone $datacenter
 
 
-sleep 60
 #Create ssh key and upload to demo central
 echo "***************************************************************************************"
 echo "Step 4 - Creating a new ssh key and uploading to Demo Central"
