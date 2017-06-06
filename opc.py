@@ -50,7 +50,7 @@ class Compute:
 					print("no data in Demo Central, environment retired?"); 	
 				except: 
 					self.password =  ""		
-		auth = self.authenticate( api, zone, self.user, self.password)		
+		auth = self.authenticate( self.api, self.zone, self.user, self.password)		
 		self.findDomainData()
 
 	def findDomainData(self):
