@@ -43,9 +43,8 @@ cd /u01
 . /u01/install/APPS/EBSapps.env run
 cd $gse_admin_stagedir/RemoteClone_v1.7
 # perl ebsclone.pl
-cd $ADMIN_SCRIPTS_HOME
 
-expect -c "spawn sh adstpall.sh
+expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
 expect \"APPS username:?\"
 send \"apps\r\"
 expect \"APPS password:?\"
@@ -55,7 +54,7 @@ send \"welcome1\r\"
 send \"\r\"
 expect eof"
 
-expect -c "spawn sh configwebentry.sh
+expect -c "spawn sh /u01/install/scripts/configwebentry.sh
 expect \"(https/http):?\"
 send \"http\r\"
 expect \"public):?\"
@@ -69,7 +68,7 @@ send \"/u01/install/APPS\r\"
 send \"\r\"
 expect eof"
 
-expect -c "spawn sh adstrtal.sh
+expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
 expect \"APPS username:?\"
 send \"apps\r\"
 expect \"APPS password:?\"
