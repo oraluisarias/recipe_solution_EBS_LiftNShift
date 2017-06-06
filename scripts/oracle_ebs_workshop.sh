@@ -44,7 +44,16 @@ cd /u01
 cd $gse_admin_stagedir/RemoteClone_v1.7
 # perl ebsclone.pl
 cd $ADMIN_SCRIPTS_HOME
-sh adstpall.sh
+
+expect -c "spawn sh adstpall.sh
+expect \"APPS username:?\"
+send \"apps\r\"
+expect \"APPS password:?\"
+send \"apps\r\"
+expect \"WebLogic Server password:?\"
+send \"welcome1\r\"
+send \"\r\"
+expect eof"
 
 expect -c "spawn sh configwebentry.sh
 expect \"(https/http):?\"
