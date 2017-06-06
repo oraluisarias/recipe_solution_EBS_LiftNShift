@@ -86,6 +86,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 				driver.find_element_by_id( image["id"] ).click()
 				driver.find_element_by_id("oracleTerms").click()
 				driver.find_element_by_id("actionBtn").click()
+				time.sleep(15)
 			except Exception:
 				print ("Didn't find image in marketplace")
 				driver.save_screenshot('screenshots/failure_' + identity_domain + '_' + image["name"] + '.png')
