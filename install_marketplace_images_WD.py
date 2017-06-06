@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc
-username = "cloud.admin"
+username = "gse-admin_ww@oracle.com"
 identity_domain = sys.argv[1]
 # datacenter = sys.argv[2]
 password = sys.argv[2]
