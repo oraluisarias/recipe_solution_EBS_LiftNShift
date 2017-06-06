@@ -1,7 +1,7 @@
 import opc, time, sys
 
 identity_domain = sys.argv[1]
-opcc = opc.Compute( identity_domain, zone, False )
+opcc = opc.Compute( identity_domain, "z11", False )
 
 image_found = False
 #find image in datacenters

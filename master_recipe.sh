@@ -16,7 +16,8 @@ echo "Step 0 - Finding source and Datacenter"
 echo "***************************************************************************************"
 mkdir -p $executionPath/cache/$identity_domain
 touch $executionPath/cache/$identity_domain/zone && chmod 777 $executionPath/cache/$identity_domain/zone
-touch $executionPath/cache/$identity_domain/datacenter && chmod $executionPath/777 cache/$identity_domain/datacenter
+touch $executionPath/cache/$identity_domain/datacenter && chmod 777 $executionPath/cache/$identity_domain/datacenter
+echo python getZoneDatacenter.py $identity_domain
 python getZoneDatacenter.py $identity_domain
 
 if [ -f cache/$identity_domain/zone ] ; then
