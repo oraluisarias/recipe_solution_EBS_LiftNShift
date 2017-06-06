@@ -21,12 +21,7 @@ source_orchestration_name = "/Compute-"+identity_domain+"/"+cloud_username+"/EBS
 opcc = opc.Compute( identity_domain, zone, datacenter )
 real_source_volume_name = ""
 real_source_instance_name = ""
-# opcc.deleteSSHKey( cloud_username, identity_domain )
-opcc.addSSHkey( cloud_username, "ssh_keys/gse_admin.pub", identity_domain )
-opcc.createOrchestration(cloud_username, source_orchestration_instance_name, 
-	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_instance_name)  ]  )
-opcc.createVolumeOrchestration(cloud_username, source_orchestration_volume_name, 
-	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_volume_name)  ]  )
+
 
 #find image in datacenters
 print ( "Getting datacenter...", opcc.domain_data )
@@ -39,6 +34,14 @@ for domain in opcc.domain_data:
 	for image in images["result"]:
 		if "OPC_OL6_8_EBS_1226_VISION_SINGLE_TIER_11302016" in image or "OPC_OL6_8_EBS_ORCH_VM_03282017" in image or "OPC_OL6_8_X86_64_EBS_OS_VM_12202016" in image: 
 			return
+
+# opcc.deleteSSHKey( cloud_username, identity_domain )
+opcc.addSSHkey( cloud_username, "ssh_keys/gse_admin.pub", identity_domain )
+opcc.createOrchestration(cloud_username, source_orchestration_instance_name, 
+	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_instance_name)  ]  )
+opcc.createVolumeOrchestration(cloud_username, source_orchestration_volume_name, 
+	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_volume_name)  ]  )
+
 # sleep here
 time_ellapsed = 0
 while real_source_instance_name == "" :
