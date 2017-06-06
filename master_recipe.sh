@@ -10,9 +10,18 @@ executionPath=$4
 password=$5
 cd $executionPath
 
+#Run RT script (selenium)
+echo "***************************************************************************************"
+echo "Step 1 - Installing required VMs from Market Place via selenium"
+echo "***************************************************************************************"
+export PATH=$PATH:${executionPath}
+# python install_marketplace_images_WD.py $identity_domain $zone $datacenter
+# curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_EBS_marketplace_images
+curl -X POST -d "identity_domain=${identity_domain}&password=${password}" http://gse-admin.oraclecloud.com:7002/install_marketplace_images
+
 #Add the allow_all security list
 echo "***************************************************************************************"
-echo "Step 0 - Finding source and Datacenter"
+echo "Step 2 - Finding source and Datacenter"
 echo "***************************************************************************************"
 mkdir -p $executionPath/cache/$identity_domain
 touch $executionPath/cache/$identity_domain/zone && chmod 777 $executionPath/cache/$identity_domain/zone
@@ -38,22 +47,15 @@ fi
 
 #Add the allow_all security list
 echo "***************************************************************************************"
-echo "Step 1 - Creating an open security list for the domain (allow_all)"
+echo "Step 3 - Creating an open security list for the domain (allow_all)"
 echo "***************************************************************************************"
 python create_open_seclist.py $identity_domain $zone $datacenter
 
-#Run RT script (selenium)
-echo "***************************************************************************************"
-echo "Step 2 - Installing required VMs from Market Place via selenium"
-echo "***************************************************************************************"
-export PATH=$PATH:${executionPath}
-# python install_marketplace_images_WD.py $identity_domain $zone $datacenter
-# curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_EBS_marketplace_images
-curl -X POST -d "identity_domain=${identity_domain}&password=${password}" http://gse-admin.oraclecloud.com:7002/install_marketplace_images
+
 sleep 60
 #Create ssh key and upload to demo central
 echo "***************************************************************************************"
-echo "Step 3 - Creating a new ssh key and uploading to Demo Central"
+echo "Step 4 - Creating a new ssh key and uploading to Demo Central"
 echo "***************************************************************************************"
 chmod 0400 ssh_keys/*
 # [ ! -f ssh_keys/${identity_domain} ] && ssh-keygen -b 2048 -t rsa -f ssh_keys/${identity_domain} -q -N ""
@@ -64,7 +66,7 @@ cp ssh_keys/gse_admin.pub ssh_keys/${identity_domain}.pub
 
 #Create source instance
 echo "***************************************************************************************"
-echo "Step 4 - Creating EBS source instance and waiting until it starts"
+echo "Step 5 - Creating EBS source instance and waiting until it starts"
 echo "***************************************************************************************"
 rm -rf ips/${identity_domain}
 python clean_source_vm.py $identity_domain $zone $datacenter
@@ -79,7 +81,7 @@ if [ "$source_ip" != "" ] && [ "$tools_ip" != "" ] ; then
 
 	#Upload and execute configuration script to source instance 
 	echo "***************************************************************************************"
-	echo "Step 5 - Running workshop commands on the new VM, using gse-admin as bridge"
+	echo "Step 6 - Running workshop commands on the new VM, using gse-admin as bridge"
 	echo "***************************************************************************************"
 	sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}	
 fi
