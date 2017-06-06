@@ -44,8 +44,9 @@ while real_tools_instance_name == "" :
 			if instance['name'].find(tools_instance_name) > 0:							
 				print instance["state"]
 				if instance["state"] == "running":
-					source_public_ip = opcc.getReservedIP(admin_username, instance["vcable_id"])
+					source_public_ip = opcc.getReservedIP(cloud_username, instance["vcable_id"])
 					real_tools_instance_name = instance['name']
+					print ("Retrieving IP and real name of the newly created service...", source_public_ip, real_source_instance_name)
 		if real_tools_instance_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	  
