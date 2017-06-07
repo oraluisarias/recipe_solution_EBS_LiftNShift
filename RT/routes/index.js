@@ -16,21 +16,28 @@ router.post('/install_marketplace_images', function(req, res, next) {
 	res.json( {"result":"Executing RT on background"} );                           
 });
 
-router.get('/getOPCZone/:identity_domain/:password', function(req, res, next) {	
-	getOPCZone(req.params.identity_domain, req.params.password, res);
+router.get('/getOPCZone/:username/:password', function(req, res, next) {	
+	var username = typeof req.body.username !== 'undefined' ? req.body.username : false;
+	getOPCZone(req.params.identity_domain, req.params.password, username, res);
 });
 
 router.post('/getOPCZone', function(req, res, next) {	
-	getOPCZone(req.body.identity_domain, req.body.password, res);
+	var username = typeof req.body.username !== 'undefined' ? req.body.username : false;
+	getOPCZone(req.body.identity_domain, req.body.password, username, res);
 });
 
-function getOPCZone(identity_domain, password, res){
+function getOPCZone(identity_domain, password, username, res){
 	DMN.findOne({ where: { "identity_domain" : identity_domain } }).then(function(domain) {
         if(domain){
 			res.json( { identity_domain : JSON.parse(domain.domain_data) } );   
         }
         else{
-			var cmd =  "python ../getOPCZone.py "+identity_domain+" "+password;
+        	if(!username){
+				var cmd =  "python ../getOPCZone.py "+identity_domain+" "+password;
+        		
+        	}else{
+				var cmd =  "python ../getOPCZone.py "+identity_domain+" "+password+" "+username;
+        	}
 		    console.log(cmd);
 		    exec(cmd, function (error2, stdout2, stderr2){      
 		    	try{

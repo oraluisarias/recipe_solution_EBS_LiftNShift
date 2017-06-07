@@ -8,10 +8,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc, json
-username = "cloud.admin"
 identity_domain = sys.argv[1]
 # identity_domain = "gse00011455"
 password = sys.argv[2]
+if len(sys.argv) > 2:
+	username = "cloud.admin"
+else:
+	username = sys.argv[3]
 # password = "ablAtivE@4Iowa"
 # demo_central = opc.DemoCentral()
 opcc = opc.Compute(identity_domain, "z11", "", username, password, False)
