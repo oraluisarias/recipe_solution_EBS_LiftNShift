@@ -200,14 +200,17 @@ class Compute:
 			credentials = {"user" : "/Compute-" + self.identity_domain + "/" + username, "password" : password}
 			# print ("Testing login with custom credentials...")
 			# print (credentials)
-		headers = {'Content-Type': 'application/oracle-compute-v3+json'}		
-		url = "https://api-"+api+".compute."+zone+".oraclecloud.com/authenticate/"
-		# print("url", url)
-		r = requests.post(url, data=json.dumps(credentials), headers=headers)	
-		cookies = "nimbula=" + r.cookies["nimbula"] + "; Path=/; Max-Age=1800"	
-		# print (r.text)
-		self.cookie = cookies
-		return {"cookie" : cookies, "user" : credentials["user"], "password" : credentials["password"]}	
+		if api != False and zone != False:
+			headers = {'Content-Type': 'application/oracle-compute-v3+json'}		
+			url = "https://api-"+api+".compute."+zone+".oraclecloud.com/authenticate/"
+			# print("url", url)
+			r = requests.post(url, data=json.dumps(credentials), headers=headers)	
+			cookies = "nimbula=" + r.cookies["nimbula"] + "; Path=/; Max-Age=1800"	
+			# print (r.text)
+			self.cookie = cookies
+			return {"cookie" : cookies, "user" : credentials["user"], "password" : credentials["password"]}	
+		else:
+			return {"cookie" : "", "user" : self.username, "password" : self.password}	
 
 	def setAPI(self, api, zone):
 		self.api = api
