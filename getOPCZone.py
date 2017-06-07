@@ -15,6 +15,8 @@ if len(sys.argv) > 2:
 	username = "cloud.admin"
 else:
 	username = sys.argv[3]
+	print ("Using custom credentials")
+
 # password = "ablAtivE@4Iowa"
 # demo_central = opc.DemoCentral()
 opcc = opc.Compute(identity_domain, "z11", "", username, password, False)
