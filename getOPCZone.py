@@ -8,12 +8,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc, json
+sites = {}
 identity_domain = sys.argv[1]
 # identity_domain = "gse00011455"
 password = sys.argv[2]
 if len(sys.argv) > 2:
 	username = sys.argv[3]
-	print ("Using custom credentials")
+	sites["message"]="Using custom credentials"
 else:
 	username = "cloud.admin"
 
