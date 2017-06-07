@@ -12,10 +12,10 @@ identity_domain = sys.argv[1]
 # identity_domain = "gse00011455"
 password = sys.argv[2]
 if len(sys.argv) > 2:
-	username = "cloud.admin"
-else:
 	username = sys.argv[3]
 	print ("Using custom credentials")
+else:
+	username = "cloud.admin"
 
 # password = "ablAtivE@4Iowa"
 # demo_central = opc.DemoCentral()
