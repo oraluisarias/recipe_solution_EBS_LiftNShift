@@ -210,7 +210,7 @@ class Compute:
 			self.cookie = cookies
 			return {"cookie" : cookies, "user" : credentials["user"], "password" : credentials["password"]}	
 		else:
-			return {"cookie" : "", "user" : self.username, "password" : self.password}	
+			return {"cookie" : "", "user" : "", "password" : ""}	
 
 	def setAPI(self, api, zone):
 		self.api = api
