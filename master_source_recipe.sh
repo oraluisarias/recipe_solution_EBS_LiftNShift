@@ -74,7 +74,7 @@ echo "Step 5 - Creating EBS source instance and waiting until it starts"
 echo "***************************************************************************************"
 rm -rf ips/${identity_domain}
 # python clean_source_vm.py $identity_domain $zone $datacenter
-python create_source_vm.py $identity_domain $zone $datacenter
+python create_vision_vm.py $identity_domain $zone $datacenter ebsonprem
 python create_tools_vm.py $identity_domain $zone $datacenter
 source_ip=`cat ips/${identity_domain}`
 tools_ip=`cat ips/tools_${identity_domain}`

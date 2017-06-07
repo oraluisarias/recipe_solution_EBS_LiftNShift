@@ -1,5 +1,5 @@
 {	
-	"profileName": "EBS_LiftNShift_setup",		
+	"profileName": "EBS_LiftNShift_target",		
 	"setupServices": 
 	[
 		{	
@@ -10,7 +10,7 @@
 				{
 					"infrastructureType": "runCommandVM",
 					"profile": "custom",
-					"customSetupScripts": "sh ./master_recipe.sh ${domain} ${zone} ${datacenter} ${profilePath} ${password}"
+					"customSetupScripts": "sh ./master_target_recipe.sh ${domain} ${zone} ${datacenter} ${profilePath} ${password}"
 				}
 			]
 		}

@@ -6,17 +6,18 @@ identity_domain = sys.argv[1]
 zone = sys.argv[2]
 # datacenter = "em3"
 datacenter = sys.argv[3]
+hostname = sys.argv[3]
 demo_central = opc.DemoCentral()
 admin_username = "gse-admin_ww@oracle.com"
 cloud_username = "cloud.admin"
 cloud_password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 
-source_instance_name = "EBS_Source"
-source_volume_name = "EBS_Source_Storage_420GB"
+source_instance_name = "EBS_Vision"
+source_volume_name = "EBS_Vision_Storage_420GB"
 source_volume = "/Compute-"+identity_domain+"/"+cloud_username+"/"+source_volume_name
-source_orchestration_instance_name = "orchestrations/source_orchestration.json"
-source_orchestration_volume_name = "orchestrations/source_orchestration_volume.json"
-source_orchestration_name = "/Compute-"+identity_domain+"/"+cloud_username+"/EBS_Source"
+vision_orchestration_instance_name = "orchestrations/vision_orchestration.json"
+vision_orchestration_volume_name = "orchestrations/vision_orchestration_volume.json"
+vision_orchestration_name = "/Compute-"+identity_domain+"/"+cloud_username+"/EBS_Source"
 
 opcc = opc.Compute( identity_domain, zone, datacenter )
 real_source_volume_name = ""
@@ -24,10 +25,12 @@ real_source_instance_name = ""
 
 # opcc.deleteSSHKey( cloud_username, identity_domain )
 opcc.addSSHkey( cloud_username, "ssh_keys/gse_admin.pub", identity_domain )
-opcc.createOrchestration(cloud_username, source_orchestration_instance_name, 
-	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_instance_name)  ]  )
-opcc.createVolumeOrchestration(cloud_username, source_orchestration_volume_name, 
-	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), ("#name", source_volume_name)  ]  )
+opcc.createOrchestration(cloud_username, vision_orchestration_instance_name, 
+	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), 
+	("#name", source_instance_name), ("#hostname", hostname)  ]  )
+opcc.createVolumeOrchestration(cloud_username, vision_orchestration_volume_name, 
+	[ ("#cloud_username", cloud_username), ("#identityDomain", identity_domain), 
+	("#name", source_volume_name), ("#hostname", hostname)  ]  )
 
 # sleep here
 time_ellapsed = 0

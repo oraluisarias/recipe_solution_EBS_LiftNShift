@@ -1,0 +1,18 @@
+{	
+	"profileName": "EBS_LiftNShift_source",		
+	"setupServices": 
+	[
+		{	
+			"serviceType": "CCS",
+			"profile": "custom",
+			"setupInfrastructure": 
+			[
+				{
+					"infrastructureType": "runCommandVM",
+					"profile": "custom",
+					"customSetupScripts": "sh ./master_source_recipe.sh ${domain} ${zone} ${datacenter} ${profilePath} ${password}"
+				}
+			]
+		}
+	]				
+}

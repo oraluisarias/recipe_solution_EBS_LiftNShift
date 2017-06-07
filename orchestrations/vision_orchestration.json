@@ -12,12 +12,12 @@
     "label" : "#name",
     "objects" : [ {
       "instances" : [ {
-        "hostname" : "ebssource.compute-#identityDomain.oraclecloud.internal.",
+        "hostname" : "#hostname.compute-#identityDomain.oraclecloud.internal.",
         "networking" : {
           "eth0" : {
             "seclists" : [ "/Compute-#identityDomain/#cloud_username/allow_all" ],
             "nat" : "ippool:/oracle/public/ippool",
-            "dns" : [ "ebssource" ]
+            "dns" : [ "#hostname" ]
           }
         },
         "name" : "/Compute-#identityDomain/#cloud_username/#name",
@@ -30,8 +30,8 @@
           },
           "nimbula_orchestration" : "/Compute-#identityDomain/#cloud_username/#name"
         },
-        "imagelist" : "/Compute-#identityDomain/#cloud_username/OPC_OL6_8_X86_64_EBS_OS_VM_12202016",
-        "sshkeys" : [ "/Compute-#identityDomain/#cloud_username/gse_key" ],
+        "imagelist" : "/Compute-#identityDomain/#cloud_username/OPC_OL6_8_EBS_1226_VISION_SINGLE_TIER_11302016",
+        "sshkeys" : [ "/Compute-#identityDomain/#cloud_username/#identityDomain" ],
         "tags" : [ "EBS_Source" ]
       } ]
     } ]
