@@ -458,7 +458,7 @@ class Compute:
 		return yaml.safe_load(r.text)	
  	
  	def getDCEnvironment(self, environment):
-		print ("Getting environment username/password from Demo Central...")
+		# print ("Getting environment username/password from Demo Central...")
 		endpoint = "https://adsweb.oracleads.com/apex/adsweb/rest/environments"
 		headers = {
 			'Authorization': 'Bearer YTg3ZWJmNDctNzFhYS00ZDM4LWE5YWQtN2FlNTNlZjNlNTNm',
