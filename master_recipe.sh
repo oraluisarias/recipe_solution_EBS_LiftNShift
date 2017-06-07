@@ -10,6 +10,11 @@ executionPath=$4
 password=$5
 cd $executionPath
 
+echo "***************************************************************************************"
+echo "Step 0 - Getting Demo Central cloud.admin password"
+echo "***************************************************************************************"
+password=`python getDemoCentralPWD.py ${identity_domain}`
+echo "Found password: ${password}"
 #Run RT script (selenium)
 echo "***************************************************************************************"
 echo "Step 1 - Installing required VMs from Market Place via selenium"
@@ -27,7 +32,6 @@ echo "**************************************************************************
 mkdir -p $executionPath/cache/$identity_domain
 touch $executionPath/cache/$identity_domain/zone && chmod 777 $executionPath/cache/$identity_domain/zone
 touch $executionPath/cache/$identity_domain/datacenter && chmod 777 $executionPath/cache/$identity_domain/datacenter
-echo python getZoneDatacenter.py $identity_domain
 python getZoneDatacenter.py $identity_domain
 
 if [ -f cache/$identity_domain/zone ] ; then
