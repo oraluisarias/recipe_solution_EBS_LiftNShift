@@ -1,4 +1,4 @@
-import opc
+import sys, opc
 
 identity_domain = sys.argv[1]
 opcc = opc.Compute(identity_domain, "z11", "", "cloud.admin", False, False)
