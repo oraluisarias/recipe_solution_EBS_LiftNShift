@@ -36,10 +36,9 @@ opcc.createVolumeOrchestration(cloud_username, vision_orchestration_volume_name,
 time_ellapsed = 0
 while real_source_instance_name == "" and real_source_volume_name == "" :
 	if time_ellapsed == 29:
-		opcc = opc.Compute( identity_domain, zone, datacenter )
-	Initializing	Online
+		opcc = opc.Compute( identity_domain, zone, datacenter )	
 	instances = opcc.getInstances( cloud_username )
-	volumes = opcc.getVolumes(cloud_username)
+	volumes = opcc.getVolumes( cloud_username )
 	print ("Waiting for instance and volume to be created, sleeping 1 minute per iteration ",str(time_ellapsed)," minutes passed...")
 	try:
 		for volume in volumes["result"]: 
@@ -58,7 +57,7 @@ while real_source_instance_name == "" and real_source_volume_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	  
 	except NameError:
-		print ("Didnt get any answer from OPC this time!")
+		print ("Didn't get any answer from OPC this time!")
 	except Exception as e:
   		print ( "Lost access to OPC, halting recipe..." , e)	  
 		sys.exit(0)
