@@ -43,8 +43,8 @@ while real_source_instance_name == "" and real_source_volume_name == "" :
 	try:
 		for volume in volumes["result"]: 
 			if volume['name'].find(source_volume_name) > 0:		
-				print ("Volume state: ", volume["state"])
-				if volume["state"] == "Online":
+				print ("Volume state: ", volume["status"])
+				if volume["status"] == "Online":
 					real_source_volume_name = volume['name']					
 		for instance in instances["result"]: 
 			if instance['name'].find(source_instance_name) > 0:							
