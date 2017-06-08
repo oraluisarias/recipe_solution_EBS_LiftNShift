@@ -23,28 +23,29 @@ do
 	sleep 60
 	. /u01/install/APPS/EBSapps.env run	
 done
-# cd $gse_admin_stagedir/RemoteClone_v1.7
-# perl ebsclone.pl
 
 expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
-expect \"APPS username:?\"
+expect \"APPS username:\"
 send \"apps\r\"
-expect \"APPS password:?\"
+expect \"APPS password:\"
 send \"apps\r\"
-expect \"WebLogic Server password:?\"
+expect \"WebLogic Server password:\"
 send \"welcome1\r\"
 send \"\r\"
 expect eof"
+sleep 120
 
 expect -c "spawn perl /u01/install/APPS/fs1/EBSapps/appl/fnd/12.0.0/patch/115/bin/txkUpdateEBSDomain.pl -action=updateAdminPassword
-expect \"Enter the WLS Admin Password:?\"
+expect \"Enter \"Yes\" to proceed or anything else to exit:\"
+expect \"Enter the WLS Admin Password:\"
 send \"welcome1\r\"
-expect \"Enter the new WLS Admin Password:?\"
+expect \"Enter the new WLS Admin Password:\"
 send \"welcome1\r\"
-expect \"Enter the APPS user password:?\"
+expect \"Enter the APPS user password:\"
 send \"apps\r\"
 send \"\r\"
 expect eof"
+sleep 120
 
 expect -c "spawn sh /u01/install/scripts/configwebentry.sh
 expect \"Press any key to continue...\"
@@ -61,22 +62,23 @@ expect \" /u01/install/APPS):\"
 send \"/u01/install/APPS\r\"
 send \"\r\"
 expect eof"
+sleep 120
 
 expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
-expect \"APPS username:?\"
+expect \"APPS username:\"
 send \"apps\r\"
-expect \"APPS password:?\"
+expect \"APPS password:\"
 send \"apps\r\"
-expect \"WebLogic Server password:?\"
+expect \"WebLogic Server password:\"
 send \"welcome1\r\"
 send \"\r\"
 expect eof"
+sleep 120
 
 expect -c "spawn sh /u01/install/APPS/scripts/enableDEMOusers.sh
-expect \"Enter new password for DEMO users:?\"
+expect \"Enter new password for DEMO users:\"
 send \"welcome1\r\"
-expect \"Re-enter password for DEMO users:?\"
+expect \"Re-enter password for DEMO users:\"
 send \"welcome1\r\"
 send \"\r\"
 expect eof"
-
