@@ -34,15 +34,22 @@ opcc.createVolumeOrchestration(cloud_username, vision_orchestration_volume_name,
 
 # sleep here
 time_ellapsed = 0
-while real_source_instance_name == "" :
+while real_source_instance_name == "" and real_source_volume_name == "" :
 	if time_ellapsed == 29:
 		opcc = opc.Compute( identity_domain, zone, datacenter )
+	Initializing	Online
 	instances = opcc.getInstances( cloud_username )
-	print ("Waiting for source instance to be created, sleeping 1 minute per iteration ",str(time_ellapsed)," minutes passed...")
+	volumes = opcc.getVolumes(cloud_username)
+	print ("Waiting for instance and volume to be created, sleeping 1 minute per iteration ",str(time_ellapsed)," minutes passed...")
 	try:
+		for volume in volumes["result"]: 
+			if volume['name'].find(source_volume_name) > 0:		
+				print ("Volume state: ", volume["state"])
+				if volume["state"] == "Online":
+					real_source_volume_name = volume['name']					
 		for instance in instances["result"]: 
 			if instance['name'].find(source_instance_name) > 0:							
-				print instance["state"]
+				print ("Instance state: ", instance["state"])
 				if instance["state"] == "running":
 					source_public_ip = opcc.getReservedIP(cloud_username, instance["vcable_id"])
 					real_source_instance_name = instance['name']
