@@ -29,6 +29,16 @@ send \"welcome1\r\"
 send \"\r\"
 expect eof"
 
+expect -c "spawn perl /u01/install/APPS/fs1/EBSapps/appl/fnd/12.0.0/patch/115/bin/txkUpdateEBSDomain.pl -action=updateAdminPassword
+expect \"Enter the WLS Admin Password:?\"
+send \"welcome1\r\"
+expect \"Enter the new WLS Admin Password:?\"
+send \"welcome1\r\"
+expect \"Enter the APPS user password:?\"
+send \"apps\r\"
+send \"\r\"
+expect eof"
+
 expect -c "spawn sh /u01/install/scripts/configwebentry.sh
 expect \"Press any key to continue...\"
 send \"\r\"
