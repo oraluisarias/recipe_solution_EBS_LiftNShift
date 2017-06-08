@@ -15,16 +15,16 @@ cd /u01
 [ ! -d /u01/dbstg ] && mkdir /u01/dbstg
 [ ! -d /u01/appstg ] && mkdir /u01/appstg
 
-node_info_file='/u01/install/APPS/fs1/FMW_Home/Oracle_EBS-app1/applications/oacore/APP-INF/node_info.txt'
-while [ ! -f $node_info_file ]
+# node_info_file='/u01/install/APPS/fs1/FMW_Home/Oracle_EBS-app1/applications/oacore/APP-INF/node_info.txt'
+. /u01/install/APPS/EBSapps.env run
+while [ ! $? -eq 0 ]
 do
-	ls $node_info_file
-	echo "Context file doesn't exist, waiting..."
+	echo "Waiting for instance to initialize ..."	
 	sleep 60
+	. /u01/install/APPS/EBSapps.env run	
 done
 # cd $gse_admin_stagedir/RemoteClone_v1.7
 # perl ebsclone.pl
-. /u01/install/APPS/EBSapps.env run
 
 expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
 expect \"APPS username:?\"
