@@ -13,7 +13,7 @@ cloud_username = "cloud.admin"
 cloud_password = demo_central.getDCEnvironment("metcs-" + identity_domain)["items"][0]["password"]
 
 source_instance_name = hostname
-source_volume_name = "${hostname}_Storage_420GB"
+source_volume_name = hostname+"_Storage_420GB"
 source_volume = "/Compute-"+identity_domain+"/"+cloud_username+"/"+source_volume_name
 vision_orchestration_instance_name = "orchestrations/vision_orchestration.json"
 vision_orchestration_volume_name = "orchestrations/vision_orchestration_volume.json"
