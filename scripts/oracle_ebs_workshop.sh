@@ -15,7 +15,7 @@ cd /u01
 [ ! -d /u01/dbstg ] && mkdir /u01/dbstg
 [ ! -d /u01/appstg ] && mkdir /u01/appstg
 
-node_info_file='/u01/install/APPS/fs2/FMW_Home/Oracle_EBS-app1/applications/oacore/APP-INF/node_info.txt'
+node_info_file='/u01/install/APPS/fs1/FMW_Home/Oracle_EBS-app1/applications/oacore/APP-INF/node_info.txt'
 while [ ! -f $node_info_file ]
 do
 	ls $node_info_file
