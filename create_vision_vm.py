@@ -1,12 +1,12 @@
 import opc, time, sys
 
-# identity_domain = sys.argv[1]
-identity_domain = "gse00010217"
-# zone = sys.argv[2]
-zone = "z33"
-# datacenter = sys.argv[3]
-datacenter = "em3"
-# hostname = sys.argv[4]
+# identity_domain = "gse00010217"
+# zone = "z33"
+# datacenter = "em3"
+identity_domain = sys.argv[1]
+zone = sys.argv[2]
+datacenter = sys.argv[3]
+hostname = sys.argv[4]
 hostname = "ebsonprem"
 demo_central = opc.DemoCentral()
 admin_username = "gse-admin_ww@oracle.com"
@@ -43,18 +43,19 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 	instances = opcc.getInstances( cloud_username )
 	volumes = opcc.getVolumes( cloud_username )
 	try:
-		if real_source_volume_name == "":				
-			for volume in volumes["result"]: 
-				if volume['name'].find(source_volume_name) > 0:		
-					print ("Volume state: ", volume["status"])
-					if volume["status"] == "Online":
-						real_source_volume_name = volume['name']	
-		if real_source_instance_name == "":				
-			for instance in instances["result"]: 
-				if instance['name'].find(source_instance_name) > 0:							
-					print ("Instance state: ", instance["state"])
-					if instance["state"] == "running":
-						real_source_instance_name = instance['name']
+		for volume in volumes["result"]: 
+			if volume['name'].find(source_volume_name) > 0:
+				# if real_source_volume_name == "":
+				print ("Volume state: ", volume["status"])
+				if volume["status"] == "Online":
+					real_source_volume_name = volume['name']	
+		print ("Instances...", instances)
+		for instance in instances["result"]: 
+			if instance['name'].find(source_instance_name) > 0:
+				# if real_source_instance_name == "":				
+				print ("Instance state: ", instance["state"])
+				if instance["state"] == "running":
+					real_source_instance_name = instance['name']
 		if real_source_instance_name == "" or real_source_volume_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	  
