@@ -34,12 +34,13 @@ opcc.createVolumeOrchestration(cloud_username, vision_orchestration_volume_name,
 
 # sleep here
 time_ellapsed = 0
-while real_source_instance_name != "" and real_source_volume_name != "" :
+while real_source_instance_name == "" or real_source_volume_name == "" :
+	print ("Waiting for instance and volume to be created, sleeping 1 minute per iteration ",str(time_ellapsed)," minutes passed...")
 	if time_ellapsed == 29:
+		print ("29 minutes passed, login in again to OPC")
 		opcc = opc.Compute( identity_domain, zone, datacenter )	
 	instances = opcc.getInstances( cloud_username )
 	volumes = opcc.getVolumes( cloud_username )
-	print ("Waiting for instance and volume to be created, sleeping 1 minute per iteration ",str(time_ellapsed)," minutes passed...")
 	try:
 		if real_source_volume_name == "":				
 			for volume in volumes["result"]: 
@@ -52,12 +53,13 @@ while real_source_instance_name != "" and real_source_volume_name != "" :
 				if instance['name'].find(source_instance_name) > 0:							
 					print ("Instance state: ", instance["state"])
 					if instance["state"] == "running":
-						source_public_ip = opcc.getReservedIP(cloud_username, instance["vcable_id"])
 						real_source_instance_name = instance['name']
-						print ("Retrieving IP and real name of the newly created service...", source_public_ip, real_source_instance_name)
-		if real_source_instance_name == "" :
+		if real_source_instance_name == "" or real_source_volume_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	  
+		else:
+			source_public_ip = opcc.getReservedIP(cloud_username, instance["vcable_id"])
+			print ("Finally VM and storage started, retrieving IP...", source_public_ip, real_source_instance_name)
 	except NameError:
 		print ("Didn't get any answer from OPC this time!")
 	except Exception as e:
