@@ -33,7 +33,8 @@ class Compute:
 	def __init__(self, identity_domain, api="z26", zone="us2", username="cloud.admin", password=False, findDomainData=True):
 		self.api = api
 		self.identity_domain = identity_domain
-		self.zone = self.DATACENTER_SHORT = self.findDataCenter()
+		self.zone = zone
+		self.DATACENTER_SHORT = self.findDataCenter()
 		# print ( "Datacenter...", self.findDataCenter() )
 		if self.DATACENTER_SHORT == "us2" :
 			self.DATACENTER_LONG="us"
@@ -50,7 +51,11 @@ class Compute:
 					print("no data in Demo Central, environment retired?"); 	
 				except: 
 					self.password =  ""		
-		auth = self.authenticate( self.api, self.zone, self.user, self.password)		
+		try: 
+			auth = self.authenticate( self.api, self.zone, self.user, self.password)					
+		except: 	
+			self.zone = self.DATACENTER_SHORT
+			auth = self.authenticate( self.api, self.zone, self.user, self.password)					
 		if findDomainData:
 			self.findDomainData()
 

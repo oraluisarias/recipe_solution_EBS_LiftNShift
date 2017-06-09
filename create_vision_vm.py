@@ -1,12 +1,13 @@
 import opc, time, sys
 
-# identity_domain = "gse00010217"
-identity_domain = sys.argv[1]
-# zone = "z33"
-zone = sys.argv[2]
-# datacenter = "em3"
-datacenter = sys.argv[3]
-hostname = sys.argv[4]
+# identity_domain = sys.argv[1]
+identity_domain = "gse00010217"
+# zone = sys.argv[2]
+zone = "z33"
+# datacenter = sys.argv[3]
+datacenter = "em3"
+# hostname = sys.argv[4]
+hostname = "ebsonprem"
 demo_central = opc.DemoCentral()
 admin_username = "gse-admin_ww@oracle.com"
 cloud_username = "cloud.admin"
