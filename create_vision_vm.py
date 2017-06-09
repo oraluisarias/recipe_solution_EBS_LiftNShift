@@ -34,7 +34,7 @@ opcc.createVolumeOrchestration(cloud_username, vision_orchestration_volume_name,
 
 # sleep here
 time_ellapsed = 0
-while real_source_instance_name == "" and real_source_volume_name == "" :
+while real_source_instance_name != "" and real_source_volume_name != "" :
 	if time_ellapsed == 29:
 		opcc = opc.Compute( identity_domain, zone, datacenter )	
 	instances = opcc.getInstances( cloud_username )
