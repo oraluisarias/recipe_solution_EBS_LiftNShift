@@ -39,9 +39,9 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 	if time_ellapsed == 29:
 		print ("29 minutes passed, login in again to OPC")
 		opcc = opc.Compute( identity_domain, zone, datacenter )	
-	instances = opcc.getInstances( cloud_username )
-	volumes = opcc.getVolumes( cloud_username )
 	try:
+		instances = opcc.getInstances( cloud_username )
+		volumes = opcc.getVolumes( cloud_username )
 		for volume in volumes["result"]: 
 			if volume['name'].find(source_volume_name) > 0:
 				# if real_source_volume_name == "":
