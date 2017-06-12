@@ -7,7 +7,6 @@ identity_domain = sys.argv[1]
 zone = sys.argv[2]
 datacenter = sys.argv[3]
 hostname = sys.argv[4]
-hostname = "ebsonprem"
 demo_central = opc.DemoCentral()
 admin_username = "gse-admin_ww@oracle.com"
 cloud_username = "cloud.admin"
@@ -54,14 +53,13 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 			if instance['name'].find(source_instance_name) > 0:
 				# if real_source_instance_name == "":				
 				print ("Instance state: ", instance["state"])
-				if instance["state"] == "running":
+				if instance["state"] == "running" and real_source_volume_name != "":
 					real_source_instance_name = instance['name']
+					source_public_ip = opcc.getReservedIP(cloud_username, instance["vcable_id"])
+					print ("Finally VM and storage started, retrieving IP...", source_public_ip, real_source_instance_name)
 		if real_source_instance_name == "" or real_source_volume_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	  
-		else:
-			source_public_ip = opcc.getReservedIP(cloud_username, instance["vcable_id"])
-			print ("Finally VM and storage started, retrieving IP...", source_public_ip, real_source_instance_name)
 	except NameError:
 		print ("Didn't get any answer from OPC this time!")
 	except Exception as e:
