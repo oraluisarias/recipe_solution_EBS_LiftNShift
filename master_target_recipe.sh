@@ -78,12 +78,13 @@ python create_vision_vm.py $identity_domain $zone $datacenter ebscloud
 source_ip=`cat ips/${identity_domain}`
 if [ "$source_ip" != "" ] ; then
 	echo "***************************************************************************************"
-	echo "Instance finally started, source public IP: ${source_ip}, tools public IP: ${tools_ip}" 
+	echo "Instance finally started, vision public IP: ${source_ip} " 
 	echo "***************************************************************************************"
 
 	#Upload and execute configuration script to source instance 
 	echo "***************************************************************************************"
 	echo "Step 6 - Running workshop commands on the new VM, using gse-admin as bridge"
 	echo "***************************************************************************************"
-	sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
+	echo sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
+	# sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
 fi
