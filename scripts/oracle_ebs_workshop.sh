@@ -63,7 +63,7 @@ expect \" /u01/install/APPS):\"
 send \"/u01/install/APPS\r\"
 expect \" Enter the IMAP domain name [NoImapDomain]:\"
 send \"\r\""
-sleep 120
+sleep 240
 
 expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
 expect \"APPS username:\"
