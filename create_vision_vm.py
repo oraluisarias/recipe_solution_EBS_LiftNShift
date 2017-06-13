@@ -60,11 +60,11 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 		if real_source_instance_name == "" or real_source_volume_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	  
-	except NameError:
+	except NameError, KeyError:
 		print ("Didn't get any answer from OPC this time!")
 	except Exception as e:
   		print ( "Lost access to OPC, halting recipe..." , e)	  
-		sys.exit(0)
+		sys.exit(1)
 
 print ("Public IP: ", source_public_ip)
 f = open("ips/" + identity_domain, 'w')
