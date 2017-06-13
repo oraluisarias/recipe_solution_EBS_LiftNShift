@@ -63,7 +63,10 @@ class Compute:
 		RTpayload = { "identity_domain":self.identity_domain, "password":self.password }
 		# print("Querying domain data using RT using data...", RTpayload)
 		r = requests.post("http://gse-admin.oraclecloud.com:7002/getOPCZone", data=RTpayload )
-		self.domain_data = yaml.safe_load( r.text )["identity_domain"]
+		try: 
+			self.domain_data = yaml.safe_load( r.text )["identity_domain"]			
+		except: 	
+			sys.exit(1)
 
 	def findDataCenter(self):
 		datacenters = ["us2", "em2", "em3", "us6"]
