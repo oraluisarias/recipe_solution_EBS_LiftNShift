@@ -86,5 +86,5 @@ if [ "$source_ip" != "" ] ; then
 	echo "Step 6 - Running workshop commands on the new VM, using gse-admin as bridge"
 	echo "***************************************************************************************"
 	echo sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
-	# sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
+	sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
 fi

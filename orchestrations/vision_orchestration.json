@@ -12,7 +12,6 @@
     "label" : "#name",
     "objects" : [ {
       "instances" : [ {
-        "hostname" : "#hostname.compute-#identityDomain.oraclecloud.internal.",
         "networking" : {
           "eth0" : {
             "seclists" : [ "/Compute-#identityDomain/#cloud_username/allow_all" ],

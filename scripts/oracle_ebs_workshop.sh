@@ -24,29 +24,29 @@ do
 	. /u01/install/APPS/EBSapps.env run	
 done
 
-expect -c "spawn perl /u01/install/APPS/fs1/EBSapps/appl/fnd/12.0.0/patch/115/bin/txkUpdateEBSDomain.pl -action=updateAdminPassword
-expect \"Enter \"Yes\" to proceed or anything else to exit:\"
-send \"Yes\r\"
-expect \"[DEFAULT - /u01/install/APPS/fs1/inst/apps/EBSDB_ebsonprem/appl/admin/EBSDB_ebsonprem.xml]:\"
-send \"\r\"
-expect \"Enter the WLS Admin Password:\"
-send \"welcome1\r\"
-expect \"Enter the new WLS Admin Password:\"
-send \"welcome1\r\"
-expect \"Enter the APPS user password:\"
-send \"apps\r\"
-send \"\r\""
-sleep 120
+# expect -c "spawn perl /u01/install/APPS/fs1/EBSapps/appl/fnd/12.0.0/patch/115/bin/txkUpdateEBSDomain.pl -action=updateAdminPassword
+# expect \"Enter \"Yes\" to proceed or anything else to exit:\"
+# send \"Yes\r\"
+# expect \"[DEFAULT - /u01/install/APPS/fs1/inst/apps/EBSDB_ebsonprem/appl/admin/EBSDB_ebsonprem.xml]:\"
+# send \"\r\"
+# expect \"Enter the WLS Admin Password:\"
+# send \"welcome1\r\"
+# expect \"Enter the new WLS Admin Password:\"
+# send \"welcome1\r\"
+# expect \"Enter the APPS user password:\"
+# send \"apps\r\"
+# send \"\r\""
+# sleep 120
 
-expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
-expect \"APPS username:\"
-send \"apps\r\"
-expect \"APPS password:\"
-send \"apps\r\"
-expect \"WebLogic Server password:\"
-send \"welcome1\r\"
-send \"\r\""
-sleep 120
+# expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
+# expect \"APPS username:\"
+# send \"apps\r\"
+# expect \"APPS password:\"
+# send \"apps\r\"
+# expect \"WebLogic Server password:\"
+# send \"welcome1\r\"
+# send \"\r\""
+# sleep 120
 
 expect -c "spawn sh /u01/install/scripts/configwebentry.sh
 expect \"Press any key to continue...\"
@@ -65,15 +65,15 @@ expect \" Enter the IMAP domain name [NoImapDomain]:\"
 send \"\r\""
 sleep 240
 
-expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
-expect \"APPS username:\"
-send \"apps\r\"
-expect \"APPS password:\"
-send \"apps\r\"
-expect \"WebLogic Server password:\"
-send \"welcome1\r\"
-send \"\r\""
-sleep 120
+# expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
+# expect \"APPS username:\"
+# send \"apps\r\"
+# expect \"APPS password:\"
+# send \"apps\r\"
+# expect \"WebLogic Server password:\"
+# send \"welcome1\r\"
+# send \"\r\""
+# sleep 120
 
 expect -c "spawn sh /u01/install/APPS/scripts/enableDEMOusers.sh
 expect \"Enter new password for DEMO users:\"
