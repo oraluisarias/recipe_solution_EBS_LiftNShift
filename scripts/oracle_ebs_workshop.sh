@@ -59,9 +59,9 @@ expect \"(Eg: domain.com):\"
 send \"compute.oraclecloud.com\r\"
 expect \"(Eg: 443/80):\"
 send \"8000\r\"
-expect \" /u01/install/APPS):\"
+expect \"/u01/install/APPS):\"
 send \"/u01/install/APPS\r\"
-expect \" Enter the IMAP domain name [NoImapDomain]:\"
+expect \"Enter the APPS user password:\"
 send \"\r\""
 sleep 240
 
