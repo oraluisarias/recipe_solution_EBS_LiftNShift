@@ -48,22 +48,22 @@ done
 # send \"\r\""
 # sleep 120
 
-expect -c "spawn sh /u01/install/scripts/configwebentry.sh
-expect \"Press any key to continue...\"
-send \"\r\"
-expect \"(Eg: https/http):\"
-send \" http\r\"
-expect \"(Eg: public):\"
-send \"$targetIpHOST\r\"
-expect \"(Eg: domain.com):\"
-send \"compute.oraclecloud.com\r\"
-expect \"(Eg: 443/80):\"
-send \"8000\r\"
-expect \"/u01/install/APPS):\"
-send \"/u01/install/APPS\r\"
-expect \"Enter the APPS user password:\"
-send \"\r\""
-sleep 240
+# expect -c "spawn sh /u01/install/scripts/configwebentry.sh
+# expect \"Press any key to continue...\"
+# send \"\r\"
+# expect \"(Eg: https/http):\"
+# send \" http\r\"
+# expect \"(Eg: public):\"
+# send \"$targetIpHOST\r\"
+# expect \"(Eg: domain.com):\"
+# send \"compute.oraclecloud.com\r\"
+# expect \"(Eg: 443/80):\"
+# send \"8000\r\"
+# expect \"/u01/install/APPS):\"
+# send \"/u01/install/APPS\r\"
+# expect \"Enter the APPS user password:\"
+# send \"\r\""
+# sleep 240
 
 # expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
 # expect \"APPS username:\"
