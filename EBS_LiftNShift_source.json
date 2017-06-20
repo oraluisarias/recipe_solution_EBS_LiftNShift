@@ -1,6 +1,5 @@
 {	
 	"profileName": "EBS_LiftNShift_onprem",			
-	"cleanUpServices": "ALL",
 	"setupServices": 
 	[
 		{	
