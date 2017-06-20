@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 OLD_HOSTNAME="$( hostname -f )"
 NEW_HOSTNAME="$1"
