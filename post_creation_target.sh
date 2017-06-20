@@ -3,13 +3,11 @@ gse_admin="gse-admin.oraclecloud.com"
 identity_domain=$1
 source_ip=$2
 tools_ip=$3
-executionPath=$4
 targetIpHOST="oc-"`echo "$source_ip" | tr . -`
 gse_admin_stagedir="/app/EBS_LiftNShift/"${identity_domain}
 
 cd $executionPath
-mkdir scripts/${identity_domain}
-python update_properties.py ${identity_domain}
+mkdir -p scripts/${identity_domain}
 
 [ ! -f scripts/p22336899_R12_GENERIC.zip ] && cat scripts/p22336899_R12_GENERIC.zip* > scripts/p22336899_R12_GENERIC.zip
 echo "Deleting existing ssh keys and authorized cache..."
