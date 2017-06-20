@@ -33,8 +33,12 @@ opcc.createVolumeOrchestration(cloud_username, vision_orchestration_volume_name,
 	("#name", source_volume_name), ("#hostname", hostname)  ]  )
 
 # sleep here
+error_counter = 0
 time_ellapsed = 0
 while real_source_instance_name == "" or real_source_volume_name == "" :
+	if error_counter >= 10: 
+		print ("Reached maximum number of failures")
+		sys.exit(1)
 	print ("Waiting for instance and volume to be created, sleeping 1 minute per iteration ",str(time_ellapsed)," minutes passed...")
 	if time_ellapsed == 29:
 		print ("29 minutes passed, login in again to OPC")
@@ -63,8 +67,8 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 	except NameError, KeyError:
 		print ("Didn't get any answer from OPC this time!")
 	except Exception as e:
-  		print ( "Lost access to OPC, halting recipe..." , e)	  
-		sys.exit(1)
+  		print ( "Lost access to OPC, halting recipe..." , e)	 
+  		error_counter=error_counter+1
 
 print ("Public IP: ", source_public_ip)
 f = open("ips/" + identity_domain, 'w')

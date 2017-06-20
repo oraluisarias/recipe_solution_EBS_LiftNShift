@@ -33,8 +33,12 @@ opcc.createOrchestration(cloud_username, tools_orchestration_master_name,
 
 opcc.orchestrationAction(cloud_username, tools_master_name, "START")	
 # sleep here
+error_counter = 0
 time_ellapsed = 0
 while real_tools_instance_name == "" :
+	if error_counter >= 10: 
+		print ("Reached maximum number of failures")
+		sys.exit(1)
 	if time_ellapsed == 29:
 		opcc = opc.Compute( identity_domain, zone, datacenter )
 	instances = opcc.getInstances( cloud_username )
@@ -54,6 +58,7 @@ while real_tools_instance_name == "" :
 		print ("Didnt get any answer from OPC this time!")
 	except Exception as e:
 		print ("Lost access to OPC, halting recipe...", e)	
+		error_counter=error_counter+1
 		sys.exit(1)  
 
 print ("Public IP: ", source_public_ip)
