@@ -2,7 +2,7 @@
 gse_admin="gse-admin.oraclecloud.com"
 identity_domain=$1
 source_ip=$2
-tools_ip=$3
+executionPath=$3
 targetIpHOST="oc-"`echo "$source_ip" | tr . -`
 gse_admin_stagedir="/app/EBS_LiftNShift/"${identity_domain}
 
