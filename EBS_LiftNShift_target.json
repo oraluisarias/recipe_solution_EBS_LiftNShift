@@ -1,5 +1,6 @@
 {	
 	"profileName": "EBS_LiftNShift_cloud",		
+	"cleanUpServices": "ALL",
 	"setupServices": 
 	[
 		{	

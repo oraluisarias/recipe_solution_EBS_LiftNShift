@@ -20,8 +20,6 @@ echo "**************************************************************************
 echo "Step 1 - Installing required VMs from Market Place via selenium"
 echo "***************************************************************************************"
 export PATH=$PATH:${executionPath}
-# python install_marketplace_images_WD.py $identity_domain $zone $datacenter
-# curl -X POST -d 'identity_domain='identity_domain'&datacenter='datacenter'&password='password http://gse-admin.oraclecloud.com:7002/install_EBS_marketplace_images
 curl -X POST -d "identity_domain=${identity_domain}&password=${password}" http://gse-admin.oraclecloud.com:7002/install_marketplace_images
 sleep 120
 
@@ -62,8 +60,6 @@ echo "**************************************************************************
 echo "Step 4 - Creating a new ssh key and uploading to Demo Central"
 echo "***************************************************************************************"
 chmod 0400 ssh_keys/*
-# [ ! -f ssh_keys/${identity_domain} ] && ssh-keygen -b 2048 -t rsa -f ssh_keys/${identity_domain} -q -N ""
-# python update_ssh_key_2_demo_central.py $identity_domain $zone $datacenter
 rm -rf ssh_keys/${identity_domain}*
 cp ssh_keys/gse_admin ssh_keys/${identity_domain}
 cp ssh_keys/gse_admin.pub ssh_keys/${identity_domain}.pub
