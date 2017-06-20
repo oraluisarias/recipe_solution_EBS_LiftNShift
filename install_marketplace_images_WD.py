@@ -54,23 +54,21 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		self.accept_next_alert = True
     
 	def test_install_marketplace_images_w_d(self):
-		driver = self.driver
-		driver.get(self.base_url + "/mycompute/console/view.html?page=instances&tab=instances")
-		driver.find_element_by_id("tenantDisplayName").clear()
-		print ("Logging to the domain: ", identity_domain)
-		driver.find_element_by_id("tenantDisplayName").send_keys(identity_domain)
-		driver.find_element_by_id("signin").click()
-		driver.find_element_by_id("username").clear()
-		print ("Logging with the username: ", username)
-		driver.find_element_by_id("username").send_keys(username)
-		driver.find_element_by_id("password").clear()
-		print ("Logging with the password: ", password)
-		driver.find_element_by_id("password").send_keys(password)
-		driver.find_element_by_id("signin").click()
-		time.sleep(20)
 		try:
-			print ("Accessing new instance menu...")
-			driver.find_element_by_id("actionBtn").click()
+			driver = self.driver
+			driver.get(self.base_url + "/mycompute/console/view.html?page=instances&pageDetails=launchInstance")
+			driver.find_element_by_id("tenantDisplayName").clear()
+			print ("Logging to the domain: ", identity_domain)
+			driver.find_element_by_id("tenantDisplayName").send_keys(identity_domain)
+			driver.find_element_by_id("signin").click()
+			driver.find_element_by_id("username").clear()
+			print ("Logging with the username: ", username)
+			driver.find_element_by_id("username").send_keys(username)
+			driver.find_element_by_id("password").clear()
+			print ("Logging with the password: ", password)
+			driver.find_element_by_id("password").send_keys(password)
+			driver.find_element_by_id("signin").click()
+			time.sleep(20)
 			print ("Accessing marketplace...")
 			driver.find_element_by_css_selector("#marketplaceimages > div.oj-navigationlist-item-content.oj-navigationlist-item-no-icon > span.oj-navigationlist-item-label").click()
 		except Exception:
