@@ -107,13 +107,16 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 				siteArray["zone"] = site_parts[1]
 
 			sites[site] = siteArray
-			driver.implicitly_wait(10)			    
-		driver.get(self.base_url_storage + "/mycloud/faces/gServiceDetail.jspx?entitlementServiceId=536852049&serviceId=536850933&_adf.ctrl-state=null")
-		driver.implicitly_wait(120)
-		storage_url = driver.find_element_by_id("pt1:pt2:currentTabHTMLContents:ot13").text
-		sites["storage"] = storage_url
-
+			driver.implicitly_wait(10)		
+		try: 
+			driver.get(self.base_url_storage + "/mycloud/faces/gServiceDetail.jspx?entitlementServiceId=536852049&serviceId=536850933&_adf.ctrl-state=null")
+			driver.implicitly_wait(120)
+			storage_url = driver.find_element_by_id("pt1:pt2:currentTabHTMLContents:ot13").text
+			sites["storage"] = storage_url			
+		except:
+			print ( json.dumps( { identity_domain:sites } ) )				
 		print ( json.dumps( { identity_domain:sites } ) )		
+
 
 	def is_element_present(self, how, what):
 		try: self.driver.find_element(by=how, value=what)
