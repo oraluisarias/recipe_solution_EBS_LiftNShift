@@ -22,7 +22,7 @@ router.get('/getOPCZone/:username/:password', function(req, res, next) {
 });
 
 router.post('/getOPCZone', function(req, res, next) {	
-	var username = typeof req.body.username !== 'undefined' ? req.body.username : false;
+	var username = typeof req.body.username !== 'undefined' ? req.body.username : "cloud.admin";
 	getOPCZone(req.body.identity_domain, req.body.password, username, res);
 });
 
