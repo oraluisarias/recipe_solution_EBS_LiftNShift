@@ -91,14 +91,14 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			driver.implicitly_wait(30)
 			site = driver.find_element_by_id("ojChoiceId_siteSelect_selected").text
 			site_parts = site.split("_")
-			ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
-			memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
-			ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
+			# ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
+			# memory = driver.find_element_by_id('memoryGauge').get_attribute("aria-label")
+			# ips = driver.find_element_by_id('ipReservationsGauge').get_attribute("aria-label")
 			# if not hasattr(sites, site):
 			siteArray = {
-				"ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
-				"memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
-				"ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
+				# "ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
+				# "memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
+				# "ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
 				"site":site,
 				"datacenter":site_parts[0]
 			}
