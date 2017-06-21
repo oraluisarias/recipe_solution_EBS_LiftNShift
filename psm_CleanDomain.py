@@ -6,7 +6,8 @@ identity_domain = sys.argv[1]
 print ( "Cleaning domain using psm Clean" )
 data = {
 	"identity_domain": identity_domain,
-	"solution_profile" : "psm_CleanDomain"
+	"solution_profile" : "psm_CleanDomain",
+	"override_concurrency" : True
 }
 CloudBots_endpoint = "http://hq-techadmin.us.oracle.com:3000/CloudBots"	
 CloudBots_response = requests.post( CloudBots_endpoint + "/runRecipe", data=data )
