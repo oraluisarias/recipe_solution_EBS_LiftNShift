@@ -1,6 +1,7 @@
 import opc, time, sys
  
-identity_domain = sys.argv[1]
+# identity_domain = sys.argv[1]
+identity_domain = "gse00002320"
 opcc = opc.Compute( identity_domain, "z11", False )
  
 image_found = False
@@ -20,7 +21,7 @@ if image_found == False:
     print ("EBS images were not installed")
     sys.exit(1)
  
- 
+print ("EBS images found")
 f = open("cache/" + identity_domain + "/zone", 'w')
 f.write( opcc.getZone() )
 f1 = open("cache/" + identity_domain + "/datacenter", 'w')
