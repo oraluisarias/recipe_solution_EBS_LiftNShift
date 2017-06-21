@@ -10,8 +10,14 @@ executionPath=$4
 password=$5
 cd $executionPath
 
+
 echo "***************************************************************************************"
-echo "Step 0 - Getting Demo Central cloud.admin password"
+echo "Cleaning"
+echo "***************************************************************************************"
+python psm_CleanDomain.py $identity_domain
+
+echo "***************************************************************************************"
+echo "Step 0 - Cleaning and Getting Demo Central cloud.admin password"
 echo "***************************************************************************************"
 password=`python getDemoCentralPWD.py ${identity_domain}`
 echo "Found password: ${password}"
