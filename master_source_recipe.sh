@@ -4,13 +4,9 @@ admin_username="gse-admin_ww@oracle.com"
 cloud_username="cloud.admin"
 gse_admin="gse-admin.oraclecloud.com"
 identity_domain=$1
-zone=$2
-datacenter=$3
-executionPath=$4
-password=$5
+executionPath=$2
+
 cd $executionPath
-
-
 echo "***************************************************************************************"
 echo "Cleaning"
 echo "***************************************************************************************"

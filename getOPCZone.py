@@ -11,8 +11,8 @@ import unittest, time, re, sys, opc, json
 sites = {}
 identity_domain = sys.argv[1]
 # identity_domain = "gse00002320"
-# password = sys.argv[2]
-password = "tapEred@3NervE"
+password = sys.argv[2]
+# password = "tapEred@3NervE"
 if len(sys.argv) > 2:
 	username = sys.argv[3]
 	sites["message"]="Using custom credentials"
