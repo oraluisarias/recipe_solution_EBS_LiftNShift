@@ -17,7 +17,7 @@ router.post('/install_marketplace_images', function(req, res, next) {
 });
 
 router.get('/getOPCZone/:username/:password', function(req, res, next) {	
-	var username = typeof req.body.username !== 'undefined' ? req.body.username : false;
+	var username = typeof req.body.username !== 'undefined' ? req.body.username : "cloud.admin";
 	getOPCZone(req.params.identity_domain, req.params.password, username, res);
 });
 

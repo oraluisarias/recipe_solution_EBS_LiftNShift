@@ -60,7 +60,7 @@ class Compute:
 			self.findDomainData()
 
 	def findDomainData(self):
-		RTpayload = { "identity_domain":self.identity_domain, "password":self.password }
+		RTpayload = { "identity_domain":self.identity_domain, "username":"cloud.admin", "password":self.password }
 		# print("Querying domain data using RT using data...", RTpayload)
 		r = requests.post("http://gse-admin.oraclecloud.com:7002/getOPCZone", data=RTpayload )
 		try: 
