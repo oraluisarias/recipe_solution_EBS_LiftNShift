@@ -9,8 +9,8 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc, json
 sites = {}
-# identity_domain = sys.argv[1]
-identity_domain = "gse00002320"
+identity_domain = sys.argv[1]
+# identity_domain = "gse00002320"
 # password = sys.argv[2]
 password = "tapEred@3NervE"
 if len(sys.argv) > 2:
@@ -43,8 +43,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		profile.set_preference("network.proxy.ssl", PROXY)
 		profile.set_preference("network.proxy.ssl_port", PROXY_PORT)
 		profile.update_preferences()
-		# self.driver = webdriver.Firefox( )
-		self.driver = webdriver.Firefox(firefox_profile=profile)
+		self.driver = webdriver.Firefox( )
+		# self.driver = webdriver.Firefox(firefox_profile=profile)
 		# self.driver = webdriver.PhantomJS()
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):
