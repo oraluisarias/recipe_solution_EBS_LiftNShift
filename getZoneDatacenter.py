@@ -1,7 +1,7 @@
 import opc, time, sys
  
-# identity_domain = sys.argv[1]
-identity_domain = "gse00002320"
+identity_domain = sys.argv[1]
+# identity_domain = "gse00002320"
 opcc = opc.Compute( identity_domain, "z11", False )
  
 image_found = False
@@ -25,6 +25,6 @@ zone = opcc.getZone()
 datacenter = opcc.getDataCenter() 
 print ("EBS images found: ", "zone", zone, "datacenter", datacenter)
 f = open("cache/" + identity_domain + "/zone", 'w')
-f.write( opcc.getZone() )
+f.write( zone )
 f1 = open("cache/" + identity_domain + "/datacenter", 'w')
-f1.write( opcc.getDataCenter() )
+f1.write( datacenter )
