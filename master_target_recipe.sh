@@ -76,6 +76,7 @@ rm -rf ips/${identity_domain}
 # python clean_source_vm.py $identity_domain $zone $datacenter
 python create_vision_vm.py $identity_domain $zone $datacenter ebscloud
 source_ip=`cat ips/${identity_domain}`
+tools_ip=1
 if [ "$source_ip" != "" ] ; then
 	echo "***************************************************************************************"
 	echo "Instance finally started, vision public IP: ${source_ip} " 
@@ -87,6 +88,6 @@ if [ "$source_ip" != "" ] ; then
 	echo "***************************************************************************************"
 	echo python update_properties.py ${identity_domain}
 	python update_properties.py ${identity_domain}
-	echo sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
-	sh post_creation_target.sh ${identity_domain} ${source_ip} ${executionPath}	
+	echo sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}	
+	sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}	
 fi
