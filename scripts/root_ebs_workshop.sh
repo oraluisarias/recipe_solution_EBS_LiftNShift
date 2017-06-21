@@ -1,6 +1,6 @@
 #!/bin/bash
 identity_domain=$1
-ipHOST="{$2}.oraclecloud.com"
+ipHOST=$2
 gse_admin_stagedir="/app/EBS_LiftNShift/"${identity_domain}
 
 yum update -y #root

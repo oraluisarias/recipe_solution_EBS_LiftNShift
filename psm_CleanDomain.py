@@ -23,5 +23,8 @@ while CloudBots_status_response[str(jobId)]["status"] == "RUNNING":
 	print("Sleeping 1 minute...", time_ellapsed, "minutes passed")
 	time_ellapsed=time_ellapsed+1
 	time.sleep(60)
+if CloudBots_status_response[str(jobId)]["status"] == "ERROR" or CloudBots_status_response[str(jobId)]["status"] == "FAILED":
+	print ("PSM Cleaning Failed")
+	sys.exit(1)
 # CloudBots_status = json.loads( CloudBots_status_response.text )
 # print (CloudBots_status)
