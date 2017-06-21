@@ -115,7 +115,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		# 	sites["storage"] = storage_url			
 		# except:
 		# 	print ( json.dumps( { identity_domain:sites } ) )				
-		print ( json.dumps( { identity_domain:sites } ) )		
+		print ( json.dumps( { "identity_domain":sites } ) )		
 
 
 	def is_element_present(self, how, what):
