@@ -48,14 +48,17 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):
 			self.base_url = "https://computeui.emea.oraclecloud.com"				
+			self.base_storage = "https://myservices.emea.oraclecloud.com"				
 		else:
 			self.base_url = "https://computeui.us.oraclecloud.com"						
+			self.base_url = "https://myservices.us.oraclecloud.com"						
 		self.verificationErrors = []
 		self.accept_next_alert = True
     
 	def test_install_marketplace_images_w_d(self):
 		try:
 			driver = self.driver
+			driver.get(self.base_url + "/mycompute/console/view.html?page=instances&pageDetails=launchInstance")
 			driver.get(self.base_url + "/mycompute/console/view.html?page=instances&pageDetails=launchInstance")
 			driver.find_element_by_id("tenantDisplayName").clear()
 			print ("Logging to the domain: ", identity_domain)

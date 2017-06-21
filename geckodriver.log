@@ -1,175 +1,177 @@
-1496430207602	geckodriver	INFO	Listening on 127.0.0.1:50475
-1496430208080	mozprofile::profile	INFO	Using profile path C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.KDg9kP9R7Z3A
-1496430208107	geckodriver::marionette	INFO	Starting browser C:\Program Files\Nightly\firefox.exe
-1496430208115	geckodriver::marionette	INFO	Connecting to Marionette on localhost:50479
-1496430208409	addons.manager	DEBUG	Application has been upgraded
-1496430208464	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/XPIProvider.jsm: ["XPIProvider"]
-1496430208466	addons.manager	1496430286957	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: timeout
-[GPU 9272] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-1496430300448	addons.pro[GPU 14712] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 17320] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 17320] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Parent 13448] WARNING: pipe error: 232: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 513
-
-###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
-
-pi
-1496430208475	addons.xpi	INFO	Mapping formautofill@mozilla.org to C:\Program Files\Nightly\browser\features\formautofill@mozilla.org.xpi
-1496430208476	addons.xpi	INFO	Mapping presentation@mozilla.org to C:\Program Files\Nightly\browser\features\presentation@mozilla.org.xpi
-1496430208476	addons.xpi	INFO	Mapping webcompat@mozilla.org to C:\Program Files\Nightly\browser\features\webcompat@mozilla.org.xpi
-1496430208476	addons.xpi	INFO	Mapping {972ce4c6-7e08-4474-a285-3208198ce6fd} to C:\Program Files\Nightly\browser\extensions\{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi
-1496430208478	addons.xpi	DEBUG	checkForChanges
-1496430208478	addons.xpi	INFO	SystemAddonInstallLocation directory is missing
-1496430208479	addons.xpi	DEBUG	Loaded add-on state from prefs: {}
-1496430208479	addons.xpi	DEBUG	New add-on aushelper@mozilla.org in app-system-defaults
-1496430208480	addons.xpi	DEBUG	getModTime: Recursive scan of aushelper@mozilla.org
-1496430208481	addons.xpi	DEBUG	New add-on e10srollout@mozilla.org in app-system-defaults
-1496430208481	addons.xpi	DEBUG	getModTime: Recursive scan of e10srollout@mozilla.org
-1496430208482	addons.xpi	DEBUG	New add-on firefox@getpocket.com in app-system-defaults
-1496430208482	addons.xpi	DEBUG	getModTime: Recursive scan of firefox@getpocket.com
-1496430208483	addons.xpi	DEBUG	New add-on flyweb@mozilla.org in app-system-defaults
-1496430208483	addons.xpi	DEBUG	getModTime: Recursive scan of flyweb@mozilla.org
-1496430208483	addons.xpi	DEBUG	New add-on formautofill@mozilla.org in app-system-defaults
-1496430208484	addons.xpi	DEBUG	getModTime: Recursive scan of formautofill@mozilla.org
-1496430208484	addons.xpi	DEBUG	New add-on presentation@mozilla.org in app-system-defaults
-1496430208484	addons.xpi	DEBUG	getModTime: Recursive scan of presentation@mozilla.org
-1496430208485	addons.xpi	DEBUG	New add-on webcompat@mozilla.org in app-system-defaults
-1496430208485	addons.xpi	DEBUG	getModTime: Recursive scan of webcompat@mozilla.org
-1496430208485	addons.xpi	DEBUG	New add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} in app-global
-1496430208486	addons.xpi	DEBUG	getModTime: Recursive scan of {972ce4c6-7e08-4474-a285-3208198ce6fd}
-1496430208486	addons.xpi	DEBUG	getInstallState changed: true, state: {"app-system-defaults":{"aushelper@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\aushelper@mozilla.org.xpi","st":1481820333000},"e10srollout@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\e10srollout@mozilla.org.xpi","st":1481820333000},"firefox@getpocket.com":{"d":"C:\\Program Files\\Nightly\\browser\\features\\firefox@getpocket.com.xpi","st":1481820333000},"flyweb@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\flyweb@mozilla.org.xpi","st":1481820333000},"formautofill@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\formautofill@mozilla.org.xpi","st":1481820333000},"presentation@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\presentation@mozilla.org.xpi","st":1481820333000},"webcompat@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\webcompat@mozilla.org.xpi","st":1481820333000}},"app-global":{"{972ce4c6-7e08-4474-a285-3208198ce6fd}":{"d":"C:\\Program Files\\Nightly\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi","st":1481820333000}}}
-1496430208496	addons.xpi-utils	DEBUG	Opening XPI database C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.KDg9kP9R7Z3A\extensions.json
-1496430208500	addons.xpi-utils	DEBUG	New add-on aushelper@mozilla.org installed in app-system-defaults
+1498059631169	geckodriver	INFO	Listening on 127.0.0.1:64775
+1498059631672	mozprofile::profile	INFO	Using profile path C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.Wq1duQQ3aUzw
+1498059631693	geckodriver::marionette	INFO	Starting browser C:\Program Files\Nightly\firefox.exe
+1498059631702	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64779
+1498059632943	addons.manager	DEBUG	Application has been upgraded
+1498059633000	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/XPIProvider.jsm: ["XPIProvider"]
+1498059633002	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/LightweightThemeManager.jsm: ["LightweightThemeManager"]
+1498059633007	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/GMPProvider.jsm
+1498059633009	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/PluginProvider.jsm
+1498059633009	addons.manager	DEBUG	Starting provider: XPIProvider
+1498059633010	addons.xpi	DEBUG	startup
+1498059633010	addons.xpi	INFO	SystemAddonInstallLocation directory is missing
+1498059633011	addons.xpi	INFO	Mapping aushelper@mozilla.org to C:\Program Files\Nightly\browser\features\aushelper@mozilla.org.xpi
+1498059633011	addons.xpi	INFO	Mapping e10srollout@mozilla.org to C:\Program Files\Nightly\browser\features\e10srollout@mozilla.org.xpi
+1498059633012	addons.xpi	INFO	Mapping firefox@getpocket.com to C:\Program Files\Nightly\browser\features\firefox@getpocket.com.xpi
+1498059633012	addons.xpi	INFO	Mapping flyweb@mozilla.org to C:\Program Files\Nightly\browser\features\flyweb@mozilla.org.xpi
+1498059633012	addons.xpi	INFO	Mapping formautofill@mozilla.org to C:\Program Files\Nightly\browser\features\formautofill@mozilla.org.xpi
+1498059633012	addons.xpi	INFO	Mapping presentation@mozilla.org to C:\Program Files\Nightly\browser\features\presentation@mozilla.org.xpi
+1498059633013	addons.xpi	INFO	Mapping webcompat@mozilla.org to C:\Program Files\Nightly\browser\features\webcompat@mozilla.org.xpi
+1498059633013	addons.xpi	INFO	Mapping {972ce4c6-7e08-4474-a285-3208198ce6fd} to C:\Program Files\Nightly\browser\extensions\{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi
+1498059633014	addons.xpi	DEBUG	checkForChanges
+1498059633014	addons.xpi	INFO	SystemAddonInstallLocation directory is missing
+1498059633014	addons.xpi	DEBUG	Loaded add-on state from prefs: {}
+1498059633015	addons.xpi	DEBUG	New add-on aushelper@mozilla.org in app-system-defaults
+1498059633016	addons.xpi	DEBUG	getModTime: Recursive scan of aushelper@mozilla.org
+1498059633017	addons.xpi	DEBUG	New add-on e10srollout@mozilla.org in app-system-defaults
+1498059633017	addons.xpi	DEBUG	getModTime: Recursive scan of e10srollout@mozilla.org
+1498059633018	addons.xpi	DEBUG	New add-on firefox@getpocket.com in app-system-defaults
+1498059633018	addons.xpi	DEBUG	getModTime: Recursive scan of firefox@getpocket.com
+1498059633019	addons.xpi	DEBUG	New add-on flyweb@mozilla.org in app-system-defaults
+1498059633019	addons.xpi	DEBUG	getModTime: Recursive scan of flyweb@mozilla.org
+1498059633019	addons.xpi	DEBUG	New add-on formautofill@mozilla.org in app-system-defaults
+1498059633020	addons.xpi	DEBUG	getModTime: Recursive scan of formautofill@mozilla.org
+1498059633020	addons.xpi	DEBUG	New add-on presentation@mozilla.org in app-system-defaults
+1498059633020	addons.xpi	DEBUG	getModTime: Recursive scan of presentation@mozilla.org
+1498059633020	addons.xpi	DEBUG	New add-on webcompat@mozilla.org in app-system-defaults
+1498059633020	addons.xpi	DEBUG	getModTime: Recursive scan of webcompat@mozilla.org
+1498059633021	addons.xpi	DEBUG	New add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} in app-global
+1498059633021	addons.xpi	DEBUG	getModTime: Recursive scan of {972ce4c6-7e08-4474-a285-3208198ce6fd}
+1498059633021	addons.xpi	DEBUG	getInstallState changed: true, state: {"app-system-defaults":{"aushelper@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\aushelper@mozilla.org.xpi","st":1481820333000},"e10srollout@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\e10srollout@mozilla.org.xpi","st":1481820333000},"firefox@getpocket.com":{"d":"C:\\Program Files\\Nightly\\browser\\features\\firefox@getpocket.com.xpi","st":1481820333000},"flyweb@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\flyweb@mozilla.org.xpi","st":1481820333000},"formautofill@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\formautofill@mozilla.org.xpi","st":1481820333000},"presentation@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\presentation@mozilla.org.xpi","st":1481820333000},"webcompat@mozilla.org":{"d":"C:\\Program Files\\Nightly\\browser\\features\\webcompat@mozilla.org.xpi","st":1481820333000}},"app-global":{"{972ce4c6-7e08-4474-a285-3208198ce6fd}":{"d":"C:\\Program Files\\Nightly\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi","st":1481820333000}}}
+1498059633034	addons.xpi-utils	DEBUG	Opening XPI database C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.Wq1duQQ3aUzw\extensions.json
+1498059633038	addons.xpi-utils	DEBUG	New add-on aushelper@mozilla.org installed in app-system-defaults
 *** Blocklist::_loadBlocklistFromFile: blocklist is disabled
-1496430208511	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208512	addons.xpi-utils	DEBUG	New add-on e10srollout@mozilla.org installed in app-system-defaults
-1496430208515	DeferredSave.extensions.json	DEBUG	Starting timer
-1496430208517	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208517	addons.xpi-utils	DEBUG	New add-on firefox@getpocket.com installed in app-system-defaults
-1496430208525	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208525	addons.xpi-utils	DEBUG	New add-on flyweb@mozilla.org installed in app-system-defaults
-1496430208530	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208530	addons.xpi-utils	DEBUG	New add-on formautofill@mozilla.org installed in app-system-defaults
-1496430208535	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208535	addons.xpi-utils	DEBUG	New add-on presentation@mozilla.org installed in app-system-defaults
-1496430208540	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208541	addons.xpi-utils	DEBUG	New add-on webcompat@mozilla.org installed in app-system-defaults
-1496430208544	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208545	addons.xpi-utils	DEBUG	New add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} installed in app-global
-1496430208551	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208552	addons.manager	DEBUG	Registering startup change 'installed' for aushelper@mozilla.org
-1496430208557	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\aushelper@mozilla.org.xpi
-1496430208563	addons.xpi	DEBUG	Calling bootstrap method install on aushelper@mozilla.org version 1.0
-1496430208563	addons.xpi-utils	DEBUG	Make addon app-system-defaults:aushelper@mozilla.org visible
-1496430208563	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208563	addons.manager	DEBUG	Registering startup change 'installed' for e10srollout@mozilla.org
-1496430208564	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\e10srollout@mozilla.org.xpi
-1496430208567	addons.xpi	DEBUG	Calling bootstrap method install on e10srollout@mozilla.org version 1.6
-1496430208568	addons.xpi-utils	DEBUG	Make addon app-system-defaults:e10srollout@mozilla.org visible
-1496430208568	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208568	addons.manager	DEBUG	Registering startup change 'installed' for firefox@getpocket.com
-1496430208569	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\firefox@getpocket.com.xpi
-1496430208572	addons.xpi	DEBUG	Calling bootstrap method install on firefox@getpocket.com version 1.0.5
-1496430208572	addons.xpi-utils	DEBUG	Make addon app-system-defaults:firefox@getpocket.com visible
-1496430208573	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208573	addons.manager	DEBUG	Registering startup change 'installed' for flyweb@mozilla.org
-1496430208574	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\flyweb@mozilla.org.xpi
-1496430208576	addons.xpi	DEBUG	Calling bootstrap method install on flyweb@mozilla.org version 1.0.0
-1496430208577	addons.xpi-utils	DEBUG	Make addon app-system-defaults:flyweb@mozilla.org visible
-1496430208577	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208577	addons.manager	DEBUG	Registering startup change 'installed' for formautofill@mozilla.org
-1496430208578	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\formautofill@mozilla.org.xpi
-1496430208582	addons.xpi	DEBUG	Calling bootstrap method install on formautofill@mozilla.org version 1.0
-1496430208582	addons.xpi-utils	DEBUG	Make addon app-system-defaults:formautofill@mozilla.org visible
-1496430208582	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208583	addons.manager	DEBUG	Registering startup change 'installed' for presentation@mozilla.org
-1496430208583	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\presentation@mozilla.org.xpi
-1496430208586	addons.xpi	DEBUG	Calling bootstrap method install on presentation@mozilla.org version 1.0.0
-1496430208586	addons.xpi-utils	DEBUG	Make addon app-system-defaults:presentation@mozilla.org visible
-1496430208587	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208587	addons.manager	DEBUG	Registering startup change 'installed' for webcompat@mozilla.org
-1496430208587	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\webcompat@mozilla.org.xpi
-1496430208589	addons.xpi	DEBUG	Calling bootstrap method install on webcompat@mozilla.org version 1.0
-1496430208590	addons.xpi-utils	DEBUG	Make addon app-system-defaults:webcompat@mozilla.org visible
-1496430208590	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208590	addons.xpi-utils	DEBUG	Make addon app-global:{972ce4c6-7e08-4474-a285-3208198ce6fd} visible
-1496430208590	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208591	addons.xpi	DEBUG	Updating XPIState for {"id":"aushelper@mozilla.org","syncGUID":"{16079771-7ed0-432b-a0d3-50698176f938}","location":"app-system-defaults","version":"1.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Application Update Service Helper","description":"Sets value(s) in the update url based on custom checks.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\aushelper@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":5904,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
-1496430208591	addons.xpi	DEBUG	getModTime: Recursive scan of aushelper@mozilla.org
-1496430208591	addons.xpi	DEBUG	Updating XPIState for {"id":"e10srollout@mozilla.org","syncGUID":"{7549bdeb-35db-469e-8c9a-d4f685aaaaf0}","location":"app-system-defaults","version":"1.6","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Multi-process staged rollout","description":"Staged rollout of Firefox multi-process feature.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\e10srollout@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":7051,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
-1496430208591	addons.xpi	DEBUG	getModTime: Recursive scan of e10srollout@mozilla.org
-1496430208592	addons.xpi	DEBUG	Updating XPIState for {"id":"firefox@getpocket.com","syncGUID":"{7976e735-55b9-44b7-8427-b4e135e89c43}","location":"app-system-defaults","version":"1.0.5","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Pocket","description":"When you find something you want to view later, put it in Pocket.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\firefox@getpocket.com.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":920318,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
-1496430208592	addons.xpi	DEBUG	getModTime: Recursive scan of firefox@getpocket.com
-1496430208593	addons.xpi	DEBUG	Updating XPIState for {"id":"flyweb@mozilla.org","syncGUID":"{ead38bbc-a5fb-4591-979a-4150dcd486bb}","location":"app-system-defaults","version":"1.0.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"FlyWeb","description":"Discover nearby services in the browser","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\flyweb@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":57012,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
-1496430208593	addons.xpi	DEBUG	getModTime: Recursive scan of flyweb@mozilla.org
-1496430208594	addons.xpi	DEBUG	Updating XPIState for {"id":"formautofill@mozilla.org","syncGUID":"{2c74f6b2-f09a-42fe-8a1b-ee78176cff6f}","location":"app-system-defaults","version":"1.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Form Autofill","description":"Autofill forms with saved profiles","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\formautofill@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":17792,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
-1496430208594	addons.xpi	DEBUG	getModTime: Recursive scan of formautofill@mozilla.org
-1496430208595	addons.xpi	DEBUG	Updating XPIState for {"id":"presentation@mozilla.org","syncGUID":"{26057fe9-1bc5-497d-b589-8aaafffd9d08}","location":"app-system-defaults","version":"1.0.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Presentation","description":"Discover nearby devices in the browser","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\presentation@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":14464,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
-1496430208595	addons.xpi	DEBUG	getModTime: Recursive scan of presentation@mozilla.org
-1496430208596	addons.xpi	DEBUG	Updating XPIState for {"id":"webcompat@mozilla.org","syncGUID":"{274ea3fb-3514-4b27-933c-cdc0f3c36258}","location":"app-system-defaults","version":"1.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Web Compat","description":"Urgent post-release fixes for web compatibility.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\webcompat@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":1458,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
-1496430208596	addons.xpi	DEBUG	getModTime: Recursive scan of webcompat@mozilla.org
-1496430208596	addons.xpi	DEBUG	Updating XPIState for {"id":"{972ce4c6-7e08-4474-a285-3208198ce6fd}","syncGUID":"{8abad903-4281-433f-889a-21aa106f70d5}","location":"app-global","version":"53.0a1","type":"theme","internalName":"classic/1.0","updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{"32":"icon.png","48":"icon.png"},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Default","description":"The default theme.","creator":"Mozilla","homepageURL":null,"contributors":["Mozilla Contributors"]},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"skinnable":true,"size":19041,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":true,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false}
-1496430208596	addons.xpi	DEBUG	getModTime: Recursive scan of {972ce4c6-7e08-4474-a285-3208198ce6fd}
-1496430208597	DeferredSave.extensions.json	DEBUG	Save changes
-1496430208598	addons.xpi	DEBUG	Updating database with changes to installed add-ons
-1496430208598	addons.xpi-utils	DEBUG	Updating add-on states
-1496430208605	addons.xpi-utils	DEBUG	Writing add-ons list
-1496430208614	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\aushelper@mozilla.org.xpi
-1496430208615	addons.xpi	DEBUG	Calling bootstrap method startup on aushelper@mozilla.org version 1.0
-1496430208617	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\e10srollout@mozilla.org.xpi
-1496430208618	addons.xpi	DEBUG	Calling bootstrap method startup on e10srollout@mozilla.org version 1.6
-1496430208619	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\firefox@getpocket.com.xpi
-1496430208620	addons.xpi	DEBUG	Calling bootstrap method startup on firefox@getpocket.com version 1.0.5
-1496430208621	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\flyweb@mozilla.org.xpi
-1496430208622	addons.xpi	DEBUG	Calling bootstrap method startup on flyweb@mozilla.org version 1.0.0
-1496430208622	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\formautofill@mozilla.org.xpi
-1496430208623	addons.xpi	DEBUG	Calling bootstrap method startup on formautofill@mozilla.org version 1.0
-1496430208623	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\presentation@mozilla.org.xpi
-1496430208624	addons.xpi	DEBUG	Calling bootstrap method startup on presentation@mozilla.org version 1.0.0
-1496430208627	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\webcompat@mozilla.org.xpi
-1496430208628	addons.xpi	DEBUG	Calling bootstrap method startup on webcompat@mozilla.org version 1.0
-1496430208630	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
-1496430208630	addons.manager	DEBUG	Provider finished startup: XPIProvider
-1496430208630	addons.manager	DEBUG	Starting provider: LightweightThemeManager
-1496430208630	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
-1496430208630	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
-1496430208631	addons.manager	DEBUG	Starting provider: GMPProvider
-1496430208641	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
-1496430208641	addons.manager	DEBUG	Provider finished startup: GMPProvider
-1496430208641	addons.manager	DEBUG	Starting provider: PluginProvider
-1496430208641	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
-1496430208642	addons.manager	DEBUG	Provider finished startup: PluginProvider
-1496430208642	addons.manager	DEBUG	Completed startup sequence
-1496430208949	Marionette	INFO	Listening on port 50479
-1496430209478	addons.manager	DEBUG	Starting provider: <unnamed-provider>
-1496430209478	addons.manager	DEBUG	Registering shutdown blocker for <unnamed-provider>
-1496430209479	addons.manager	DEBUG	Provider finished startup: <unnamed-provider>
-1496430209514	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
-1496430209514	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
-1496430209515	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
-1496430209518	DeferredSave.extensions.json	DEBUG	Starting write
-1496430210281	DeferredSave.extensions.json	DEBUG	Write succeeded
-1496430210283	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 19
-1496430211664	Marionette	WARN	Using deprecated data structure for setting timeouts
-[GPU 12196] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-1496430216150	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430220983	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430222866	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430222943	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223044	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223085	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223139	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223228	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223271	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223327	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223405	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223447	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223496	Marionette	WARN	Using deprecated data structure for setting timeouts
-1496430223573	Marionette	INFO	New connections will no longer be accepted
-.xpi	DEBUG	Calling bootstrap method shutdown on aushelper@mozilla.org version 1.0
-[GPU 18380] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 14588] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 14588] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1498059633048	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633049	addons.xpi-utils	DEBUG	New add-on e10srollout@mozilla.org installed in app-system-defaults
+1498059633052	DeferredSave.extensions.json	DEBUG	Starting timer
+1498059633054	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633054	addons.xpi-utils	DEBUG	New add-on firefox@getpocket.com installed in app-system-defaults
+1498059633060	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633061	addons.xpi-utils	DEBUG	New add-on flyweb@mozilla.org installed in app-system-defaults
+1498059633065	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633066	addons.xpi-utils	DEBUG	New add-on formautofill@mozilla.org installed in app-system-defaults
+1498059633070	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633070	addons.xpi-utils	DEBUG	New add-on presentation@mozilla.org installed in app-system-defaults
+1498059633075	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633075	addons.xpi-utils	DEBUG	New add-on webcompat@mozilla.org installed in app-system-defaults
+1498059633079	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633080	addons.xpi-utils	DEBUG	New add-on {972ce4c6-7e08-4474-a285-3208198ce6fd} installed in app-global
+1498059633084	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633085	addons.manager	DEBUG	Registering startup change 'installed' for aushelper@mozilla.org
+1498059633090	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\aushelper@mozilla.org.xpi
+1498059633095	addons.xpi	DEBUG	Calling bootstrap method install on aushelper@mozilla.org version 1.0
+1498059633095	addons.xpi-utils	DEBUG	Make addon app-system-defaults:aushelper@mozilla.org visible
+1498059633095	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633095	addons.manager	DEBUG	Registering startup change 'installed' for e10srollout@mozilla.org
+1498059633096	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\e10srollout@mozilla.org.xpi
+1498059633099	addons.xpi	DEBUG	Calling bootstrap method install on e10srollout@mozilla.org version 1.6
+1498059633099	addons.xpi-utils	DEBUG	Make addon app-system-defaults:e10srollout@mozilla.org visible
+1498059633100	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633100	addons.manager	DEBUG	Registering startup change 'installed' for firefox@getpocket.com
+1498059633100	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\firefox@getpocket.com.xpi
+1498059633104	addons.xpi	DEBUG	Calling bootstrap method install on firefox@getpocket.com version 1.0.5
+1498059633104	addons.xpi-utils	DEBUG	Make addon app-system-defaults:firefox@getpocket.com visible
+1498059633104	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633104	addons.manager	DEBUG	Registering startup change 'installed' for flyweb@mozilla.org
+1498059633105	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\flyweb@mozilla.org.xpi
+1498059633108	addons.xpi	DEBUG	Calling bootstrap method install on flyweb@mozilla.org version 1.0.0
+1498059633108	addons.xpi-utils	DEBUG	Make addon app-system-defaults:flyweb@mozilla.org visible
+1498059633109	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633109	addons.manager	DEBUG	Registering startup change 'installed' for formautofill@mozilla.org
+1498059633110	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\formautofill@mozilla.org.xpi
+1498059633114	addons.xpi	DEBUG	Calling bootstrap method install on formautofill@mozilla.org version 1.0
+1498059633114	addons.xpi-utils	DEBUG	Make addon app-system-defaults:formautofill@mozilla.org visible
+1498059633115	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633115	addons.manager	DEBUG	Registering startup change 'installed' for presentation@mozilla.org
+1498059633115	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\presentation@mozilla.org.xpi
+1498059633119	addons.xpi	DEBUG	Calling bootstrap method install on presentation@mozilla.org version 1.0.0
+1498059633119	addons.xpi-utils	DEBUG	Make addon app-system-defaults:presentation@mozilla.org visible
+1498059633119	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633119	addons.manager	DEBUG	Registering startup change 'installed' for webcompat@mozilla.org
+1498059633119	addons.xpi	DEBUG	Loading bootstrap scope from C:\Program Files\Nightly\browser\features\webcompat@mozilla.org.xpi
+1498059633121	addons.xpi	DEBUG	Calling bootstrap method install on webcompat@mozilla.org version 1.0
+1498059633122	addons.xpi-utils	DEBUG	Make addon app-system-defaults:webcompat@mozilla.org visible
+1498059633122	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633122	addons.xpi-utils	DEBUG	Make addon app-global:{972ce4c6-7e08-4474-a285-3208198ce6fd} visible
+1498059633122	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633123	addons.xpi	DEBUG	Updating XPIState for {"id":"aushelper@mozilla.org","syncGUID":"{393151c9-a8f7-4b49-81d6-4aaf07bfaeee}","location":"app-system-defaults","version":"1.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Application Update Service Helper","description":"Sets value(s) in the update url based on custom checks.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\aushelper@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":5904,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
+1498059633123	addons.xpi	DEBUG	getModTime: Recursive scan of aushelper@mozilla.org
+1498059633123	addons.xpi	DEBUG	Updating XPIState for {"id":"e10srollout@mozilla.org","syncGUID":"{a33df04e-0e67-41f3-82a9-cf6c9ea012e8}","location":"app-system-defaults","version":"1.6","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Multi-process staged rollout","description":"Staged rollout of Firefox multi-process feature.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\e10srollout@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":7051,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
+1498059633123	addons.xpi	DEBUG	getModTime: Recursive scan of e10srollout@mozilla.org
+1498059633124	addons.xpi	DEBUG	Updating XPIState for {"id":"firefox@getpocket.com","syncGUID":"{7890aa72-4f48-4bb7-8f53-b33ec87a4c4b}","location":"app-system-defaults","version":"1.0.5","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Pocket","description":"When you find something you want to view later, put it in Pocket.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\firefox@getpocket.com.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":920318,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
+1498059633124	addons.xpi	DEBUG	getModTime: Recursive scan of firefox@getpocket.com
+1498059633125	addons.xpi	DEBUG	Updating XPIState for {"id":"flyweb@mozilla.org","syncGUID":"{70b6ebfd-6f85-4ea8-af0b-8b12a673d7d1}","location":"app-system-defaults","version":"1.0.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"FlyWeb","description":"Discover nearby services in the browser","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\flyweb@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":57012,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
+1498059633125	addons.xpi	DEBUG	getModTime: Recursive scan of flyweb@mozilla.org
+1498059633126	addons.xpi	DEBUG	Updating XPIState for {"id":"formautofill@mozilla.org","syncGUID":"{468c30fa-b888-41da-925f-e156302bbe04}","location":"app-system-defaults","version":"1.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Form Autofill","description":"Autofill forms with saved profiles","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\formautofill@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":17792,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
+1498059633126	addons.xpi	DEBUG	getModTime: Recursive scan of formautofill@mozilla.org
+1498059633127	addons.xpi	DEBUG	Updating XPIState for {"id":"presentation@mozilla.org","syncGUID":"{499b2af3-f976-47cc-8747-bbc15327514d}","location":"app-system-defaults","version":"1.0.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Presentation","description":"Discover nearby devices in the browser","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\presentation@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":14464,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
+1498059633127	addons.xpi	DEBUG	getModTime: Recursive scan of presentation@mozilla.org
+1498059633128	addons.xpi	DEBUG	Updating XPIState for {"id":"webcompat@mozilla.org","syncGUID":"{d49a518e-8e28-4699-9300-96991470f584}","location":"app-system-defaults","version":"1.0","type":"extension","internalName":null,"updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Web Compat","description":"Urgent post-release fixes for web compatibility.","creator":null,"homepageURL":null},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\features\\webcompat@mozilla.org.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"bootstrap":true,"skinnable":false,"size":1458,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"multiprocessCompatible":true,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"mpcOptedOut":false}
+1498059633128	addons.xpi	DEBUG	getModTime: Recursive scan of webcompat@mozilla.org
+1498059633129	addons.xpi	DEBUG	Updating XPIState for {"id":"{972ce4c6-7e08-4474-a285-3208198ce6fd}","syncGUID":"{460d222e-417e-419a-aed8-842597e5cfd2}","location":"app-global","version":"53.0a1","type":"theme","internalName":"classic/1.0","updateURL":null,"updateKey":null,"optionsURL":null,"optionsType":null,"aboutURL":null,"icons":{"32":"icon.png","48":"icon.png"},"iconURL":null,"icon64URL":null,"defaultLocale":{"name":"Default","description":"The default theme.","creator":"Mozilla","homepageURL":null,"contributors":["Mozilla Contributors"]},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"descriptor":"C:\\Program Files\\Nightly\\browser\\extensions\\{972ce4c6-7e08-4474-a285-3208198ce6fd}.xpi","installDate":1481820333000,"updateDate":1481820333000,"applyBackgroundUpdates":1,"skinnable":true,"size":19041,"sourceURI":null,"releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"hasBinaryComponents":false,"strictCompatibility":true,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"53.0a1","maxVersion":"53.0a1"}],"targetPlatforms":[],"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false}
+1498059633129	addons.xpi	DEBUG	getModTime: Recursive scan of {972ce4c6-7e08-4474-a285-3208198ce6fd}
+1498059633130	DeferredSave.extensions.json	DEBUG	Save changes
+1498059633131	addons.xpi	DEBUG	Updating database with changes to installed add-ons
+1498059633131	addons.xpi-utils	DEBUG	Updating add-on states
+1498059633138	addons.xpi-utils	DEBUG	Writing add-ons list
+1498059633149	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\aushelper@mozilla.org.xpi
+1498059633150	addons.xpi	DEBUG	Calling bootstrap method startup on aushelper@mozilla.org version 1.0
+1498059633152	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\e10srollout@mozilla.org.xpi
+1498059633153	addons.xpi	DEBUG	Calling bootstrap method startup on e10srollout@mozilla.org version 1.6
+1498059633154	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\firefox@getpocket.com.xpi
+1498059633155	addons.xpi	DEBUG	Calling bootstrap method startup on firefox@getpocket.com version 1.0.5
+1498059633156	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\flyweb@mozilla.org.xpi
+1498059633156	addons.xpi	DEBUG	Calling bootstrap method startup on flyweb@mozilla.org version 1.0.0
+1498059633157	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\formautofill@mozilla.org.xpi
+1498059633158	addons.xpi	DEBUG	Calling bootstrap method startup on formautofill@mozilla.org version 1.0
+1498059633158	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\presentation@mozilla.org.xpi
+1498059633159	addons.xpi	DEBUG	Calling bootstrap method startup on presentation@mozilla.org version 1.0.0
+1498059633162	addons.xpi	DEBUG	Registering manifest for C:\Program Files\Nightly\browser\features\webcompat@mozilla.org.xpi
+1498059633163	addons.xpi	DEBUG	Calling bootstrap method startup on webcompat@mozilla.org version 1.0
+1498059633165	addons.manager	DEBUG	Registering shutdown blocker for XPIProvider
+1498059633165	addons.manager	DEBUG	Provider finished startup: XPIProvider
+1498059633165	addons.manager	DEBUG	Starting provider: LightweightThemeManager
+1498059633165	addons.manager	DEBUG	Registering shutdown blocker for LightweightThemeManager
+1498059633165	addons.manager	DEBUG	Provider finished startup: LightweightThemeManager
+1498059633166	addons.manager	DEBUG	Starting provider: GMPProvider
+1498059633175	addons.manager	DEBUG	Registering shutdown blocker for GMPProvider
+1498059633176	addons.manager	DEBUG	Provider finished startup: GMPProvider
+1498059633176	addons.manager	DEBUG	Starting provider: PluginProvider
+1498059633176	addons.manager	DEBUG	Registering shutdown blocker for PluginProvider
+1498059633176	addons.manager	DEBUG	Provider finished startup: PluginProvider
+1498059633176	addons.manager	DEBUG	Completed startup sequence
+1498059633542	Marionette	INFO	Listening on port 64779
+1498059633952	addons.manager	DEBUG	Starting provider: <unnamed-provider>
+1498059633952	addons.manager	DEBUG	Registering shutdown blocker for <unnamed-provider>
+1498059633953	addons.manager	DEBUG	Provider finished startup: <unnamed-provider>
+1498059633995	addons.manager	DEBUG	Starting provider: PreviousExperimentProvider
+1498059633995	addons.manager	DEBUG	Registering shutdown blocker for PreviousExperimentProvider
+1498059633996	addons.manager	DEBUG	Provider finished startup: PreviousExperimentProvider
+1498059633999	DeferredSave.extensions.json	DEBUG	Starting write
+1498059634270	DeferredSave.extensions.json	DEBUG	Write succeeded
+1498059634272	addons.xpi-utils	DEBUG	XPI Database saved, setting schema version preference to 19
+1498059635565	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059640422	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059654978	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655074	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655147	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655263	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655266	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655313	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655374	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655458	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655461	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655496	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655550	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655629	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655632	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655672	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655754	Marionette	WARN	Using deprecated data structure for setting timeouts
+1498059655847	Marionette	WARN	Using deprecated data structure for setting timeouts
+[Parent 12588] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+JavaScript error: chrome://marionette/content/listener.js, line 1006: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+1498059664493	Marionette	INFO	New connections will no longer be accepted
+omium/src/chrome/common/ipc_channel_win.cc, line 346
 t@mozilla.org version 1.6
 1495555091224	addons.xpi	DEBUG	Calling bootstrap method shutdown on aushelper@mozilla.org version 1.0
 1495555091378	addons.manager	DEBUG	shutdown

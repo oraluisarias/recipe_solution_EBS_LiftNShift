@@ -9,9 +9,10 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc, json
 sites = {}
-identity_domain = sys.argv[1]
-# identity_domain = "gse00011455"
-password = sys.argv[2]
+# identity_domain = sys.argv[1]
+identity_domain = "gse00002320"
+# password = sys.argv[2]
+password = "tapEred@3NervE"
 if len(sys.argv) > 2:
 	username = sys.argv[3]
 	sites["message"]="Using custom credentials"
@@ -42,19 +43,22 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		profile.set_preference("network.proxy.ssl", PROXY)
 		profile.set_preference("network.proxy.ssl_port", PROXY_PORT)
 		profile.update_preferences()
-		self.driver = webdriver.Firefox( )
-		# self.driver = webdriver.Firefox(firefox_profile=profile)
+		# self.driver = webdriver.Firefox( )
+		self.driver = webdriver.Firefox(firefox_profile=profile)
 		# self.driver = webdriver.PhantomJS()
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):
 			self.base_url = "https://computeui.emea.oraclecloud.com"				
+			self.base_url_storage = "https://myservices.emea.oraclecloud.com"
 		else:
 			self.base_url = "https://computeui.us.oraclecloud.com"						
+			self.base_url_storage = "https://myservices.us.oraclecloud.com"
 		self.verificationErrors = []
 		self.accept_next_alert = True
     
 	def test_install_marketplace_images_w_d(self):
 		driver = self.driver
+
 		driver.get(self.base_url + "/mycompute/console/view.html?page=instances&tab=instances")
 		driver.find_element_by_id("tenantDisplayName").clear()
 		# print ("Logging to the domain: ", identity_domain)
@@ -104,6 +108,10 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 
 			sites[site] = siteArray
 			driver.implicitly_wait(10)			    
+		driver.get(self.base_url_storage + "/mycloud/faces/gServiceDetail.jspx?entitlementServiceId=536852049&serviceId=536850933&_adf.ctrl-state=null")
+		storage_url = driver.find_element_by_id("pt1:pt2:currentTabHTMLContents:ot13").text
+		sites["storage"] = storage_url
+
 		print ( json.dumps( { identity_domain:sites } ) )		
 
 	def is_element_present(self, how, what):
