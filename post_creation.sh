@@ -36,12 +36,12 @@ echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh
      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo mkdir -p '${gse_admin_stagedir}' && sudo chmod 777 '${gse_admin_stagedir}'"'
 
 echo "Running root commands..."
-echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
-     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
+echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
+     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
      
 echo "Running oracle commands..."
-echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"''${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'
-      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"''${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'
+echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"'sh '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'
+      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"'sh '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'
 
 if [ $tools_ip -ne 1 ] ; then
      echo "***************************************************************************************"
