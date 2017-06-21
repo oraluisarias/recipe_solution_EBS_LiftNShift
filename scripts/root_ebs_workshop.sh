@@ -14,8 +14,8 @@ sh $gse_admin_stagedir/change_fqdn.sh "$ipHOST.compute.oraclecloud.com"
 unzip -o $gse_admin_stagedir/p22336899_R12_GENERIC.zip
 chown oracle:dba -R $gse_admin_stagedir
 chmod 777 -R $gse_admin_stagedir
-cp -rf $gse_admin_stagedir/RemoteClone_v1.7/cln.props $gse_admin_stagedir/RemoteClone_v1.7/cln.props.ORIG
-cp -rf $gse_admin_stagedir/cln.props $gse_admin_stagedir/RemoteClone_v1.7/cln.props
+cp -rf RemoteClone_v1.7/cln.props $gse_admin_stagedir/cln.props.ORIG
+cp -rf $gse_admin_stagedir/cln.props RemoteClone_v1.7/cln.props
 
 if [ -f /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml ] && [ -f $gse_admin_stagedir/ProvisionEBS.xml ] ; then
 	mv /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml /u01/install/APPS/apps-unlimited-ebs/ProvisionEBS.xml.ORIG 
