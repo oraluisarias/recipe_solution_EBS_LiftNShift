@@ -63,12 +63,12 @@ python create_open_seclist.py $identity_domain $zone $datacenter
 echo "***************************************************************************************"
 echo "Step 4 - Creating a new ssh key and uploading to Demo Central"
 echo "***************************************************************************************"
-chmod 0400 ssh_keys/*
 # [ ! -f ssh_keys/${identity_domain} ] && ssh-keygen -b 2048 -t rsa -f ssh_keys/${identity_domain} -q -N ""
 # python update_ssh_key_2_demo_central.py $identity_domain $zone $datacenter
 rm -rf ssh_keys/${identity_domain}*
 cp ssh_keys/gse_admin ssh_keys/${identity_domain}
 cp ssh_keys/gse_admin.pub ssh_keys/${identity_domain}.pub
+chmod 0400 ssh_keys/*
 
 #Create source instance
 echo "***************************************************************************************"
@@ -77,11 +77,11 @@ echo "**************************************************************************
 rm -rf ips/${identity_domain}
 # python clean_source_vm.py $identity_domain $zone $datacenter
 python create_vision_vm.py $identity_domain $zone $datacenter ebscloud
-source_ip=`cat ips/${identity_domain}`
+vision_ip=`cat ips/${identity_domain}`
 tools_ip=1
-if [ "$source_ip" != "" ] ; then
+if [ "$vision_ip" != "" ] ; then
 	echo "***************************************************************************************"
-	echo "Instance finally started, vision public IP: ${source_ip} " 
+	echo "Instance finally started, vision public IP: ${vision_ip} " 
 	echo "***************************************************************************************"
 
 	#Upload and execute configuration script to source instance 
@@ -90,6 +90,6 @@ if [ "$source_ip" != "" ] ; then
 	echo "***************************************************************************************"
 	echo python update_properties.py ${identity_domain}
 	python update_properties.py ${identity_domain}
-	echo sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}	
-	sh post_creation.sh ${identity_domain} ${source_ip} ${tools_ip} ${executionPath}	
+	echo sh post_creation.sh ${identity_domain} ${vision_ip} ${tools_ip} ${executionPath}	
+	sh post_creation.sh ${identity_domain} ${vision_ip} ${tools_ip} ${executionPath}	
 fi
