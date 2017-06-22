@@ -36,8 +36,8 @@ echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'scp
      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'scp -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' '${gse_admin_stagedir}'/change_fqdn.sh '${gse_admin_stagedir}'/cln.props '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${gse_admin_stagedir}'/p22336899_R12_GENERIC.zip opc@'${source_ip}':'${gse_admin_stagedir}
 
 # echo "Running root commands..."
-# echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
-#      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
+echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
+     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
      
 echo "Running oracle commands..."
 echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"'sh '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'

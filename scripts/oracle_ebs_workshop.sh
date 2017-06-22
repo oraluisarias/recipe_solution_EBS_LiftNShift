@@ -49,17 +49,19 @@ done
 
 
 . /u01/install/APPS/EBSapps.env run	
-# expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
-# expect \"APPS username:\"
-# send \"apps\r\"
-# expect \"APPS password:\"
-# send \"apps\r\"
-# expect \"WebLogic Server password:\"
-# send \"welcome1\r\"
-# send \"\r\""
-# sleep 120
+expect -c "set timeout 1000
+spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
+expect \"APPS username:\"
+send \"apps\r\"
+expect \"APPS password:\"
+send \"apps\r\"
+expect \"WebLogic Server password:\"
+send \"welcome1\r\"
+send \"\r\"
+expect eof"
 
-expect -c "spawn sh /u01/install/scripts/configwebentry.sh
+expect -c "set timeout 1000
+spawn sh /u01/install/scripts/configwebentry.sh
 expect \"Press any key to continue...\"
 send \"\r\"
 expect \"(Eg: https/http):\"
@@ -70,28 +72,33 @@ expect \"(Eg: domain.com):\"
 send \"compute.oraclecloud.com\r\"
 expect \"(Eg: 443/80):\"
 send \"8000\r\"
-expect \"Press any key to continue...\"
-send \"\r\"
 expect \"/u01/install/APPS):\"
 send \"/u01/install/APPS\r\"
+expect \"Press any key to continue...\"
+send \"\r\"
 expect \"Enter the APPS user password:\"
-send \"apps\r\""
+send \"apps\r\"
+expect eof"
 # sleep 240
 
-expect -c "spawn sh /u01/install/APPS/scripts/enableDEMOusers.sh
+expect -c "set timeout 1000
+spawn sh /u01/install/APPS/scripts/enableDEMOusers.sh
 expect \"Enter new password for DEMO users:\"
 send \"welcome1\r\"
 expect \"Re-enter password for DEMO users:\"
 send \"welcome1\r\"
-send \"\r\""
+send \"\r\"
+expect eof"
 # sleep 120
 
 . /u01/install/APPS/EBSapps.env run	
-expect -c "spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
+expect -c "set timeout 1000
+spawn sh ${ADMIN_SCRIPTS_HOME}/adstrtal.sh
 expect \"APPS username:\"
 send \"apps\r\"
 expect \"APPS password:\"
 send \"apps\r\"
 expect \"WebLogic Server password:\"
 send \"welcome1\r\"
-send \"\r\""
+send \"\r\"
+expect eof"
