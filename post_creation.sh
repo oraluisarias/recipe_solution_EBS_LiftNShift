@@ -40,8 +40,8 @@ echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh
      ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo sh '${gse_admin_stagedir}'/root_ebs_workshop.sh '${identity_domain}' '${ipHOST}'"'
      
 echo "Running oracle commands..."
-echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"'sh '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'
-     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"'sh '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${gse_admin_stagedir}' '${identity_domain}' '${source_ip}''"'"'"'
+echo ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"'sh '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${source_ip}''"'"'"'
+     ssh -o StrictHostKeyChecking=no -i ssh_keys/gse_admin opc@${gse_admin} 'ssh -o StrictHostKeyChecking=no -i '${gse_admin_stagedir}'/'${identity_domain}' opc@'${source_ip}' "sudo su - oracle -c '"'"'sh '${gse_admin_stagedir}'/oracle_ebs_workshop.sh '${source_ip}''"'"'"'
 
 if [ $tools_ip -ne 1 ] ; then
      echo "***************************************************************************************"
