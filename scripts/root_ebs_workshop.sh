@@ -5,7 +5,7 @@ gse_admin_stagedir="/app/EBS_LiftNShift/"${identity_domain}
 
 # dos2unix $gse_admin_stagedir/change_fqdn.sh
 # sh $gse_admin_stagedir/change_fqdn.sh "$ipHOST.compute.oraclecloud.com"
-yum update -y && yum install -y expect 
+yum install -y expect 
 # yum install -y curl tar gcc gcc-c++ openssl-devel wget xz make tcl expect dos2unix #root
 # cp /home/opc/.ssh/authorized_keys /home/oracle/.ssh/authorized_keys #root
 # chown oracle:oinstall /home/oracle/.ssh/authorized_keys #root
