@@ -9,9 +9,11 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc
 username = "cloud.admin"
-identity_domain = sys.argv[1]
+# identity_domain = sys.argv[1]
+identity_domain = "gse00011441"
 # datacenter = sys.argv[2]
-password = sys.argv[2]
+# password = sys.argv[2]
+password = "sizEable@4Hand"
 # identity_domain = "gse00010217"
 # zone = "z33"
 # datacenter = "em3"
@@ -42,23 +44,21 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		profile.set_preference("network.proxy.ssl", PROXY)
 		profile.set_preference("network.proxy.ssl_port", PROXY_PORT)
 		profile.update_preferences()
-		# self.driver = webdriver.Firefox(firefox_profile=profile)
-		self.driver = webdriver.Firefox( )
+		self.driver = webdriver.Firefox(firefox_profile=profile)
+		# self.driver = webdriver.Firefox( )
 		# self.driver = webdriver.PhantomJS()
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):
-			self.base_url = "https://computeui.emea.oraclecloud.com"				
-			self.base_storage = "https://myservices.emea.oraclecloud.com"				
+			self.base_url = "https://computeui.emea.oraclecloud.com"					
 		else:
 			self.base_url = "https://computeui.us.oraclecloud.com"						
-			self.base_url = "https://myservices.us.oraclecloud.com"						
 		self.verificationErrors = []
 		self.accept_next_alert = True
     
 	def test_install_marketplace_images_w_d(self):
 		try:
 			driver = self.driver
-			driver.get(self.base_url + "/mycompute/console/view.html?page=instances&pageDetails=launchInstance")
+			print(self.base_url + "/mycompute/console/view.html?page=instances&pageDetails=launchInstance")
 			driver.get(self.base_url + "/mycompute/console/view.html?page=instances&pageDetails=launchInstance")
 			driver.find_element_by_id("tenantDisplayName").clear()
 			print ("Logging to the domain: ", identity_domain)
