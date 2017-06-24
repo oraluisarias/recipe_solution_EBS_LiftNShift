@@ -157,34 +157,31 @@
 1498247705600	addons.xpi	DEBUG	Calling bootstrap method shutdown on flyweb@mozilla.org version 1.0.0
 1498247705601	addons.xpi	DEBUG	Calling bootstrap method shutdown on firefox@getpocket.com version 1.0.5
 1498247705602	addons.xpi	DEBUG	Calling bootstrap method shutdown on e10srollout@mozilla.org version 1.6
-1498247705603	addons.xpi	DEBUG	Calling bootstrap method shutdown on aushelper@mozilla.org version 1.0
-[GPU 1964] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-1498247705829	addons.manager	DEBUG	shutdown
-1498247705830	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
-1498247705830	addons.xpi	DEBUG	shutdown
-1498247705830	addons.xpi-utils	DEBUG	shutdown
-1498247705832	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
-1498247705833	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
-1498247705836	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
-1498247705836	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
-1498247705838	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
-1498247705842	addons.xpi	DEBUG	Notifying XPI shutdown observers
-1498247705847	addons.manager	DEBUG	Async provider shutdown done
-1498247720907	geckodriver::marionette	ERROR	Failed to kill browser process
-RROR_FAILURE) [nsIWebProgress.removeProgressListener]
-1498059664493	Marionette	INFO	New connections will no longer be accepted
-omium/src/chrome/common/ipc_channel_win.cc, line 346
-t@mozilla.org version 1.6
-1495555091224	addons.xpi	DEBUG	Calling bootstrap method shutdown on aushelper@mozilla.org version 1.0
-1495555091378	addons.manager	DEBUG	shutdown
-1495555091378	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
-1495555091378	addons.xpi	DEBUG	shutdown
-1495555091379	addons.xpi-utils	DEBUG	shutdown
-1495555091379	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
-1495555091380	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
-1495555091384	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
-1495555091385	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
-1495555091388	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1498247705603	addons.xpi	DEBUG	Calling bootstrap metho1498248053483	addons.manager	INFO	Skipping background update check
+1498248293520	DeferredSave.extensions.json	DEBUG	Save changes
+1498248293521	DeferredSave.extensions.json	DEBUG	Starting timer
+1498248293542	DeferredSave.extensions.json	DEBUG	Starting write
+1498248293592	DeferredSave.extensions.json	DEBUG	Write succeeded
+1498259501262	addons.xpi	DEBUG	Calling bootstrap method shutdown on webcompat@mozilla.org version 1.0
+1498259501263	addons.xpi	DEBUG	Calling bootstrap method shutdown on presentation@mozilla.org version 1.0.0
+1498259501264	addons.xpi	DEBUG	Calling bootstrap method shutdown on formautofill@mozilla.org version 1.0
+1498259501265	addons.xpi	DEBUG	Calling bootstrap method shutdown on flyweb@mozilla.org version 1.0.0
+1498259501266	addons.xpi	DEBUG	Calling bootstrap method shutdown on firefox@getpocket.com version 1.0.5
+1498259501267	addons.xpi	DEBUG	Calling bootstrap method shutdown on e10srollout@mozilla.org version 1.6
+1498259501268	addons.xpi	DEBUG	Calling bootstrap method shutdown on aushelper@mozilla.org version 1.0
+[GPU 11920] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-cen-w64-ntly-000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1498259501412	addons.manager	DEBUG	shutdown
+1498259501412	addons.manager	DEBUG	Calling shutdown blocker for XPIProvider
+1498259501412	addons.xpi	DEBUG	shutdown
+1498259501412	addons.xpi-utils	DEBUG	shutdown
+1498259501413	addons.manager	DEBUG	Calling shutdown blocker for LightweightThemeManager
+1498259501413	addons.manager	DEBUG	Calling shutdown blocker for GMPProvider
+1498259501416	addons.manager	DEBUG	Calling shutdown blocker for PluginProvider
+1498259501416	addons.manager	DEBUG	Calling shutdown blocker for <unnamed-provider>
+1498259501418	addons.manager	DEBUG	Calling shutdown blocker for PreviousExperimentProvider
+1498259501422	addons.xpi	DEBUG	Notifying XPI shutdown observers
+1498259501427	addons.manager	DEBUG	Async provider shutdown done
+rovider
 1495555091393	addons.xpi	DEBUG	Notifying XPI shutdown observers
 1495555091399	addons.manager	DEBUG	Async provider shutdown done
 
