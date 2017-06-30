@@ -17,11 +17,18 @@ cd /u01
 . /u01/install/APPS/EBSapps.env run
 while [ ! $? -eq 0 ]
 do
-	echo "Waiting for instance to initialize ..."	
+	echo "Waiting for EBS to initialize ..."	
 	sleep 60
 	. /u01/install/APPS/EBSapps.env run	
 done
 
+ps -fea | grep opmn | grep webtier
+while [ ! $? -eq 0 ]
+do
+	echo "Waiting for OPMN to initialize ..."	
+	sleep 60
+	ps -fea | grep opmn | grep webtier
+done
 # expect -c "spawn perl /u01/install/APPS/fs1/EBSapps/appl/fnd/12.0.0/patch/115/bin/txkUpdateEBSDomain.pl -action=updateAdminPassword
 # expect \"Enter \"Yes\" to proceed or anything else to exit:\"
 # send \"Yes\r\"
