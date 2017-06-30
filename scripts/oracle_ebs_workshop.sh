@@ -56,16 +56,6 @@ done
 
 
 . /u01/install/APPS/EBSapps.env run	
-expect -c "set timeout 1000
-spawn sh ${ADMIN_SCRIPTS_HOME}/adstpall.sh
-expect \"APPS username:\"
-send \"apps\r\"
-expect \"APPS password:\"
-send \"apps\r\"
-expect \"WebLogic Server password:\"
-send \"welcome1\r\"
-send \"\r\"
-expect eof"
 
 expect -c "set timeout 1000
 spawn sh /u01/install/scripts/configwebentry.sh
