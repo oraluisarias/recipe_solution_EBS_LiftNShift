@@ -29,6 +29,8 @@ do
 	sleep 60
 	ps -fea | grep opmn | grep webtier
 done
+
+sleep 300
 # expect -c "spawn perl /u01/install/APPS/fs1/EBSapps/appl/fnd/12.0.0/patch/115/bin/txkUpdateEBSDomain.pl -action=updateAdminPassword
 # expect \"Enter \"Yes\" to proceed or anything else to exit:\"
 # send \"Yes\r\"
