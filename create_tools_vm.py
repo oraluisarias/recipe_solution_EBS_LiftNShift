@@ -39,8 +39,6 @@ while real_tools_instance_name == "" :
 	if error_counter >= 10: 
 		print ("Reached maximum number of failures")
 		sys.exit(1)
-	if time_ellapsed == 29:
-		opcc = opc.Compute( identity_domain, zone, datacenter )
 	instances = opcc.getInstances( cloud_username )
 	print "Waiting for source instance to be created, sleeping 1 minute per iteration "+str(time_ellapsed)+" minutes passed..."
 	try:
@@ -53,7 +51,10 @@ while real_tools_instance_name == "" :
 					print ("Retrieving IP and real name of the newly created service...", source_public_ip, real_source_instance_name)
 		if real_tools_instance_name == "" :
 			time.sleep(60)
-			time_ellapsed=time_ellapsed+1	  
+			time_ellapsed=time_ellapsed+1	
+			if time_ellapsed % 29 == 0:
+				print ("29 minutes passed, login in again to OPC")
+				opcc.renovateCookie()  
 	except NameError:
 		print ("Didnt get any answer from OPC this time!")
 	except Exception as e:

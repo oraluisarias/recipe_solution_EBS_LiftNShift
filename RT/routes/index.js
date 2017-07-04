@@ -12,8 +12,8 @@ router.post('/install_marketplace_images', function(req, res, next) {
     console.log(cmd);
     exec(cmd, {maxBuffer: 1024 * 1000 * 1000}, function (error2, stdout2, stderr2){        
         console.log( stdout2 );                           
+		res.json( {"result":stdout2} );                           
     });
-	res.json( {"result":"Executing RT on background"} );                           
 });
 
 router.get('/getOPCZone/:username/:password', function(req, res, next) {	

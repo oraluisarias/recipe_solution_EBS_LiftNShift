@@ -64,7 +64,7 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 			time_ellapsed=time_ellapsed+1	  
 			if time_ellapsed % 29 == 0:
 				print ("29 minutes passed, login in again to OPC")
-				opcc = opc.Compute( identity_domain, zone, datacenter )	
+				opcc.renovateCookie()
 	except NameError, KeyError:
 		print ("Didn't get any answer from OPC this time!")
 	except Exception as e:

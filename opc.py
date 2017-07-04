@@ -192,6 +192,14 @@ class Compute:
         ip = self.getIpByOrchestration(cloud_username, admin_username, orch_instance_name)["ip"]
         return ip
 
+    def renovateCookie(self, api=False, zone=False, username=False, password=False):
+        headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
+        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/refresh/"
+        r = requests.get(endpoint, headers=headers) 
+        print ("endpoint: " + endpoint) 
+        print (r.text)
+        return yaml.safe_load(r.text)
+
     def authenticate(self, api=False, zone=False, username=False, password=False):
         if api == False:
             api = self.api
