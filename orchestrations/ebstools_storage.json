@@ -1,0 +1,36 @@
+{
+  "relationships" : [ ],
+  "account" : "/Compute-#identityDomain/default",
+  "description" : "ebstools",
+  "oplans" : [ {
+    "obj_type" : "storage/volume",
+    "ha_policy" : "",
+    "label" : "#storageName",
+    "objects" : [ {
+      "managed" : true,
+      "status_timestamp" : "2017-05-22T15:49:13Z",
+      "snapshot_account" : null,
+      "machineimage_name" : "/Compute-#identityDomain/#cloud_username/OPC_OL6_8_EBS_ORCH_VM_03282017",
+      "snapshot_id" : null,
+      "imagelist" : "/Compute-#identityDomain/#cloud_username/OPC_OL6_8_EBS_ORCH_VM_03282017",
+      "writecache" : false,
+      "size" : "23622320128",
+      "platform" : "linux",
+      "readonly" : false,
+      "shared" : false,
+      "description" : "",
+      "tags" : [ ],
+      "quota" : null,
+      "properties" : [ "/oracle/public/storage/default" ],
+      "account" : "/Compute-#identityDomain/default",
+      "name" : "/Compute-#identityDomain/#cloud_username/#storageName",
+      "bootable" : true,
+      "hypervisor" : null,
+      "uri" : null,
+      "imagelist_entry" : 1,
+      "snapshot" : null
+    } ]
+  } ],
+  "user" : "/Compute-#identityDomain/#cloud_username",
+  "name" : "/Compute-#identityDomain/#cloud_username/#storageName"
+}

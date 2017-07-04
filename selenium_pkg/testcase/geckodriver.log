@@ -1,0 +1,11 @@
+1480538487260	geckodriver	INFO	Listening on 127.0.0.1:56358
+1480538487763	mozprofile::profile	INFO	Using profile path C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.7zq5UlWew1XX
+1480538487769	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox\firefox.exe
+1480538487780	geckodriver::marionette	INFO	Connecting to Marionette on localhost:56362
+console.error: 
+  [CustomizableUI]
+  Custom widget with id loop-button does not return a valid node
+console.error: 
+  [CustomizableUI]
+  Custom widget with id loop-button does not return a valid node
+alid node

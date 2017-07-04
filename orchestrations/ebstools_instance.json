@@ -1,0 +1,40 @@
+{
+  "relationships" : [ ],
+  "account" : "/Compute-#identityDomain/default",
+  "description" : "ebstools",
+  "oplans" : [ {
+    "obj_type" : "launchplan",
+    "ha_policy" : "active",
+    "label" : "#instanceName",
+    "objects" : [ {
+      "instances" : [ {
+        "hostname" : "ebstools.compute-#identityDomain.oraclecloud.internal.",
+        "networking" : {
+          "eth0" : {
+            "seclists" : [ "/Compute-#identityDomain/#cloud_username/allow_all" ],
+            "nat" : "ippool:/oracle/public/ippool",
+            "dns" : [ "ebstools" ]
+          }
+        },
+        "name" : "/Compute-#identityDomain/#cloud_username/ebstools/#instanceName",
+        "boot_order" : [ 1 ],
+        "storage_attachments" : [ {
+          "volume" : "/Compute-#identityDomain/#cloud_username/#storageName",
+          "index" : 1
+        } ],
+        "label" : "ebstools",
+        "shape" : "oc3",
+        "attributes" : {
+          "userdata" : {
+          },
+          "nimbula_orchestration" : "/Compute-#identityDomain/#cloud_username/#instanceName"
+        },
+        "imagelist" : "/Compute-#identityDomain/#cloud_username/OPC_OL6_8_EBS_ORCH_VM_03282017",
+        "sshkeys" : [ "/Compute-#identityDomain/#cloud_username/#identityDomain" ],
+        "tags" : [ "ebstools" ]
+      } ]
+    } ]
+  } ],
+  "user" : "/Compute-#identityDomain/#cloud_username",
+  "name" : "/Compute-#identityDomain/#cloud_username/#instanceName"
+}

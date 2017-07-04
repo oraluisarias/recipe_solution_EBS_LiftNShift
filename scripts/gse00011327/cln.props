@@ -1,0 +1,122 @@
+# $Header: cln.props 120.0.12020000.10 2016/11/11 16:29:30 kmandal noship $
+#All HOST attributes should be defined as fully qualified domain name
+#If passwords or passphrases are already encrypted in cln.props file and user want to change
+#any password or passphrases need to follow "Migrating an Existing Oracle E-Business Suite Installation to Oracle Cloud" document.
+
+#Allowed value for MODE is [nonRAC-to-nonRAC or RAC-to-nonRAC or STAGE or OSS or CDB ]
+MODE=OSS
+
+#@deprecated currently not in use
+#Allowed value for BACKUP_TYPE is hot(applicable for MODE=STAGE)
+#BACKUP_TYPE=hot
+
+#Common Properties applicable for both EBS R12.1 and R12.2
+### Source EBS details
+HOST.SRC.DB=ebssource.compute-gse00011327.oraclecloud.internal
+OS_USER.SRC.DB=oracle
+OS_PASSWORD.SRC.DB=
+#OS_PASSPHRASE.SRC.DB=xxxxx
+#CUSTOM_PRIVATE_KEY_LOC.SRC.DB=
+#PROXY_PROTOCOL.SRC.DB=
+#PROXY_HOST.SRC.DB=
+#PROXY_PORT.SRC.DB=
+#PROXY_USER.SRC.DB=
+#PROXY_PASSWORD.SRC.DB=
+
+STG_DIR.SRC.DB=/u01/dbstg
+
+###Optional property applicable if s_base is null in Source EBS DBTier Context File
+#DB_BASE_DIR.SRC=
+
+HOST.SRC.APPS=ebssource.compute-gse00011327.oraclecloud.internal
+OS_USER.SRC.APPS=oracle
+OS_PASSWORD.SRC.APPS=
+#OS_PASSPHRASE.SRC.APPS=xxxx
+STG_DIR.SRC.APPS=/u01/appsstg
+
+### Source EBS DBTier Context File
+CONTEXT_FILE.DB.SRC=/u01/install/APPS/12.1.0/appsutil/EBSDB_ebssource.xml
+
+### Source EBS AppsTier(R12.1) or Primary node RUN file system Context File(R12.2)
+CONTEXT_FILE.APPS.SRC=/u01/install/APPS/fs1/inst/apps/EBSDB_ebssource/appl/admin/EBSDB_ebssource.xml
+
+### Source Database Apps schema password
+APPS_PASS=apps
+
+### Target EBS details
+#HOST.TGT.DB=xxxx.compute-appsunlimited3.oraclecloud.internal
+#OS_USER.TGT.DB=oracle
+#OS_PASSWORD.TGT.DB=xxxx
+#OS_PASSPHRASE.TGT.DB=xxxxxx
+#STG_DIR.TGT.DB=/u02/dbStage
+
+#HOST.TGT.APPS=xxxx.compute-appsunlimited3.oraclecloud.internal
+#OS_USER.TGT.APPS=applmgr
+#OS_PASSWORD.TGT.APPS=xxxxx
+#OS_PASSPHRASE.TGT.APPS=xxxxxxxx
+#STG_DIR.TGT.APPS=/u03/appsStage
+
+### Target EBS Details:
+#DB_SID.TGT=opc1213
+#DB_BASE_DIR.TGT=/scratch/opcoracle/opc1213
+###Following optional attributes need to define if any source datatop is outside database <s_base> directory.
+###These attributes are directly mapped to (DB_DATA_DIR<N>.TGT->s_dbhome<N>) context variable.
+#DB_DATA_DIR1.TGT
+#DB_DATA_DIR2.TGT
+#DB_DATA_DIR3.TGT
+#DB_DATA_DIR4.TGT
+
+#APPS_BASE_DIR.TGT=/u03/opc1213
+#APPS_INST_BASE_DIR.TGT=/u03/opc1213
+
+## Configurable properties for target:
+#DB_PP.TGT=10
+
+## Optional Configurable parameters:
+THREAD_POOL_SIZE=10
+# THREAD_POOL_SIZE.EXTRACT=20
+# THREAD_POOL_SIZE.STAGE=10
+# THREAD_POOL_SIZE.TRANSFER=10
+
+## Properties applicable for EBS R12.2 only
+## Source WLS Admin password
+WLS_ADMIN_PASS=welcome1
+##Target appsTier port pool
+APPS_RUN_PP.TGT=20
+APPS_PATCH_PP.TGT=30
+
+## Properties applicable for EBS R12.1 only
+APPS_121_PP.TGT=20
+
+## Optional property applicable if user want to disable SSL Terminator Configuration on target but was enabled on source appsTier.
+#DISABLE_SSL_TERMINATOR=true
+
+## STAGE server details
+#HOST.STAGE=xxxx.compute-appsunlimited3.oraclecloud.internal
+#OS_USER.STAGE=oracle
+#OS_PASSWORD.STAGE=
+#STG_DIR.STAGE=/ebsstage
+#CUSTOM_PRIVATE_KEY_LOC.STAGE=
+#PROXY_PROTOCOL.STAGE=
+#PROXY_HOST.STAGE=
+#PROXY_PORT.STAGE=
+#PROXY_USER.STAGE=
+#PROXY_PASSWORD.STAGE=
+
+
+##OSS route Oracle Storage Cloud service properties
+#These properties are needed for appsTier and dbTier Oracle_Home and RMAN backup upload to OSS
+OC_USERNAME=cloud.admin
+OC_PASSWORD=shEEr@7Fatigue
+OC_STORAGE_ENDPOINT=https://gse00011327.storage.oraclecloud.com/v1/Storage-gse00011327
+OC_BACKUP_IDENTIFIER_TAG=skwn2017525
+OC_DOMAIN=gse00011327
+RMAN_BACKUP_ENCRYPTION_PASS=welcome1
+#Do not modify the value of OC_CLOUD_BACKUP_DIR and it is set to the default as shown below
+OC_CLOUD_BACKUP_DIR=ebs
+
+#This parameter need to be set in case Cloud Service Endpoint access need to be go via proxy
+#format should be like <ProxyProtocol>_proxy="<ProxyProtocol>://<ProxyHost>:<ProxyPort>"
+#OC_PROXY_DETAILS=https_proxy="http://www-proxy.example.com:80"
+
+#Only applicable for CDB flow. Possible values are DBCS or EXACS
