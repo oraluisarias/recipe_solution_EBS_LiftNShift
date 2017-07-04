@@ -31,7 +31,8 @@ class DemoCentral:
 
 class Compute:  
     def __init__(self, identity_domain, api="z26", zone="us2", username="cloud.admin", password=False, findDomainData=True):
-        self.api = api
+        self.api=""
+        self.setZone(api)
         self.identity_domain = identity_domain
         self.zone = zone
         self.DATACENTER_SHORT = self.findDataCenter()
@@ -51,6 +52,7 @@ class Compute:
                     print("no data in Demo Central, environment retired?");     
                 except: 
                     self.password =  ""     
+        print (self.api)
         try: 
             auth = self.authenticate( self.api, self.zone, self.user, self.password)                    
         except:     
@@ -81,13 +83,17 @@ class Compute:
         return False
 
     def getZone(self):
-        return self.api
+        return self.zoneRaw
 
     def getDataCenter(self):
         return self.zone
 
     def setZone(self, zone):
-        self.api = zone
+        self.zoneRaw = zone        
+        if "z" in zone : 
+            self.api = "api-" + zone        
+        else:
+            self.api = zone
 
     def setDataCenter(self, dc):
         self.zone = dc
@@ -194,15 +200,15 @@ class Compute:
 
     def renovateCookie(self, api=False, zone=False, username=False, password=False):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/refresh/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/refresh/"
         r = requests.get(endpoint, headers=headers) 
-        print ("endpoint: " + endpoint) 
-        print (r.text)
+        cookies = "nimbula=" + r.cookies["nimbula"] + "; Path=/; Max-Age=1800"          
+        self.cookie = cookies
         return yaml.safe_load(r.text)
 
     def authenticate(self, api=False, zone=False, username=False, password=False):
         if api == False:
-            api = self.api
+            api = self.api        
         if zone == False:
             zone = self.zone
         if username == False:
@@ -218,7 +224,7 @@ class Compute:
             # print (credentials)
         if api != False and zone != False:
             headers = {'Content-Type': 'application/oracle-compute-v3+json'}        
-            url = "https://api-"+api+".compute."+zone+".oraclecloud.com/authenticate/"
+            url = "https://"+api+".compute."+zone+".oraclecloud.com/authenticate/"
             # print("url", url)
             r = requests.post(url, data=json.dumps(credentials), headers=headers)   
             cookies = "nimbula=" + r.cookies["nimbula"] + "; Path=/; Max-Age=1800"  
@@ -234,7 +240,7 @@ class Compute:
 
     def addSSHkey(self, user, key, name):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/sshkey/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/sshkey/"
         data = {"enabled" : "true", "name" : "/Compute-" + self.identity_domain + "/" + user + "/" + name}
         # "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAseR3ONbBVVRGcEKyXA7kVFSFdQJdDvhRjxKJrhAhpq5AWpDL6vhk1u3YXJ5mJ5tOdml0oZrEl0jVebECFqx0IlhfHxDmtrDapeYbYal7XpLL2xAH3OpAGmzSMF5mTZNOt1UEbgWEIWej1aL9prhJcFTgV5ZHISGRUwFalhFuAdxddH/yiW5x/ACqsWXdoksC9hPvYNIAd7Z+8Jpzz7z18MUB8rTV5khUuoHiW7VZ0yKdV+Md4XbzoFROmKRek1z8wtZJRkELZZtcHEaisTR4fJxiMefFph2Q0iaBmDSK6lTij+vWQLyVP0TaXoLDJg5KBZOFZnDzEpvAV1HboU68+Q== luis.a.arias@oracle.com"
         if type(key) == str and os.path.isfile(key):
@@ -249,7 +255,7 @@ class Compute:
 
     def addSeclist(self,  user, seclist):       
         headers = {"Cookie" : self.cookie, "Content-Type" : "application/oracle-compute-v3+json", "Accept" : "application/oracle-compute-v3+json"}          
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/seclist/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/seclist/"
         if type(seclist) == str and os.path.isfile(seclist): 
             with open(key, 'r') as f: 
                 seclist=f.read()        
@@ -260,14 +266,14 @@ class Compute:
 
     # def deleteOrchestration(self, user, orchestration_name):  
     #   headers = {"Cookie" : self.cookie, "Content-Type" : "application/oracle-compute-v3+json", "Accept" : "application/oracle-compute-v3+json"}  
-    #   endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/" + orchestration_name
+    #   endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/" + orchestration_name
     #   r = requests.delete(endpoint, headers=headers)
     #   print ("Deleting orchestration...", r.text)
     #   return yaml.safe_load(r.text) 
 
     def createOrchestration(self,  user, orchestration, replace=[]):    
         headers = {"Cookie" : self.cookie, "Content-Type" : "application/oracle-compute-v3+json", "Accept" : "application/oracle-compute-v3+json"}  
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/"
         if os.path.isfile(orchestration):
             with open(orchestration, 'r') as f: 
                 jsonfile=f.read()
@@ -284,7 +290,7 @@ class Compute:
 
     def attachVolume(self, index, storage_volume_name, source_instance):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/attachment/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/storage/attachment/"
         data={"index": index,"storage_volume_name": storage_volume_name,"instance_name": source_instance}
         r = requests.post(endpoint, data=json.dumps(data), headers=headers) 
         print ("endpoint: " + endpoint) 
@@ -293,7 +299,7 @@ class Compute:
 
     def createVolumeOrchestration(self, user, orchestration, replace=[]):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/"
         if os.path.isfile(orchestration):
             with open(orchestration, 'r') as f: 
                 jsonfile=f.read()
@@ -307,7 +313,7 @@ class Compute:
 
     def orchestrationAction(self,  user, orchestration_name, action):       
         headers = {"Cookie" : self.cookie, "Content-Type" : "application/oracle-compute-v3+json"}   
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/Compute-" + self.identity_domain + "/" + user + "/" + orchestration_name + "?action=" + action
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/Compute-" + self.identity_domain + "/" + user + "/" + orchestration_name + "?action=" + action
         r = requests.put(endpoint, headers=headers)
         print ("endpoint: " + endpoint) 
         print (r.text)
@@ -315,7 +321,7 @@ class Compute:
 
     def deleteOrchestration(self,  user, orchestration_name):   
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/Compute-" + self.identity_domain + "/" + user + "/" + orchestration_name + "/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/Compute-" + self.identity_domain + "/" + user + "/" + orchestration_name + "/"
         r = requests.delete(endpoint, headers=headers)
         print ("endpoint: " + endpoint) 
         print (r.text)
@@ -323,7 +329,7 @@ class Compute:
 
     def getOrchestrations(self,  user):     
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/Compute-" + self.identity_domain + "/" + user + "/"    
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/orchestration/Compute-" + self.identity_domain + "/" + user + "/"    
         r = requests.get(endpoint, headers=headers)
         print ("endpoint: " + endpoint) 
         print (r.text)
@@ -339,7 +345,7 @@ class Compute:
 
     def rebootInstance(self,  instance):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/rebootinstancerequest/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/rebootinstancerequest/"
         data = { "hard": "true", "instance": instance }
         r = requests.post(endpoint, data=json.dumps(data), headers=headers)
         print ("endpoint: " + endpoint) 
@@ -348,7 +354,7 @@ class Compute:
 
     def deleteInstance(self,  instance):
         headers = {"Cookie" : self.cookie}
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/instance" + instance
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/instance" + instance
         r = requests.delete(endpoint, headers=headers)
         print ("endpoint: " + endpoint) 
         print (r.text)
@@ -356,7 +362,7 @@ class Compute:
 
     def getShapes(self):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/shape/"  
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/shape/"  
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint)         
         return yaml.safe_load(r.text)
@@ -379,21 +385,21 @@ class Compute:
 
     def getAllReservedIP(self,  user):  
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/ip/reservation/Compute-" + self.identity_domain + "/" + user + "/"   
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/ip/reservation/Compute-" + self.identity_domain + "/" + user + "/"   
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint)         
         return yaml.safe_load(r.text)
 
     def getAllAssociatedIP(self,  user):  
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/ip/association/Compute-" + self.identity_domain + "/" + user + "/"           
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/ip/association/Compute-" + self.identity_domain + "/" + user + "/"           
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint)         
         return yaml.safe_load(r.text)
 
     def getReservedIP(self,  user, vcable_id):  
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/ip/association/Compute-" + self.identity_domain + "/" + user + "/"                   
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/ip/association/Compute-" + self.identity_domain + "/" + user + "/"                   
         r = requests.get(endpoint, headers=headers)         
         result=yaml.safe_load(r.text)
         for ips in result["result"]:
@@ -402,41 +408,41 @@ class Compute:
 
     def getAssociatedIP(self,  user, instance_name):  
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/ip/association" + instance_name + "/"        
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/ip/association" + instance_name + "/"        
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint)         
         return yaml.safe_load(r.text)
 
     def getInstances(self,  user):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json"} 
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/instance/Compute-" + self.identity_domain + "/" + user + "/" 
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/instance/Compute-" + self.identity_domain + "/" + user + "/" 
         r = requests.get(endpoint, headers=headers) 
         # print ("endpoint: " + endpoint)           
         return yaml.safe_load(r.text)
 
     def getAttachmentDetails(self, user):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/attachment/Compute-" + self.identity_domain + "/" + user + "/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/storage/attachment/Compute-" + self.identity_domain + "/" + user + "/"
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint) 
         return yaml.safe_load(r.text)
 
     def getVolumes(self, user):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/Compute-" + self.identity_domain + "/" + user + "/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/Compute-" + self.identity_domain + "/" + user + "/"
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint) 
         return yaml.safe_load(r.text)
 
     def deleteVolume(self, user, volume):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/Compute-" + self.identity_domain + "/" + user + "/" + volume
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/Compute-" + self.identity_domain + "/" + user + "/" + volume
         r = requests.delete(endpoint, headers=headers)  
         return yaml.safe_load(r.text)
 
     def createSimpleVolume(self,  size, name):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/"
         volume_data = {"size" : size, "name" : name, "properties" : ["/oracle/public/storage/default"]}
         r = requests.post(endpoint, data=json.dumps(volume_data), headers=headers)  
         print ("endpoint: " + endpoint) 
@@ -445,7 +451,7 @@ class Compute:
 
     def createBootableVolume(self,  size, name):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+json", "Content-Type" : "application/oracle-compute-v3+json"}      
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/storage/volume/"
         volume_data = {"size" : size, "name" : name, "properties" : ["/oracle/public/storage/default"]}
         r = requests.post(endpoint, data=json.dumps(volume_data), headers=headers)  
         print ("endpoint: " + endpoint) 
@@ -454,7 +460,7 @@ class Compute:
 
     def getImageLists(self,  user):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+directory+json"}       
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/imagelist/Compute-" + self.identity_domain + "/" + user + "/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/imagelist/Compute-" + self.identity_domain + "/" + user + "/"
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint) 
         print (r.text)
@@ -462,7 +468,7 @@ class Compute:
 
     def getSSHKey(self, user):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+directory+json"}       
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/sshkey/Compute-" + self.identity_domain + "/" + user + "/"
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/sshkey/Compute-" + self.identity_domain + "/" + user + "/"
         r = requests.get(endpoint, headers=headers) 
         print ("endpoint: " + endpoint) 
         print (r.text)
@@ -470,7 +476,7 @@ class Compute:
 
     def deleteSSHKey(self,  user, key):
         headers = {"Cookie" : self.cookie, "Accept" : "application/oracle-compute-v3+directory+json"}       
-        endpoint = "https://api-"+self.api+".compute."+self.zone+".oraclecloud.com/sshkey/Compute-" + self.identity_domain + "/" + user + "/" + key
+        endpoint = "https://"+self.api+".compute."+self.zone+".oraclecloud.com/sshkey/Compute-" + self.identity_domain + "/" + user + "/" + key
         r = requests.delete(endpoint, headers=headers)  
         print ("endpoint: " + endpoint) 
         print (r.text)

@@ -35,6 +35,11 @@ opcc.createVolumeOrchestration(cloud_username, vision_orchestration_volume_name,
 # sleep here
 error_counter = 0
 time_ellapsed = 0
+opcc.renovateCookie()
+instances = opcc.getInstances( cloud_username )
+volumes = opcc.getVolumes( cloud_username )
+print ("Instances...", instances)
+print ("Volumes...", volumes)
 while real_source_instance_name == "" or real_source_volume_name == "" :
 	if error_counter >= 10: 
 		print ("Reached maximum number of failures")
@@ -50,7 +55,6 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 				print ("Volume state: ", volume["status"])
 				if volume["status"] == "Online":
 					real_source_volume_name = volume['name']	
-		print ("Instances...", instances)
 		for instance in instances["result"]: 
 			if instance['name'].find(source_instance_name) > 0:
 				# if real_source_instance_name == "":				
@@ -62,8 +66,8 @@ while real_source_instance_name == "" or real_source_volume_name == "" :
 		if real_source_instance_name == "" or real_source_volume_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	  
-			if time_ellapsed % 29 == 0:
-				print ("29 minutes passed, login in again to OPC")
+			if time_ellapsed % 20 == 0:
+				print ("20 minutes passed, login in again to OPC")
 				opcc.renovateCookie()
 	except NameError, KeyError:
 		print ("Didn't get any answer from OPC this time!")
