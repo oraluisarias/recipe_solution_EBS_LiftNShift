@@ -9,16 +9,18 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc, json
 sites = {}
-identity_domain = "gse00012198"
-password = "ShoDdY@6Glare"
-username = "cloud.admin"
-# password = sys.argv[2]
-# identity_domain = sys.argv[1]
-# if len(sys.argv) > 2:
-# 	username = sys.argv[3]
-# 	sites["message"]="Using custom credentials"
-# else:
-	# username = "cloud.admin"
+###-Comment this-####
+# identity_domain = "gse00012198"
+# password = "ShoDdY@6Glare"
+# username = "cloud.admin"
+#####################
+identity_domain = sys.argv[1]
+password = sys.argv[2]
+if len(sys.argv) > 2:
+	username = sys.argv[3]
+	sites["message"]="Using custom credentials"
+else:
+	username = "cloud.admin"
 
 # password = "ablAtivE@4Iowa"
 # demo_central = opc.DemoCentral()
