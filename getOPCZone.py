@@ -46,8 +46,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		profile.set_preference("network.proxy.ssl", PROXY)
 		profile.set_preference("network.proxy.ssl_port", PROXY_PORT)
 		profile.update_preferences()
-		# self.driver = webdriver.Firefox( )
-		self.driver = webdriver.Firefox(firefox_profile=profile)
+		self.driver = webdriver.Firefox( )
+		# self.driver = webdriver.Firefox(firefox_profile=profile)
 		# self.driver = webdriver.PhantomJS()
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):
