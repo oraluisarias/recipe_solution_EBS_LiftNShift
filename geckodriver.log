@@ -1,9 +1,10 @@
-1499285381366	geckodriver	INFO	Listening on 127.0.0.1:56601
-1499285381882	mozprofile::profile	INFO	Using profile path C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.dQPVfid0jnmP
-1499285381913	geckodriver::marionette	INFO	Starting browser C:\Program Files\Nightly\firefox.exe
-1499285381944	geckodriver::marionette	INFO	Connecting to Marionette on localhost:56607
-1499285383550	addons.manager	DEBUG	Application has been upgraded
-1499285383605	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/XPIProvider.jsm: ["XPIProvider"]
+1499721814435	geckodriver	INFO	Listening on 127.0.0.1:64351
+1499721814945	mozprofile::profile	INFO	Using profile path C:\Users\luisaria\AppData\Local\Temp\rust_mozprofile.ATJAH9qJwgvo
+1499721814950	geckodriver::marionette	INFO	Starting browser C:\Program Files\Nightly\firefox.exe
+1499721815014	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64355
+1499721819107	Marionette	INFO	Listening on port 64355
+1499721823993	Marionette	WARN	Using deprecated data structure for setting timeouts
+re/modules/addons/XPIProvider.jsm: ["XPIProvider"]
 1499285383608	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/LightweightThemeManager.jsm: ["LightweightThemeManager"]
 1499285383612	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/GMPProvider.jsm
 1499285383614	addons.manager	DEBUG	Loaded provider scope for resource://gre/modules/addons/PluginProvider.jsm
