@@ -9,15 +9,16 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re, sys, opc, json
 sites = {}
-identity_domain = sys.argv[1]
-# identity_domain = "gse00002320"
-password = sys.argv[2]
-# password = "tapEred@3NervE"
-if len(sys.argv) > 2:
-	username = sys.argv[3]
-	sites["message"]="Using custom credentials"
-else:
-	username = "cloud.admin"
+identity_domain = "gse00012198"
+password = "ShoDdY@6Glare"
+username = "cloud.admin"
+# password = sys.argv[2]
+# identity_domain = sys.argv[1]
+# if len(sys.argv) > 2:
+# 	username = sys.argv[3]
+# 	sites["message"]="Using custom credentials"
+# else:
+	# username = "cloud.admin"
 
 # password = "ablAtivE@4Iowa"
 # demo_central = opc.DemoCentral()
@@ -43,8 +44,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		profile.set_preference("network.proxy.ssl", PROXY)
 		profile.set_preference("network.proxy.ssl_port", PROXY_PORT)
 		profile.update_preferences()
-		self.driver = webdriver.Firefox( )
-		# self.driver = webdriver.Firefox(firefox_profile=profile)
+		# self.driver = webdriver.Firefox( )
+		self.driver = webdriver.Firefox(firefox_profile=profile)
 		# self.driver = webdriver.PhantomJS()
 		self.driver.implicitly_wait(30)
 		if( datacenter[:2] == "em" ):
@@ -89,6 +90,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.ARROW_DOWN);
 			driver.find_element_by_id('ojChoiceId_siteSelect').send_keys(Keys.RETURN);
 			driver.implicitly_wait(30)
+			dataCenterItem = driver.find_element_by_id("dataCenterItem").text
+			restEndpointItem = driver.find_element_by_id("restEndpointItem").text
 			site = driver.find_element_by_id("ojChoiceId_siteSelect_selected").text
 			site_parts = site.split("_")
 			# ocpu = driver.find_element_by_id('ocpuGauge').get_attribute("aria-label")
@@ -99,6 +102,8 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 				# "ocpu":ocpu.lstrip('Data Visualization: Gauge.').strip(), 
 				# "memory":memory.lstrip('Data Visualization: Gauge.').strip(), 
 				# "ips":ips.lstrip('Data Visualization: Gauge.').strip(), 
+				"dataCenterItem":dataCenterItem,
+				"restEndpoint":restEndpointItem,
 				"site":site,
 				"datacenter":site_parts[0]
 			}
@@ -108,13 +113,15 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 
 			sites[site] = siteArray
 			driver.implicitly_wait(10)		
-		# try: 
-		# 	driver.get(self.base_url_storage + "/mycloud/faces/gServiceDetail.jspx?entitlementServiceId=536852049&serviceId=536850933&_adf.ctrl-state=null")
-		# 	driver.implicitly_wait(120)
-		# 	storage_url = driver.find_element_by_id("pt1:pt2:currentTabHTMLContents:ot13").text
-		# 	sites["storage"] = storage_url			
-		# except:
-		# 	print ( json.dumps( { identity_domain:sites } ) )				
+		try: 
+			driver.find_element_by_id("gs-tile-cd").click()		
+			gs-tile-cd
+			driver.get(self.base_url_storage + "/mycloud/faces/serviceDetail.jspx?serviceId=564001032&_adf.ctrl-state=null")
+			driver.implicitly_wait(120)
+			developer_url = driver.find_element_by_id("pt1:pt2:currentTabHTMLName:ot131").text
+			sites["developer"] = developer_url			
+		except:
+			print ( json.dumps( { identity_domain:sites } ) )				
 		print ( json.dumps( { "identity_domain":sites } ) )		
 
 

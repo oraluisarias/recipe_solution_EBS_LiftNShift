@@ -52,8 +52,13 @@ while real_tools_instance_name == "" :
 		if real_tools_instance_name == "" :
 			time.sleep(60)
 			time_ellapsed=time_ellapsed+1	
+<<<<<<< HEAD
 			if time_ellapsed % 29 == 0:
 				print ("29 minutes passed, login in again to OPC")
+=======
+			if time_ellapsed % 20 == 0:
+				print ("20 minutes passed, login in again to OPC")
+>>>>>>> 14a1a96b439ee9bbb9a58f432d6462e8873bb87f
 				opcc.renovateCookie()  
 	except NameError:
 		print ("Didnt get any answer from OPC this time!")

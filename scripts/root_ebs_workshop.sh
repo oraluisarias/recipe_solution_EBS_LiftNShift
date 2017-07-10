@@ -11,6 +11,7 @@ yum install -y expect
 # chown oracle:oinstall /home/oracle/.ssh/authorized_keys #root
 
 chmod 777 $gse_admin_stagedir/oracle_ebs_workshop.sh
+# chmod 777 $gse_admin_stagedir/oracle_ebs_workshop.sh
 # unzip -o $gse_admin_stagedir/p22336899_R12_GENERIC.zip
 # chown oracle:dba -R $gse_admin_stagedir
 # chmod 777 -R $gse_admin_stagedir

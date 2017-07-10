@@ -10,7 +10,7 @@ cd $executionPath
 echo "***************************************************************************************"
 echo "Cleaning"
 echo "***************************************************************************************"
-python psm_CleanDomain.py $identity_domain
+# python psm_CleanDomain.py $identity_domain
 
 echo "***************************************************************************************"
 echo "Step 0 - Cleaning and Getting Demo Central cloud.admin password"
@@ -51,10 +51,10 @@ if [ -f cache/$identity_domain/datacenter ] ; then
 else
 	mkdir -p cache/$identity_domain
 	echo datacenter > cache/$identity_domain/datacenter
-	echo "Found datacenter ${datacenter} value on cache"
 fi
+echo "Found zone (${zone}) and datacenter (${datacenter}) values"
 
-if [ "$zone" != "" ] && [ "$datacenter" != "" ] ; then
+if [ "$zone" == "" ] && [ "$datacenter" == "" ] ; then
 	echo "***************************************************************************************"
 	echo "EBS Instance didn't start correctly" 
 	echo "***************************************************************************************"	
@@ -112,7 +112,7 @@ echo "**************************************************************************
 echo "Health Check - Trying to fetch the EBS instance UI"
 echo "***************************************************************************************"
 sh healthcheck.sh ${vision_ip}
-if [ "$vision_ip" != "" ] && [ $? -eq 0 ] ; then
+if [ $? -eq 0 ] && [ "$vision_ip" != "" ] ; then
 	echo "***************************************************************************************"
 	echo "EBS Instance finally started, log in to the UI here: http://${vision_ip}:8000" 
 	echo "***************************************************************************************"
