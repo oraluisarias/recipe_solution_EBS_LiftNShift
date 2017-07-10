@@ -53,7 +53,7 @@ class Compute:
                     print("no data in Demo Central, environment retired?");     
                 except: 
                     self.password =  ""     
-        print (self.api)
+        # print (self.api)
         try: 
             auth = self.authenticate( self.api, self.zone, self.user, self.password)                    
         except:     
