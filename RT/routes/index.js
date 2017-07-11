@@ -55,9 +55,13 @@ function getOPCZone(identity_domain, password, username, res){
 		    exec(cmd, function (error2, stdout2, stderr2){      
 		    	try{
 		    		console.log(stdout2);
-			    	var result = JSON.parse( stdout2.replace(/\'/g, '"') );  
+			    	// var result = JSON.parse( stdout2.replace(/\'/g, '"') );  
+			    	var result = stdout2;  
 			        console.log( result );                           
-					DMN.build( { identity_domain : identity_domain, domain_data : result["identity_domain"] } ).save().then(function() {
+					DMN.build( { 
+						identity_domain : identity_domain, 
+						domain_data : result["identity_domain"] 
+					} ).save().then(function() {
 						res.json( result );      				    	
 				  	}).catch(function (err) {
 		                console.log(err);
