@@ -42,7 +42,7 @@ router.post('/getOPCZone', function(req, res, next) {
 function getOPCZone(identity_domain, password, username, res){
 	DMN.findOne({ where: { "identity_domain" : identity_domain } }).then(function(domain) {
         if(domain){
-			res.json( { identity_domain : JSON.parse(domain.domain_data) } );   
+			res.json( { "identity_domain" : JSON.parse(domain.domain_data) } );   
         }
         else{
         	if(!username){
