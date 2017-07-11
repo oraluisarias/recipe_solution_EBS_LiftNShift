@@ -75,10 +75,10 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		driver.find_element_by_id("password").send_keys(password)
 		driver.find_element_by_id("signin").click()
 		driver.implicitly_wait(45)
-		driver.find_element_by_id("siteButton").click()		
-		time.sleep(3)
-		driver.find_element_by_id("cancelBtn").click()
-		time.sleep(3)		
+		# driver.find_element_by_id("siteButton").click()		
+		# time.sleep(3)
+		# driver.find_element_by_id("cancelBtn").click()
+		# time.sleep(3)		
 		driver.find_element_by_id("siteButton").click()
 		time.sleep(3)
 		siteIndex = 0
@@ -117,14 +117,14 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			driver.implicitly_wait(10)		
 		try: 
 			driver.find_element_by_id("gs-tile-cd").click()		
-			gs-tile-cd
 			driver.get(self.base_url_storage + "/mycloud/faces/serviceDetail.jspx?serviceId=564001032&_adf.ctrl-state=null")
 			driver.implicitly_wait(120)
 			developer_url = driver.find_element_by_id("pt1:pt2:currentTabHTMLName:ot131").text
 			sites["developer"] = developer_url			
 		except:
-			print ( json.dumps( { identity_domain:sites } ) )				
-		print ( json.dumps( { "identity_domain":sites } ) )		
+			print ( json.dumps( { identity_domain:sites } ) )		
+		else:		
+			print ( json.dumps( { "identity_domain":sites } ) )		
 
 
 	def is_element_present(self, how, what):
