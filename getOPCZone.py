@@ -122,7 +122,7 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 			developer_url = driver.find_element_by_id("pt1:pt2:currentTabHTMLName:ot131").text
 			sites["developer"] = developer_url			
 		except:
-			print ( json.dumps( { identity_domain:sites } ) )		
+			print ( json.dumps( { "identity_domain":sites } ) )		
 		else:		
 			print ( json.dumps( { "identity_domain":sites } ) )		
 
