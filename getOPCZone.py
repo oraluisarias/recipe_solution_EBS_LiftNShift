@@ -60,7 +60,6 @@ class InstallMarketplaceImagesWD(unittest.TestCase):
 		self.accept_next_alert = True
     
 	def test_install_marketplace_images_w_d(self):
-		print ("Opening OPC portal: ", self.base_url + "/mycompute/console/view.html?page=instances&tab=instances")
 		driver = self.driver
 
 		driver.get(self.base_url + "/mycompute/console/view.html?page=instances&tab=instances")
